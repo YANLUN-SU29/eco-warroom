@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>風機與牠們的產地｜海陸空生態戰情室</title>
+<style>
+:root{
+  --navy:#07293D; --navy2:#0F3E56; --navy3:#10485F;
+  --deep:#0E5C7A; --teal:#0E9A93; --teall:#7FD6CF;
+  --amber:#E8942B; --coral:#C8452A;
+  --light:#F1F6F8; --ink:#12303F; --grey:#5C6E78;
+  --line:#DCE6EA;
+  --font:"Microsoft JhengHei","微軟正黑體","PingFang TC","Noto Sans TC","Heiti TC",sans-serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family:var(--font); background:var(--light); color:var(--ink);
+  -webkit-font-smoothing:antialiased; line-height:1.6;
+}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+
+/* ---------- 戰情室（深色） ---------- */
+.war{background:var(--navy);color:#fff;padding:28px 0 40px}
+.bar{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;
+  padding-bottom:18px;border-bottom:1px solid rgba(127,214,207,.22)}
+.bar h1{margin:0;font-size:22px;font-weight:700;letter-spacing:.5px}
+.bar .sub{font-size:13px;color:var(--teall)}
+.bar .live{margin-left:auto;display:flex;align-items:center;gap:8px;
+  font-size:13px;color:var(--teall);font-weight:700}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--teall);
+  box-shadow:0 0 0 4px rgba(127,214,207,.18)}
+@media (prefers-reduced-motion:no-preference){
+  .dot{animation:pulse 2.4s ease-in-out infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+}
+.stamp{font-size:12px;color:#8FA8B5;margin-top:10px}
+.hook{margin-top:26px}
+.hook-q{font-size:30px;font-weight:700;margin:0 0 8px;letter-spacing:.5px}
+.hook-a{font-size:15px;color:#BDD3DC;margin:0;max-width:52ch}
+.bar .live.stale .dot{background:var(--amber);box-shadow:0 0 0 4px rgba(232,148,43,.18);animation:none}
+.bar .live.stale{color:#F0B968}
+
+.panels{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:24px}
+.panel{background:var(--navy2);border-radius:10px;padding:22px 22px 18px;
+  border:1px solid rgba(255,255,255,.06);text-align:left;color:inherit;
+  font-family:inherit;cursor:pointer;position:relative;min-height:236px}
+.panel:focus-visible{outline:3px solid var(--teall);outline-offset:3px}
+.panel .zone{font-size:14px;font-weight:700;margin-bottom:14px}
+.panel.sky .zone{color:#7FB6D6}
+.panel.sea .zone{color:var(--teall)}
+.panel.land .zone{color:#F0B968}
+.panel .metric{display:flex;align-items:baseline;gap:8px}
+.panel .num{font-size:60px;font-weight:700;line-height:1}
+.panel.sky .num{color:#7FB6D6}
+.panel.sea .num{color:var(--teall)}
+.panel.land .num{color:#F0B968}
+.panel .unit{font-size:22px;font-weight:700;color:rgba(255,255,255,.8)}
+.panel .src{font-size:13px;color:#BDD3DC;margin-top:12px}
+.panel .status{font-size:12.5px;color:var(--teall);margin-top:14px;
+  padding-top:12px;border-top:1px dashed rgba(255,255,255,.14)}
+.panel .flip{position:absolute;right:18px;bottom:16px;font-size:12px;color:#8FA8B5}
+
+/* 翻面內容 */
+.panel .back{display:none}
+.panel[aria-expanded="true"] .front{display:none}
+.panel[aria-expanded="true"] .back{display:block}
+.myth{font-size:12.5px;font-weight:700;color:#E8927A;margin-bottom:4px}
+.myth-q{font-size:14.5px;color:#fff;margin:0 0 14px}
+.fact{font-size:12.5px;font-weight:700;color:var(--teall);margin-bottom:4px}
+.fact-a{font-size:14.5px;color:#DCE9EE;margin:0}
+.cite{font-size:11.5px;color:#8FA8B5;margin-top:14px;padding-top:10px;
+  border-top:1px dashed rgba(255,255,255,.14)}
+
+/* ---------- 淺色證據區 ---------- */
+.evidence{padding:52px 0 0}
+.sec{margin-bottom:52px}
+.sec > h2{font-size:24px;font-weight:700;margin:0 0 6px}
+.sec > .lead{font-size:15px;color:var(--grey);margin:0 0 24px;max-width:66ch}
+
+/* 噪音互動 */
+.noise{background:#fff;border-radius:12px;padding:30px;
+  box-shadow:0 2px 14px rgba(10,43,60,.07)}
+.noise-top{display:flex;gap:34px;align-items:flex-start;flex-wrap:wrap}
+.readout{min-width:210px}
+.readout .db{font-size:66px;font-weight:700;color:var(--amber);line-height:1}
+.readout .dbu{font-size:22px;font-weight:700;color:var(--amber);margin-left:6px}
+.readout .grade{display:inline-block;margin-top:12px;padding:6px 14px;
+  border-radius:20px;font-size:13px;font-weight:700}
+.readout .dist{font-size:14px;color:var(--grey);margin-top:14px}
+.readout .dist b{color:var(--ink);font-size:17px}
+.chart{flex:1;min-width:300px}
+.chart svg{width:100%;height:auto;display:block}
+.slider{margin-top:26px}
+.slider input{width:100%;margin:0;accent-color:var(--deep);height:26px}
+.ticks{display:flex;justify-content:space-between;font-size:12px;
+  color:var(--grey);margin-top:2px}
+.analogy{margin-top:20px;padding:16px 20px;border-radius:10px;
+  background:#FDF1E2;color:#8A5310;font-size:15px;font-weight:700}
+
+/* 護鳥三部曲 */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:0;
+  background:#fff;border-radius:12px;overflow:hidden;
+  box-shadow:0 2px 14px rgba(10,43,60,.07)}
+.step{padding:24px;border-right:1px solid var(--line)}
+.step:last-child{border-right:0}
+.step .n{width:30px;height:30px;border-radius:50%;background:var(--deep);
+  color:#fff;font-size:14px;font-weight:700;display:flex;
+  align-items:center;justify-content:center;margin-bottom:14px}
+.step h3{font-size:16.5px;margin:0 0 6px}
+.step p{font-size:13.5px;color:var(--grey);margin:0}
+.guard{display:flex;gap:14px;flex-wrap:wrap;margin-top:18px}
+.guard div{background:#E4EFF4;border-radius:8px;padding:12px 18px;font-size:14px}
+.guard b{color:var(--deep)}
+
+/* 發電 */
+.power{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.stat{background:#fff;border-radius:12px;padding:26px 28px;
+  box-shadow:0 2px 14px rgba(10,43,60,.07)}
+.stat .lab{font-size:14px;font-weight:700;color:var(--grey)}
+.stat .big{font-size:46px;font-weight:700;color:var(--deep);line-height:1.2}
+.stat .note{font-size:12.5px;color:var(--grey)}
+
+/* 溯源 */
+.trace{background:#fff;border-radius:12px;padding:30px;
+  box-shadow:0 2px 14px rgba(10,43,60,.07)}
+.claim{font-size:17px;line-height:1.9;margin:0}
+.ref{background:#E2F3F0;color:#0A6F6A;border:0;border-radius:6px;
+  font-family:inherit;font-size:12.5px;font-weight:700;padding:3px 9px;
+  cursor:pointer;vertical-align:2px;margin:0 2px}
+.ref:hover{background:#CDEBE6}
+.ref:focus-visible{outline:3px solid var(--teal);outline-offset:2px}
+.ref[aria-expanded="true"]{background:var(--teal);color:#fff}
+.doc{display:none;margin-top:18px;border-left:3px solid var(--teal);
+  padding:14px 18px;background:#F6FBFA}
+.doc.open{display:block}
+.doc .t{font-size:13px;font-weight:700;color:var(--ink);margin-bottom:4px}
+.doc .d{font-size:13.5px;color:var(--grey);margin:0}
+.rule{margin-top:22px;padding-top:18px;border-top:1px solid var(--line);
+  font-size:14px;color:var(--teal);font-weight:700}
+
+/* footer */
+footer{background:var(--navy);color:#BDD3DC;padding:36px 0;margin-top:20px;
+  font-size:13px}
+footer h3{color:#fff;font-size:15px;margin:0 0 12px}
+footer ul{margin:0;padding-left:20px}
+footer li{margin-bottom:6px}
+footer .team{margin-top:22px;padding-top:18px;
+  border-top:1px solid rgba(255,255,255,.12);color:#8FA8B5}
+footer .team b{color:var(--amber)}
+
+input[type=range]{-webkit-appearance:none;appearance:none;background:transparent}
+input[type=range]::-webkit-slider-runnable-track{height:6px;border-radius:3px;background:var(--line)}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;
+  width:30px;height:30px;border-radius:50%;background:var(--deep);
+  border:3px solid #fff;box-shadow:0 1px 5px rgba(10,43,60,.3);margin-top:-12px}
+input[type=range]::-moz-range-track{height:6px;border-radius:3px;background:var(--line)}
+input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;
+  background:var(--deep);border:3px solid #fff}
+input[type=range]:focus-visible::-webkit-slider-thumb{outline:3px solid var(--teal);outline-offset:2px}
+
+@media(max-width:880px){
+  .panels,.steps,.power{grid-template-columns:1fr}
+  .wrap{padding:0 18px}
+  .hook-q{font-size:24px}
+  .bar h1{font-size:19px}
+  .sec > h2{font-size:21px}
+  .panel{padding:20px}
+  .panel .num{font-size:52px}
+  .noise,.trace{padding:22px 18px}
+  .ref{padding:6px 12px;font-size:13px}
+  .flip{position:static !important;display:inline-block;margin-top:14px;
+    background:rgba(255,255,255,.08);padding:6px 12px;border-radius:16px}
+  .step{border-right:0;border-bottom:1px solid var(--line)}
+  .step:last-child{border-bottom:0}
+  .readout .db{font-size:52px}
+  .panel{min-height:0}
+}
+</style>
+</head>
+<body>
+
+<section class="war">
+  <div class="wrap">
+    <div class="bar">
+      <h1>風機與牠們的產地</h1>
+      <span class="sub">海陸空生態戰情室</span>
+      <span class="live"><span class="dot" id="dot"></span><span id="feed">讀取資料中</span></span>
+    </div>
+
+    <div class="hook">
+      <p class="hook-q">風機是鳥類果汁機？海豚殺手？</p>
+      <p class="hook-a">三個都市傳說，用政府開放資料一次拆完。往下滑，或直接點下面三張卡。</p>
+    </div>
+
+    <p class="stamp" id="stamp">資料時間讀取中｜介接來源：經濟部能源署、農業部 TBN、海洋委員會 iOcean</p>
+
+    <div class="panels">
+      <div class="panel sky" role="button" tabindex="0" aria-expanded="false">
+        <div class="zone">天空　鳥類防護</div>
+        <div class="front">
+          <div class="metric"><span class="num">0</span><span class="unit">隻</span></div>
+          <div class="src">本月鳥擊通報（農業部 TBN API）</div>
+          <div class="status">雷達與熱影像偵測系統：啟動中</div>
+        </div>
+        <div class="back">
+          <div class="myth">民眾迷思</div>
+          <p class="myth-q">葉片轉那麼快，飛過去的鳥一定被絞碎吧？</p>
+          <div class="fact">開放資料事實</div>
+          <p class="fact-a">環評預估灰面鵟鷹年撞擊 0 隻，族群安全容許量為 1,004 隻。風機間距超過 700 公尺，另留 2 公里寬的鳥類綠色通道。</p>
+          <div class="cite">環境部《大中部離岸風力發電計畫環境影響說明書》</div>
+        </div>
+        <span class="flip">點擊看闢謠</span>
+      </div>
+
+      <div class="panel sea" role="button" tabindex="0" aria-expanded="false">
+        <div class="zone">水下　鯨豚觀測</div>
+        <div class="front">
+          <div class="metric"><span class="num">0</span><span class="unit">起</span></div>
+          <div class="src">海豚異常擱淺通報（海委會 iOcean API）</div>
+          <div class="status">水下基座魚群：聚集正常</div>
+        </div>
+        <div class="back">
+          <div class="myth">民眾迷思</div>
+          <p class="myth-q">打樁會震聾白海豚，漁民以後捕不到魚？</p>
+          <div class="fact">開放資料事實</div>
+          <p class="fact-a">白海豚活動水深不到 10 公尺，風場多設於 20 公尺以上深水區，棲地重疊度極低。基座形成人工魚礁，國外研究指建置後漁獲量約為建造前兩倍。</p>
+          <div class="cite">國家海洋研究院《離岸風電場生態保育環境監測研究－苗栗及雲彰風場期末報告》</div>
+        </div>
+        <span class="flip">點擊看闢謠</span>
+      </div>
+
+      <div class="panel land" role="button" tabindex="0" aria-expanded="false">
+        <div class="zone">陸地　低頻噪音</div>
+        <div class="front">
+          <div class="metric"><span class="num">0</span><span class="unit">件</span></div>
+          <div class="src">噪音超標通報（環境部開放資料）</div>
+          <div class="status">沿岸增量預估：0.0 dB(A)</div>
+        </div>
+        <div class="back">
+          <div class="myth">民眾迷思</div>
+          <p class="myth-q">沿海居民每天被巨大低頻噪音轟炸？</p>
+          <div class="fact">開放資料事實</div>
+          <p class="fact-a">依 SoundPLAN 模型，距岸 2 公里以上的風機傳至沿海社區的噪音增量為 0.0 dB(A)，屬無影響或可忽略等級。</p>
+          <div class="cite">環境部《海洋竹南離岸式風力發電計畫（第 6 次變更）環境影響差異分析報告》</div>
+        </div>
+        <span class="flip">點擊看闢謠</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="evidence">
+  <div class="wrap">
+
+    <section class="sec">
+      <h2>把距離拉遠，聽聽剩下多少</h2>
+      <p class="lead">低頻噪音的恐懼多半來自距離錯覺。拖動下方距離，看噪音增量怎麼衰減。</p>
+      <div class="noise">
+        <div class="noise-top">
+          <div class="readout">
+            <div><span class="db" id="db">0.0</span><span class="dbu">dB(A)</span></div>
+            <div class="grade" id="grade">無影響或可忽略</div>
+            <div class="dist">距離岸邊 <b id="dist">2,000</b> 公尺</div>
+          </div>
+          <div class="chart">
+            <svg viewBox="0 0 560 220" role="img" aria-label="噪音增量隨距離衰減曲線">
+              <line x1="56" y1="176" x2="540" y2="176" stroke="#DCE6EA" stroke-width="1"/>
+              <line x1="56" y1="20" x2="56" y2="176" stroke="#DCE6EA" stroke-width="1"/>
+              <text x="46" y="26" font-size="11" fill="#5C6E78" text-anchor="end">12</text>
+              <text x="46" y="180" font-size="11" fill="#5C6E78" text-anchor="end">0</text>
+              <text x="298" y="206" font-size="11" fill="#5C6E78" text-anchor="middle">距離岸邊（公尺）</text>
+              <path id="area" fill="#FDF1E2" d=""/>
+              <path id="curve" fill="none" stroke="#E8942B" stroke-width="2.5"
+                    stroke-linejoin="round" d=""/>
+              <line id="vline" x1="0" y1="20" x2="0" y2="176" stroke="#0E5C7A"
+                    stroke-width="1" stroke-dasharray="4 4"/>
+              <circle id="knob" r="6" fill="#0E5C7A"/>
+            </svg>
+          </div>
+        </div>
+        <div class="slider">
+          <label for="rng" style="font-size:14px;font-weight:700;color:var(--grey)">距離岸邊</label>
+          <input id="rng" type="range" min="0" max="2500" step="50" value="2000"
+                 aria-describedby="db">
+          <div class="ticks"><span>0 m</span><span>500</span><span>1,000</span>
+            <span>1,500</span><span>2,000</span><span>2,500 m</span></div>
+        </div>
+        <p class="analogy" id="analogy"></p>
+      </div>
+    </section>
+
+    <section class="sec">
+      <h2>風機的護鳥三部曲</h2>
+      <p class="lead">葉片不是失控的刀片，它連著一套會替鳥讓路的控制邏輯。</p>
+      <div class="steps">
+        <div class="step">
+          <div class="n">1</div>
+          <h3>雷達與熱影像偵測</h3>
+          <p>全天候盯著鳥群動向，最遠可偵測數公里外的接近軌跡。</p>
+        </div>
+        <div class="step">
+          <div class="n">2</div>
+          <h3>連動 PLC 控制系統</h3>
+          <p>判定風險後自動改變葉片攻角，不需要人在現場按鈕。</p>
+        </div>
+        <div class="step">
+          <div class="n">3</div>
+          <h3>葉片降速煞車</h3>
+          <p>鳥群通過期間降載或停轉，通過後恢復發電。</p>
+        </div>
+      </div>
+      <div class="guard">
+        <div>風機最小間距 <b>700 公尺</b></div>
+        <div>鳥類綠色通道 <b>2 公里</b></div>
+        <div>灰面鵟鷹年預估撞擊 <b>0 隻</b>（安全容許量 1,004 隻）</div>
+        <div>黑面琵鷺 <b>0.9 隻</b>（安全門檻 38 隻）</div>
+      </div>
+    </section>
+
+    <section class="sec">
+      <h2>發的電也一起看</h2>
+      <p class="lead">生態指標旁邊放上發電數據，才能同時回答「安全嗎」與「值得嗎」。</p>
+      <div class="power">
+        <div class="stat">
+          <div class="lab" id="s1lab">單月風力發電量</div>
+          <div class="big" id="s1val">—</div>
+          <div class="note" id="s1note">介接經濟部能源署發電量月資料</div>
+        </div>
+        <div class="stat">
+          <div class="lab" id="s2lab">年發電量成長率</div>
+          <div class="big" id="s2val">—</div>
+          <div class="note" id="s2note">團隊以 Python 讀取原始 CSV 重算驗證</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec">
+      <h2>每一句都能點回原始文件</h2>
+      <p class="lead">AI 負責跑得快，人負責說得準。凡是無法回到原始文件的敘述，一律不上架。</p>
+      <div class="trace">
+        <p class="claim">水下基座會附著藤壺與貽貝等濾食生物，吸引底棲生物與捕食性魚類聚集，形成人工魚礁效應<button class="ref" data-doc="d1" aria-expanded="false">來源 1</button>；而距岸 2 公里以上的低頻噪音增量已降至 0.0 dB(A)<button class="ref" data-doc="d2" aria-expanded="false">來源 2</button>。</p>
+        <div class="doc" id="d1">
+          <div class="t">國家海洋研究院｜離岸風電場生態保育環境監測研究－苗栗及雲彰風場期末報告</div>
+          <p class="d">政府資料開放平臺公開報告。團隊人工核實聚魚效應敘述與監測方法後才納入知識庫。</p>
+        </div>
+        <div class="doc" id="d2">
+          <div class="t">環境部｜海洋竹南離岸式風力發電計畫（第 6 次變更）環境影響差異分析報告</div>
+          <p class="d">以 SoundPLAN 模型模擬噪音擴散。團隊逐項核對距離與增量參數，未經核實的數值不顯示。</p>
+        </div>
+        <div class="rule">引註點得開，數字才算數。</div>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <h3>資料來源</h3>
+    <ul>
+      <li>經濟部能源署《再生能源發電量》OData／CSV API</li>
+      <li>農業部 臺灣生物多樣性網絡 TBN 物種觀測 API</li>
+      <li>海洋委員會 iOcean 鯨豚擱淺通報</li>
+      <li>國家海洋研究院 苗栗、雲彰風場生態監測期末報告</li>
+      <li>環境部環評書件：大中部離岸風力發電計畫、海洋竹南（第 6 次變更）</li>
+    </ul>
+    <p class="team"><b>三鳥牌</b>　蘇彥綸｜國立勤益科技大學 智慧自動化工程系　指導教授 劉瑞弘</p>
+  </div>
+</footer>
+
+<script>
+/* ---- 三張卡片翻面 ---- */
+document.querySelectorAll('.panel').forEach(function(p){
+  function toggle(){
+    var open = p.getAttribute('aria-expanded') === 'true';
+    p.setAttribute('aria-expanded', String(!open));
+    p.querySelector('.flip').textContent = open ? '點擊看闢謠' : '點擊看數據';
+  }
+  p.addEventListener('click', toggle);
+  p.addEventListener('keydown', function(e){
+    if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); toggle(); }
+  });
+});
+
+/* ---- 噪音衰減 ---- */
+var PTS = [[0,10.5],[500,5.2],[1000,2.1],[1500,0.5],[2000,0.0],[2500,0.0]];
+var X0=56, X1=540, Y0=176, Y1=20, YMAX=12;
+function sx(m){ return X0 + (m/2500)*(X1-X0); }
+function sy(v){ return Y0 - (v/YMAX)*(Y0-Y1); }
+
+function level(m){
+  for(var i=0;i<PTS.length-1;i++){
+    var a=PTS[i], b=PTS[i+1];
+    if(m>=a[0] && m<=b[0]){
+      var t=(m-a[0])/((b[0]-a[0])||1);
+      return a[1]+(b[1]-a[1])*t;
+    }
+  }
+  return 0;
+}
+
+var curve='', area='M '+sx(0)+' '+Y0;
+PTS.forEach(function(p,i){
+  curve += (i?' L ':'M ')+sx(p[0])+' '+sy(p[1]);
+  area  += ' L '+sx(p[0])+' '+sy(p[1]);
+});
+area += ' L '+sx(2500)+' '+Y0+' Z';
+document.getElementById('curve').setAttribute('d', curve);
+document.getElementById('area').setAttribute('d', area);
+
+var rng=document.getElementById('rng');
+var elDb=document.getElementById('db'), elDist=document.getElementById('dist');
+var elGrade=document.getElementById('grade'), elAn=document.getElementById('analogy');
+var vline=document.getElementById('vline'), knob=document.getElementById('knob');
+
+function grade(v){
+  if(v<0.5) return ['無影響或可忽略','#FDF1E2','#8A5310'];
+  if(v<3)   return ['輕微，一般不易察覺','#FDF1E2','#8A5310'];
+  if(v<6)   return ['可察覺','#FBEAE5','#8E2F1B'];
+  return ['明顯，屬近距離施工範圍','#FBEAE5','#8E2F1B'];
+}
+function analogy(m,v){
+  if(m>=2000) return '你人在台北車站，卻擔心被板橋車站裡的一隻蚊子吵得睡不著覺。';
+  if(m>=1500) return '大約是安靜房間裡冰箱運轉的程度，開窗就聽不見了。';
+  if(m>=1000) return '接近一般住宅區夜間的背景音，離台灣現行風場位置已相當近。';
+  if(m>=500)  return '這個距離在台灣的離岸風場不會出現，僅供對照理解衰減幅度。';
+  return '這是站在風機正下方的情境——離岸風場離岸數公里，沒有人住在這裡。';
+}
+function update(){
+  var m=+rng.value, v=level(m), g=grade(v);
+  elDb.textContent=v.toFixed(1);
+  elDist.textContent=m.toLocaleString('en-US');
+  elGrade.textContent=g[0];
+  elGrade.style.background=g[1];
+  elGrade.style.color=g[2];
+  elAn.textContent=analogy(m,v);
+  vline.setAttribute('x1',sx(m)); vline.setAttribute('x2',sx(m));
+  knob.setAttribute('cx',sx(m));  knob.setAttribute('cy',sy(v));
+}
+rng.addEventListener('input',update);
+update();
+
+/* ---- 讀取 data.json（同網域，不觸發 CORS）---- */
+var FALLBACK = {
+  updated: "2026-05",
+  period_label: "冬季單月",
+  power_label: "離岸風電發電量",
+  power_value: "16 億度",
+  growth_label: "2024 年離岸風電發電量成長率",
+  growth_value: "91.48%",
+  source: "經濟部能源署 發電量月資料",
+  live: false
+};
+
+function paint(d, live){
+  document.getElementById('s1lab').textContent = d.period_label + d.power_label;
+  document.getElementById('s1val').textContent = d.power_value;
+  document.getElementById('s1note').textContent = '資料來源：' + d.source;
+  document.getElementById('s2lab').textContent = d.growth_label;
+  document.getElementById('s2val').textContent = d.growth_value;
+
+  var feed = document.getElementById('feed');
+  var box  = feed.parentNode;
+  if(live){
+    feed.textContent = '政府 API 已介接';
+    box.classList.remove('stale');
+  }else{
+    feed.textContent = '顯示離線快取';
+    box.classList.add('stale');
+  }
+  document.getElementById('stamp').textContent =
+    '資料時間 ' + d.updated + '｜介接來源：經濟部能源署、農業部 TBN、海洋委員會 iOcean'
+    + '｜生態指標為環評與監測報告核實值，非即時感測';
+}
+
+fetch('./data.json', {cache:'no-store'})
+  .then(function(r){ if(!r.ok) throw new Error('no data.json'); return r.json(); })
+  .then(function(d){ paint(d, d.live !== false); })
+  .catch(function(){ paint(FALLBACK, false); });
+
+/* ---- 引註溯源 ---- */
+document.querySelectorAll('.ref').forEach(function(b){
+  b.addEventListener('click',function(){
+    var d=document.getElementById(b.dataset.doc);
+    var open=b.getAttribute('aria-expanded')==='true';
+    document.querySelectorAll('.doc').forEach(function(x){x.classList.remove('open')});
+    document.querySelectorAll('.ref').forEach(function(x){x.setAttribute('aria-expanded','false')});
+    if(!open){ d.classList.add('open'); b.setAttribute('aria-expanded','true'); }
+  });
+});
+</script>
+</body>
+</html>
