@@ -149,6 +149,11 @@ footer li{margin-bottom:6px}
 footer .team{margin-top:22px;padding-top:18px;
   border-top:1px solid rgba(255,255,255,.12);color:#8FA8B5}
 footer .team b{color:var(--amber)}
+footer a{color:var(--teall);text-decoration:none;
+  border-bottom:1px solid rgba(127,214,207,.35)}
+footer a:hover{border-bottom-color:var(--teall)}
+footer code{font-size:12px;color:#BDD3DC;background:rgba(255,255,255,.07);
+  padding:1px 6px;border-radius:4px}
 
 input[type=range]{-webkit-appearance:none;appearance:none;background:transparent}
 input[type=range]::-webkit-slider-runnable-track{height:6px;border-radius:3px;background:var(--line)}
@@ -200,9 +205,9 @@ input[type=range]:focus-visible::-webkit-slider-thumb{outline:3px solid var(--te
       <div class="panel sky" role="button" tabindex="0" aria-expanded="false">
         <div class="zone">天空　鳥類防護</div>
         <div class="front">
-          <div class="metric"><span class="num">0</span><span class="unit">隻</span></div>
-          <div class="src">本月鳥擊通報（農業部 TBN API）</div>
-          <div class="status">雷達與熱影像偵測系統：啟動中</div>
+          <div class="metric"><span class="num" id="skyNum">—</span><span class="unit" id="skyUnit">隻</span></div>
+          <div class="src" id="skySrc">讀取農業部 TBN 物種觀測 API</div>
+          <div class="status" id="skyStatus">雷達與熱影像偵測系統：啟動中</div>
         </div>
         <div class="back">
           <div class="myth">民眾迷思</div>
@@ -217,9 +222,9 @@ input[type=range]:focus-visible::-webkit-slider-thumb{outline:3px solid var(--te
       <div class="panel sea" role="button" tabindex="0" aria-expanded="false">
         <div class="zone">水下　鯨豚觀測</div>
         <div class="front">
-          <div class="metric"><span class="num">0</span><span class="unit">起</span></div>
-          <div class="src">海豚異常擱淺通報（海委會 iOcean API）</div>
-          <div class="status">水下基座魚群：聚集正常</div>
+          <div class="metric"><span class="num" id="seaNum">—</span><span class="unit" id="seaUnit">筆</span></div>
+          <div class="src" id="seaSrc">讀取海保署 iOcean 海洋生物目擊回報</div>
+          <div class="status" id="seaStatus">水下基座魚群：聚集正常</div>
         </div>
         <div class="back">
           <div class="myth">民眾迷思</div>
@@ -234,9 +239,9 @@ input[type=range]:focus-visible::-webkit-slider-thumb{outline:3px solid var(--te
       <div class="panel land" role="button" tabindex="0" aria-expanded="false">
         <div class="zone">陸地　低頻噪音</div>
         <div class="front">
-          <div class="metric"><span class="num">0</span><span class="unit">件</span></div>
-          <div class="src">噪音超標通報（環境部開放資料）</div>
-          <div class="status">沿岸增量預估：0.0 dB(A)</div>
+          <div class="metric"><span class="num" id="landNum">0.0</span><span class="unit" id="landUnit">dB(A)</span></div>
+          <div class="src" id="landSrc">距岸 2 公里沿岸噪音增量</div>
+          <div class="status" id="landStatus">環評 SoundPLAN 模型核實值，非即時感測</div>
         </div>
         <div class="back">
           <div class="myth">民眾迷思</div>
@@ -324,16 +329,18 @@ input[type=range]:focus-visible::-webkit-slider-thumb{outline:3px solid var(--te
       <p class="lead">生態指標旁邊放上發電數據，才能同時回答「安全嗎」與「值得嗎」。</p>
       <div class="power">
         <div class="stat">
-          <div class="lab" id="s1lab">單月風力發電量</div>
+          <div class="lab" id="s1lab">離岸風場即時總出力</div>
           <div class="big" id="s1val">—</div>
-          <div class="note" id="s1note">介接經濟部能源署發電量月資料</div>
+          <div class="note" id="s1note">介接台電即時各機組發電量</div>
         </div>
         <div class="stat">
-          <div class="lab" id="s2lab">年發電量成長率</div>
+          <div class="lab" id="s2lab">全國風力年發電量</div>
           <div class="big" id="s2val">—</div>
-          <div class="note" id="s2note">團隊以 Python 讀取原始 CSV 重算驗證</div>
+          <div class="note" id="s2note">以 Python 讀取能源署原始 CSV 重算</div>
         </div>
       </div>
+      <div class="guard" id="farms"></div>
+      <div class="guard" id="growth"></div>
     </section>
 
     <section class="sec">
@@ -360,12 +367,14 @@ input[type=range]:focus-visible::-webkit-slider-thumb{outline:3px solid var(--te
   <div class="wrap">
     <h3>資料來源</h3>
     <ul>
-      <li>經濟部能源署《再生能源發電量》OData／CSV API</li>
-      <li>農業部 臺灣生物多樣性網絡 TBN 物種觀測 API</li>
-      <li>海洋委員會 iOcean 鯨豚擱淺通報</li>
+      <li>台灣電力公司《即時各機組發電量》JSON　<a href="https://service.taipower.com.tw/data/opendata/apply/html/d006001.html" target="_blank" rel="noopener">開放資料頁</a></li>
+      <li>經濟部能源署《發電量年資料》CSV　<a href="https://data.gov.tw/dataset/16481" target="_blank" rel="noopener">data.gov.tw／16481</a></li>
+      <li>海洋委員會海保署《iOcean 海洋生物目擊回報》CSV　<a href="https://data.gov.tw/dataset/157621" target="_blank" rel="noopener">data.gov.tw／157621</a></li>
+      <li>農業部 臺灣生物多樣性網絡 TBN 物種觀測 API　<a href="https://www.tbn.org.tw/data/api/openapi/v25/occurrence" target="_blank" rel="noopener">API 說明</a></li>
       <li>國家海洋研究院 苗栗、雲彰風場生態監測期末報告</li>
       <li>環境部環評書件：大中部離岸風力發電計畫、海洋竹南（第 6 次變更）</li>
     </ul>
+    <p class="team" style="border-top:0;padding-top:0;margin-top:10px">發電與生態數字由 <code>scripts/fetch_data.py</code> 直接向上列出處抓取後產生 <code>data.json</code>，非人工輸入；抓不到的來源會標示「來源無回應」，不以舊值假裝即時。</p>
     <p class="team"><b>三鳥牌</b>　蘇彥綸｜國立勤益科技大學 智慧自動化工程系　指導教授 劉瑞弘</p>
   </div>
 </footer>
@@ -442,43 +451,138 @@ function update(){
 rng.addEventListener('input',update);
 update();
 
-/* ---- 讀取 data.json（同網域，不觸發 CORS）---- */
-var FALLBACK = {
-  updated: "2026-05",
-  period_label: "冬季單月",
-  power_label: "離岸風電發電量",
-  power_value: "16 億度",
-  growth_label: "2024 年離岸風電發電量成長率",
-  growth_value: "91.48%",
-  source: "經濟部能源署 發電量月資料",
-  live: false
-};
+/* ---- 讀取 data.json ----
+   data.json 由 scripts/fetch_data.py 產生，內容全部來自政府開放資料出處：
+     台電 即時各機組發電量、能源署 發電量年資料、海保署 iOcean、農業部 TBN。
+   政府站台多半沒開 CORS，瀏覽器直連會被擋，所以抓取在後端（GitHub Actions
+   排程或本機執行）完成，前端只讀同網域的 data.json。 */
 
-function paint(d, live){
-  document.getElementById('s1lab').textContent = d.period_label + d.power_label;
-  document.getElementById('s1val').textContent = d.power_value;
-  document.getElementById('s1note').textContent = '資料來源：' + d.source;
-  document.getElementById('s2lab').textContent = d.growth_label;
-  document.getElementById('s2val').textContent = d.growth_value;
+function $(id){ return document.getElementById(id); }
+function set(id, txt){ var e = $(id); if(e) e.textContent = txt; }
+function ok(o){ return o && o.status === 'ok'; }
+function usable(o){ return o && (o.status === 'ok' || o.status === 'stale'); }
 
-  var feed = document.getElementById('feed');
-  var box  = feed.parentNode;
-  if(live){
-    feed.textContent = '政府 API 已介接';
-    box.classList.remove('stale');
+/* 「2026-08-26」→「8/26」，卡片空間有限 */
+function md(iso){
+  if(!iso) return '';
+  var p = String(iso).split('-');
+  return p.length < 3 ? iso : (+p[1]) + '/' + (+p[2]);
+}
+function chips(id, items){
+  var box = $(id);
+  if(!box) return;
+  box.innerHTML = '';
+  items.forEach(function(t){
+    var d = document.createElement('div');
+    d.innerHTML = t;
+    box.appendChild(d);
+  });
+}
+
+/* ---- 天空：TBN 物種觀測 ---- */
+function paintSky(s){
+  if(usable(s)){
+    set('skyNum', Number(s.recent_12m).toLocaleString('en-US'));
+    set('skyUnit', '筆');
+    set('skySrc', (s.area || '') + '沿海鳥類觀測紀錄（農業部 TBN API，' + (s.window || '') + '）');
+    set('skyStatus', '鳥還在飛，風機也在轉：環評預估灰面鵟鷹年撞擊 0 隻');
   }else{
-    feed.textContent = '顯示離線快取';
+    /* TBN 抓不到就不假裝有數字，改顯示環評核實值並講清楚它不是即時的 */
+    set('skyNum', '0');
+    set('skyUnit', '隻');
+    set('skySrc', '灰面鵟鷹年預估撞擊數（環評書件核實值，14MW 機組）');
+    set('skyStatus', 'TBN 物種觀測 API：目前來源無回應，顯示環評核實值');
+  }
+}
+
+/* ---- 水下：iOcean 海洋生物目擊回報 ---- */
+function paintSea(s){
+  if(!usable(s)){
+    set('seaNum', '—');
+    set('seaSrc', '海保署 iOcean 目擊回報');
+    set('seaStatus', 'iOcean 來源無回應，暫不顯示數字');
+    return;
+  }
+  set('seaNum', Number(s.white_dolphin_12m).toLocaleString('en-US'));
+  set('seaUnit', '筆');
+  set('seaSrc', '中華白海豚目擊回報（海保署 iOcean，' + (s.window || '') + '）');
+  set('seaStatus', '同期鯨豚目擊共 ' + s.recent_12m + ' 筆｜最近一筆 ' + md(s.latest));
+}
+
+/* ---- 陸地：環評 SoundPLAN 模型 ---- */
+function paintLand(l){
+  if(!l) return;
+  set('landNum', l.value);
+  set('landUnit', l.unit);
+  set('landSrc', '距岸 ' + (l.distance_m / 1000) + ' 公里沿岸噪音增量（' + l.grade + '）');
+  set('landStatus', '環評 SoundPLAN 模型核實值，非即時感測');
+}
+
+/* ---- 發電：台電即時 + 能源署年資料 ---- */
+function paintPower(live, year){
+  if(usable(live)){
+    set('s1val', Number(live.total_mw).toLocaleString('en-US') + ' MW');
+    set('s1note', '台電即時各機組發電量｜' + live.farm_count + ' 座離岸風場｜取樣 '
+      + String(live.sample_time || '').replace('T', ' ').slice(0, 16));
+    chips('farms', live.farms.map(function(f){
+      return f.name + ' <b>' + f.mw.toFixed(1) + ' MW</b>';
+    }));
+  }else{
+    set('s1val', '—');
+    set('s1note', '台電即時各機組發電量：來源無回應');
+  }
+
+  if(usable(year)){
+    set('s2lab', year.year + ' 年全國風力發電量');
+    set('s2val', year.yi.toFixed(1) + ' 億度');
+    var g = year.growth_pct;
+    set('s2note', '較前一年 ' + (g >= 0 ? '+' : '') + g.toFixed(2)
+      + '%｜以 Python 讀取能源署原始 CSV 重算');
+    chips('growth', (year.growth_series || []).map(function(x){
+      return x.year + ' 年成長 <b>' + (x.pct >= 0 ? '+' : '') + x.pct.toFixed(2) + '%</b>';
+    }));
+  }else{
+    set('s2val', '—');
+    set('s2note', '能源署發電量年資料：來源無回應');
+  }
+}
+
+/* ---- 頂端狀態燈 ---- */
+function paintHeader(d){
+  var feed = $('feed'), box = feed.parentNode;
+  var n = d.live_count || 0, total = d.total_count || 4;
+  if(n === total){
+    feed.textContent = '政府 API 已介接 ' + n + '/' + total;
+    box.classList.remove('stale');
+  }else if(n > 0){
+    feed.textContent = '政府 API 已介接 ' + n + '/' + total;
+    box.classList.add('stale');
+  }else{
+    feed.textContent = '來源無回應';
     box.classList.add('stale');
   }
-  document.getElementById('stamp').textContent =
-    '資料時間 ' + d.updated + '｜介接來源：經濟部能源署、農業部 TBN、海洋委員會 iOcean'
-    + '｜生態指標為環評與監測報告核實值，非即時感測';
+  set('stamp', '資料擷取時間 ' + (d.updated || '未知')
+    + '｜介接來源：台電即時發電、經濟部能源署、海保署 iOcean、農業部 TBN'
+    + '｜生態與噪音的環評數字為報告核實值，非即時感測');
+}
+
+function paint(d){
+  paintHeader(d);
+  paintSky(d.sky);
+  paintSea(d.sea);
+  paintLand(d.land);
+  paintPower(d.power_live, d.power_year);
+}
+
+function offline(){
+  paint({ live_count:0, total_count:4, updated:null,
+          land:{value:'0.0', unit:'dB(A)', distance_m:2000, grade:'無影響或可忽略'} });
 }
 
 fetch('./data.json', {cache:'no-store'})
   .then(function(r){ if(!r.ok) throw new Error('no data.json'); return r.json(); })
-  .then(function(d){ paint(d, d.live !== false); })
-  .catch(function(){ paint(FALLBACK, false); });
+  .then(paint)
+  .catch(offline);
 
 /* ---- 引註溯源 ---- */
 document.querySelectorAll('.ref').forEach(function(b){

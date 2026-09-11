@@ -1,0 +1,45 @@
+name: 更新開放資料
+
+# 政府站台大多沒有開放 CORS，瀏覽器沒辦法直接連。
+# 所以抓取放在這裡跑，把結果寫進 data.json，GitHub Pages 只負責讀同網域的檔案。
+on:
+  schedule:
+    - cron: "5,35 * * * *"     # 每半小時（UTC，GitHub 排程本來就會有幾分鐘誤差）
+  workflow_dispatch:            # 也可以到 Actions 頁手動按一次
+  push:
+    paths:
+      - "scripts/fetch_data.py"
+      - ".github/workflows/update-data.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-data
+  cancel-in-progress: false
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: 抓取政府開放資料
+        # 四個來源全掛才算失敗；只掛一兩個仍要把其他來源的新值寫進去。
+        run: python scripts/fetch_data.py
+
+      - name: 有變動才 commit
+        run: |
+          if git diff --quiet -- data.json; then
+            echo "data.json 沒有變動，略過"
+            exit 0
+          fi
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data.json
+          git commit -m "chore: 更新開放資料 $(date -u '+%Y-%m-%d %H:%M UTC')"
+          git push

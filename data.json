@@ -1,10 +1,112 @@
 {
-  "updated": "2026-05",
-  "period_label": "冬季單月",
-  "power_label": "離岸風電發電量",
-  "power_value": "16 億度",
-  "growth_label": "2024 年離岸風電發電量成長率",
-  "growth_value": "91.48%",
-  "source": "經濟部能源署 發電量月資料",
-  "live": false
+  "generated_at": "2026-09-11T21:11:33+08:00",
+  "updated": "2026-09-11 21:11",
+  "power_live": {
+    "status": "ok",
+    "sample_time": "2026-09-11T21:00:00",
+    "total_mw": 3589.5,
+    "farm_count": 16,
+    "capacity_mw": 3042.9,
+    "capacity_factor": 87.1,
+    "farms": [
+      {
+        "name": "沃一風",
+        "mw": 583.5,
+        "cap": 605.2
+      },
+      {
+        "name": "芳二風",
+        "mw": 448.3,
+        "cap": 499.2
+      },
+      {
+        "name": "沃四風",
+        "mw": 437.0,
+        "cap": null
+      },
+      {
+        "name": "允西",
+        "mw": 292.0,
+        "cap": 320.0
+      },
+      {
+        "name": "允湖",
+        "mw": 288.7,
+        "cap": 320.0
+      },
+      {
+        "name": "沃二風",
+        "mw": 277.5,
+        "cap": 294.8
+      },
+      {
+        "name": "中能風",
+        "mw": 266.9,
+        "cap": 294.5
+      },
+      {
+        "name": "海能風",
+        "mw": 241.7,
+        "cap": 376.0
+      }
+    ],
+    "source": "台灣電力公司　即時各機組發電量",
+    "source_url": "https://service.taipower.com.tw/data/opendata/apply/html/d006001.html"
+  },
+  "power_year": {
+    "status": "ok",
+    "year": 2025,
+    "gwh": 12203.3,
+    "yi": 122.0,
+    "growth_pct": 16.11,
+    "growth_series": [
+      {
+        "year": 2022,
+        "pct": 57.54
+      },
+      {
+        "year": 2023,
+        "pct": 74.38
+      },
+      {
+        "year": 2024,
+        "pct": 68.47
+      },
+      {
+        "year": 2025,
+        "pct": 16.11
+      }
+    ],
+    "unit_note": "原始單位百萬度，本站換算為億度",
+    "source": "經濟部能源署　發電量年資料（再生能源_風力_全國）",
+    "source_url": "https://data.gov.tw/dataset/16481"
+  },
+  "sea": {
+    "status": "ok",
+    "recent_12m": 128,
+    "white_dolphin_12m": 113,
+    "total_records": 1045,
+    "latest": "2026-08-26",
+    "window": "近 12 個月",
+    "source": "海洋委員會海保署　iOcean 海洋生物目擊回報",
+    "source_url": "https://data.gov.tw/dataset/157621"
+  },
+  "sky": {
+    "status": "unavailable",
+    "error": "HTTPError: HTTP Error 404: Not Found",
+    "source": "農業部　臺灣生物多樣性網絡 TBN 物種觀測 API",
+    "source_url": "https://www.tbn.org.tw/data/api/openapi/v25/occurrence"
+  },
+  "land": {
+    "status": "model",
+    "value": "0.0",
+    "unit": "dB(A)",
+    "distance_m": 2000,
+    "grade": "無影響或可忽略",
+    "source": "環境部《海洋竹南離岸式風力發電計畫（第 6 次變更）環境影響差異分析報告》SoundPLAN 模型",
+    "source_url": "https://eiareport.moenv.gov.tw/"
+  },
+  "live": true,
+  "live_count": 3,
+  "total_count": 4
 }
