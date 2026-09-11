@@ -370,7 +370,7 @@ input[type=range]:focus-visible::-webkit-slider-thumb{outline:3px solid var(--te
       <li>台灣電力公司《即時各機組發電量》JSON　<a href="https://service.taipower.com.tw/data/opendata/apply/html/d006001.html" target="_blank" rel="noopener">開放資料頁</a></li>
       <li>經濟部能源署《發電量年資料》CSV　<a href="https://data.gov.tw/dataset/16481" target="_blank" rel="noopener">data.gov.tw／16481</a></li>
       <li>海洋委員會海保署《iOcean 海洋生物目擊回報》CSV　<a href="https://data.gov.tw/dataset/157621" target="_blank" rel="noopener">data.gov.tw／157621</a></li>
-      <li>農業部 臺灣生物多樣性網絡 TBN 物種觀測 API　<a href="https://www.tbn.org.tw/data/api/openapi/v25/occurrence" target="_blank" rel="noopener">API 說明</a></li>
+      <li>農業部 臺灣生物多樣性網絡 TBN 物種觀測 API v2.6　<a href="https://www.tbn.org.tw/data/api/v26/occurrence" target="_blank" rel="noopener">API 說明</a></li>
       <li>國家海洋研究院 苗栗、雲彰風場生態監測期末報告</li>
       <li>環境部環評書件：大中部離岸風力發電計畫、海洋竹南（第 6 次變更）</li>
     </ul>
@@ -484,7 +484,7 @@ function paintSky(s){
   if(usable(s)){
     set('skyNum', Number(s.recent_12m).toLocaleString('en-US'));
     set('skyUnit', '筆');
-    set('skySrc', (s.area || '') + '沿海鳥類觀測紀錄（農業部 TBN API，' + (s.window || '') + '）');
+    set('skySrc', (s.area || '') + '鳥類觀測紀錄（農業部 TBN API v2.6，' + (s.window || '') + '）');
     set('skyStatus', '鳥還在飛，風機也在轉：環評預估灰面鵟鷹年撞擊 0 隻');
   }else{
     /* TBN 抓不到就不假裝有數字，改顯示環評核實值並講清楚它不是即時的 */

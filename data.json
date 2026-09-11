@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-09-11T21:15:43+08:00",
-  "updated": "2026-09-11 21:15",
+  "generated_at": "2026-09-11T21:25:13+08:00",
+  "updated": "2026-09-11 21:25",
   "power_live": {
     "status": "ok",
-    "sample_time": "2026-09-11T21:10:00",
-    "total_mw": 3585.9,
+    "sample_time": "2026-09-11T21:20:00",
+    "total_mw": 3588.8,
     "farm_count": 16,
     "capacity_mw": 3042.9,
-    "capacity_factor": 87.1,
+    "capacity_factor": 87.2,
     "farms": [
       {
         "name": "沃一風",
-        "mw": 582.1,
+        "mw": 580.4,
         "cap": 605.2
       },
       {
@@ -21,22 +21,22 @@
       },
       {
         "name": "沃四風",
-        "mw": 439.4,
+        "mw": 436.1,
         "cap": null
       },
       {
         "name": "允湖",
-        "mw": 293.2,
+        "mw": 295.1,
         "cap": 320.0
       },
       {
         "name": "允西",
-        "mw": 284.8,
+        "mw": 284.5,
         "cap": 320.0
       },
       {
         "name": "沃二風",
-        "mw": 276.1,
+        "mw": 278.0,
         "cap": 294.8
       },
       {
@@ -46,7 +46,7 @@
       },
       {
         "name": "海能風",
-        "mw": 241.7,
+        "mw": 249.7,
         "cap": 376.0
       }
     ],
@@ -92,10 +92,12 @@
     "source_url": "https://data.gov.tw/dataset/157621"
   },
   "sky": {
-    "status": "unavailable",
-    "error": "HTTPError: HTTP Error 404: Not Found",
-    "source": "農業部　臺灣生物多樣性網絡 TBN 物種觀測 API",
-    "source_url": "https://www.tbn.org.tw/data/api/openapi/v25/occurrence"
+    "status": "ok",
+    "recent_12m": 54580,
+    "area": "彰化縣",
+    "window": "近 12 個月",
+    "source": "農業部　臺灣生物多樣性網絡 TBN 物種觀測 API v2.6",
+    "source_url": "https://www.tbn.org.tw/data/api/v26/occurrence"
   },
   "land": {
     "status": "model",
@@ -107,6 +109,6 @@
     "source_url": "https://eiareport.moenv.gov.tw/"
   },
   "live": true,
-  "live_count": 3,
+  "live_count": 4,
   "total_count": 4
 }

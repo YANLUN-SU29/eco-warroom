@@ -52,9 +52,11 @@ SOURCES = {
         "page": "https://data.gov.tw/dataset/157621",
     },
     "tbn": {
-        "name": "農業部　臺灣生物多樣性網絡 TBN 物種觀測 API",
-        "url": "https://www.tbn.org.tw/api/v25/occurrence",
-        "page": "https://www.tbn.org.tw/data/api/openapi/v25/occurrence",
+        # TBN 已改版到 v2.6，舊的 v25 端點整個 404（連官方文件自己的範例網址也是）。
+        # 現行版本一律以 https://www.tbn.org.tw/data/api 這頁指到的版本為準。
+        "name": "農業部　臺灣生物多樣性網絡 TBN 物種觀測 API v2.6",
+        "url": "https://www.tbn.org.tw/api/v26/occurrence",
+        "page": "https://www.tbn.org.tw/data/api/v26/occurrence",
     },
 }
 
@@ -234,7 +236,7 @@ def get_iocean():
 
 # ---------------------------------------------------------------- 4. TBN
 def get_tbn():
-    """TBN v2.5 觀測紀錄：查風場所在的彰化沿海、近一年的鳥類觀測筆數。"""
+    """TBN 觀測紀錄：查風場所在的彰化沿海、近一年的鳥類觀測筆數。"""
     src = SOURCES["tbn"]
     today = datetime.now(TPE).date()
     span = "%s~%s" % ((today - timedelta(days=365)).strftime("%Y-%m"),
@@ -243,12 +245,13 @@ def get_tbn():
         src["url"], urllib.parse.quote("彰化縣"), urllib.parse.quote(span))
 
     data = json.loads(decode(fetch(url)))
-    count = data.get("count")
-    if count is None:
-        raise ValueError("TBN 回傳沒有 count 欄位")
+    # v2.6 把總筆數放在 meta.total；v2.5 以前是頂層的 count。兩種都接。
+    total = (data.get("meta") or {}).get("total", data.get("count"))
+    if total is None:
+        raise ValueError("TBN 回傳找不到總筆數（meta.total / count）")
     return {
         "status": "ok",
-        "recent_12m": int(count),
+        "recent_12m": int(total),
         "area": "彰化縣",
         "window": "近 12 個月",
         "source": src["name"],
