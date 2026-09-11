@@ -1,52 +1,52 @@
 {
-  "generated_at": "2026-09-12T03:59:48+08:00",
-  "updated": "2026-09-12 03:59",
+  "generated_at": "2026-09-12T06:29:54+08:00",
+  "updated": "2026-09-12 06:29",
   "power_live": {
     "status": "ok",
-    "sample_time": "2026-09-12T03:50:00",
-    "total_mw": 2769.0,
+    "sample_time": "2026-09-12T06:20:00",
+    "total_mw": 2522.0,
     "farm_count": 16,
     "capacity_mw": 3042.9,
-    "capacity_factor": 60.3,
+    "capacity_factor": 52.1,
     "farms": [
       {
         "name": "沃一風",
-        "mw": 582.1,
+        "mw": 581.8,
         "cap": 605.2
       },
       {
         "name": "沃四風",
-        "mw": 438.4,
+        "mw": 439.3,
         "cap": null
       },
       {
-        "name": "芳二風",
-        "mw": 336.8,
-        "cap": 499.2
-      },
-      {
         "name": "沃二風",
-        "mw": 277.8,
+        "mw": 279.2,
         "cap": 294.8
       },
       {
         "name": "海能風",
-        "mw": 237.9,
+        "mw": 219.4,
         "cap": 376.0
       },
       {
         "name": "龍A風",
-        "mw": 211.8,
+        "mw": 209.1,
         "cap": null
       },
       {
         "name": "龍B風",
-        "mw": 190.9,
+        "mw": 191.8,
         "cap": null
       },
       {
+        "name": "芳二風",
+        "mw": 190.1,
+        "cap": 499.2
+      },
+      {
         "name": "中能風",
-        "mw": 161.1,
+        "mw": 103.2,
         "cap": 294.5
       }
     ],
