@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-13T02:38:15+08:00",
-  "updated": "2026-09-13 02:38",
+  "generated_at": "2026-09-13T02:39:00+08:00",
+  "updated": "2026-09-13 02:39",
   "power_live": {
     "status": "ok",
     "sample_time": "2026-09-13T02:30:00",
@@ -52,7 +52,7 @@
     ],
     "source": "台灣電力公司　即時各機組發電量",
     "source_url": "https://service.taipower.com.tw/data/opendata/apply/html/d006001.html",
-    "fetched_at": "2026-09-13T02:38:15+08:00"
+    "fetched_at": "2026-09-13T02:39:02+08:00"
   },
   "power_year": {
     "status": "ok",
