@@ -307,6 +307,24 @@ def get_tbn_species(span):
 
 SPECIES_TTL_H = 24        # 物種組成變化很慢，一天翻一次分頁就夠了
 
+# 每個來源各自的重抓間隔（小時）。排程每 10 分鐘跑一次，但只有到期的才會真的去要。
+# 依據是各來源自己的更新頻率，不是我們想要多即時：
+#   台電   每 10 分鐘發佈一次即時發電量 → 每次都抓
+#   能源署 年資料，一年才動一次        → 一天一次已經太勤
+#   iOcean 目擊回報不定期更新，且單檔 250KB → 六小時一次
+#   TBN    觀測紀錄是批次上傳的         → 一小時一次
+FETCH_TTL_H = {"power_live": 0, "power_year": 24, "sea": 6, "sky": 1}
+
+
+def due(key, prev):
+    ttl = FETCH_TTL_H.get(key, 0)
+    if ttl <= 0:
+        return True
+    old = (prev or {}).get(key) or {}
+    if old.get("status") not in ("ok", "stale"):
+        return True                       # 上次沒成功，不要等 TTL
+    return not fresh_enough(old.get("fetched_at"), ttl)
+
 
 def get_tbn(prev=None):
     """TBN 觀測紀錄：查風場所在的彰化縣、近一年的鳥類觀測。"""
@@ -391,9 +409,17 @@ def main():
 
     for key, fn in (("power_live", get_taipower), ("power_year", get_energy),
                     ("sea", get_iocean), ("sky", get_tbn)):
+        if not due(key, prev):
+            # 還沒到期就原封不動沿用。這不是失敗，狀態維持 ok，
+            # 資料多舊看各區塊自己的 fetched_at。
+            out[key] = dict(prev[key])
+            print("[skip] %-11s 未到重抓時間（每 %d 小時）"
+                  % (key, FETCH_TTL_H[key]))
+            continue
         try:
             # 只有 TBN 需要看上一版（決定物種統計要不要重算）
             result = fn(prev) if key == "sky" else fn()
+            result["fetched_at"] = datetime.now(TPE).isoformat(timespec="seconds")
             print("[ok]   %-11s %s" % (key, SOURCES[KEY2SRC[key]]["name"]))
         except Exception as e:          # 任何一站掛掉都要能繼續跑完其他站
             result = failed(KEY2SRC[key], e)

@@ -4,7 +4,10 @@ name: 更新開放資料
 # 所以抓取放在這裡跑，把結果寫進 data.json，GitHub Pages 只負責讀同網域的檔案。
 on:
   schedule:
-    - cron: "5,35 * * * *"     # 每半小時（UTC，GitHub 排程本來就會有幾分鐘誤差）
+    # 台電每 10 分鐘發佈一次即時發電量，所以排程也是 10 分鐘。
+    # 但抓取器會依 FETCH_TTL_H 判斷哪些來源真的到期，不是每次都四個全抓。
+    # GitHub 排程在整點前後負載高時會延遲，實際間隔常常是 10～20 分鐘。
+    - cron: "*/10 * * * *"
   workflow_dispatch:            # 也可以到 Actions 頁手動按一次
   push:
     paths:

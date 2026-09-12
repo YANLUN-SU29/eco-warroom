@@ -1008,8 +1008,10 @@ var LAST = null;
 function paintStamp(){
   var d = LAST || {};
   var rel = d.generated_at ? '（' + ago(d.generated_at) + '）' : '';
+  /* 四個來源的重抓頻率不一樣，是照各來源自己的更新節奏設的，這裡要講清楚，
+     不然使用者會以為每一格都是同一時間抓的 */
   set('stamp', '資料擷取時間 ' + (d.updated || '未知') + rel
-    + '｜介接來源：台電即時發電、經濟部能源署、海保署 iOcean、農業部 TBN'
+    + '｜台電即時發電每 10 分鐘、TBN 每小時、iOcean 每 6 小時、能源署年資料每日重抓'
     + '｜生態與噪音的環評數字為報告核實值，非即時感測');
 }
 
