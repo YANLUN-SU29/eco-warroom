@@ -1,52 +1,52 @@
 {
-  "generated_at": "2026-09-12T21:05:03+08:00",
-  "updated": "2026-09-12 21:05",
+  "generated_at": "2026-09-13T00:17:11+08:00",
+  "updated": "2026-09-13 00:17",
   "power_live": {
     "status": "ok",
-    "sample_time": "2026-09-12T20:50:00",
-    "total_mw": 3251.8,
+    "sample_time": "2026-09-13T00:10:00",
+    "total_mw": 2370.5,
     "farm_count": 16,
     "capacity_mw": 3042.9,
-    "capacity_factor": 77.1,
+    "capacity_factor": 51.3,
     "farms": [
       {
         "name": "沃一風",
-        "mw": 572.0,
+        "mw": 545.7,
         "cap": 605.2
       },
       {
         "name": "沃四風",
-        "mw": 437.9,
+        "mw": 410.4,
         "cap": null
       },
       {
-        "name": "芳二風",
-        "mw": 418.0,
-        "cap": 499.2
-      },
-      {
         "name": "沃二風",
-        "mw": 277.8,
+        "mw": 237.2,
         "cap": 294.8
       },
       {
-        "name": "允西",
-        "mw": 242.5,
-        "cap": 320.0
+        "name": "芳二風",
+        "mw": 224.8,
+        "cap": 499.2
+      },
+      {
+        "name": "龍A風",
+        "mw": 188.8,
+        "cap": null
       },
       {
         "name": "中能風",
-        "mw": 242.3,
+        "mw": 151.8,
         "cap": 294.5
       },
       {
         "name": "海能風",
-        "mw": 219.9,
+        "mw": 149.3,
         "cap": 376.0
       },
       {
-        "name": "龍A風",
-        "mw": 210.7,
+        "name": "龍B風",
+        "mw": 136.7,
         "cap": null
       }
     ],
@@ -83,8 +83,8 @@
   },
   "sea": {
     "status": "ok",
-    "recent_12m": 128,
-    "white_dolphin_12m": 113,
+    "recent_12m": 119,
+    "white_dolphin_12m": 106,
     "total_records": 1045,
     "latest": "2026-08-26",
     "window": "近 12 個月",
