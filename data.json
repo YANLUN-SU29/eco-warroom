@@ -1,53 +1,53 @@
 {
-  "generated_at": "2026-09-13T00:17:11+08:00",
-  "updated": "2026-09-13 00:17",
+  "generated_at": "2026-09-13T02:05:56+08:00",
+  "updated": "2026-09-13 02:05",
   "power_live": {
     "status": "ok",
-    "sample_time": "2026-09-13T00:10:00",
-    "total_mw": 2370.5,
+    "sample_time": "2026-09-13T02:00:00",
+    "total_mw": 1468.1,
     "farm_count": 16,
     "capacity_mw": 3042.9,
-    "capacity_factor": 51.3,
+    "capacity_factor": 26.0,
     "farms": [
       {
-        "name": "沃一風",
-        "mw": 545.7,
-        "cap": 605.2
-      },
-      {
         "name": "沃四風",
-        "mw": 410.4,
+        "mw": 377.4,
         "cap": null
       },
       {
+        "name": "沃一風",
+        "mw": 353.6,
+        "cap": 605.2
+      },
+      {
         "name": "沃二風",
-        "mw": 237.2,
+        "mw": 169.4,
         "cap": 294.8
       },
       {
+        "name": "龍A風",
+        "mw": 145.8,
+        "cap": null
+      },
+      {
         "name": "芳二風",
-        "mw": 224.8,
+        "mw": 110.6,
         "cap": 499.2
       },
       {
-        "name": "龍A風",
-        "mw": 188.8,
+        "name": "龍B風",
+        "mw": 92.9,
+        "cap": null
+      },
+      {
+        "name": "沃南風",
+        "mw": 58.9,
         "cap": null
       },
       {
         "name": "中能風",
-        "mw": 151.8,
+        "mw": 52.1,
         "cap": 294.5
-      },
-      {
-        "name": "海能風",
-        "mw": 149.3,
-        "cap": 376.0
-      },
-      {
-        "name": "龍B風",
-        "mw": 136.7,
-        "cap": null
       }
     ],
     "source": "台灣電力公司　即時各機組發電量",
@@ -97,7 +97,43 @@
     "area": "彰化縣",
     "window": "近 12 個月",
     "source": "農業部　臺灣生物多樣性網絡 TBN 物種觀測 API v2.6",
-    "source_url": "https://www.tbn.org.tw/data/api/v26/occurrence"
+    "source_url": "https://www.tbn.org.tw/data/api/v26/occurrence",
+    "species_count": 181,
+    "protected_count": 35,
+    "family_count": 55,
+    "notable": [
+      {
+        "name": "黑面琵鷺",
+        "records": 121,
+        "status": "瀕臨絕種保育類野生動物"
+      },
+      {
+        "name": "東方白鸛",
+        "records": 33,
+        "status": "瀕臨絕種保育類野生動物"
+      },
+      {
+        "name": "黑翅鳶",
+        "records": 325,
+        "status": "珍貴稀有保育類野生動物"
+      },
+      {
+        "name": "黑嘴鷗",
+        "records": 142,
+        "status": "珍貴稀有保育類野生動物"
+      },
+      {
+        "name": "紅隼",
+        "records": 133,
+        "status": "珍貴稀有保育類野生動物"
+      },
+      {
+        "name": "鳳頭蒼鷹",
+        "records": 72,
+        "status": "珍貴稀有保育類野生動物"
+      }
+    ],
+    "species_at": "2026-09-13T02:07:44+08:00"
   },
   "land": {
     "status": "model",

@@ -102,6 +102,17 @@ def num(s):
         return None
 
 
+def fresh_enough(iso, hours):
+    """上次算出來還沒過期就沿用，不要每半小時都去翻 55 頁分頁。"""
+    if not iso:
+        return False
+    try:
+        age = datetime.now(TPE) - datetime.fromisoformat(iso)
+    except ValueError:
+        return False
+    return age.total_seconds() < hours * 3600
+
+
 def yi_du(gwh):
     """百萬度（GWh）換算億度，一位小數。1 億度 = 100 GWh。"""
     return round(gwh / 100.0, 1)
@@ -235,21 +246,82 @@ def get_iocean():
 
 
 # ---------------------------------------------------------------- 4. TBN
-def get_tbn():
-    """TBN 觀測紀錄：查風場所在的彰化沿海、近一年的鳥類觀測筆數。"""
+def tbn_query(span, limit):
+    src = SOURCES["tbn"]
+    return "%s?taxonGroup=birds&eventPlaceAdminarea=%s&eventDate=%s&limit=%d" % (
+        src["url"], urllib.parse.quote("彰化縣"), urllib.parse.quote(span), limit)
+
+
+def is_species(name):
+    """TBN 的 vernacularName 不一定是單一物種。
+
+    「鳥綱」是只認到綱、「柳鶯屬」只到屬、「小濱鷸; 紅胸濱鷸」是無法二選一的
+    存疑紀錄、「大冠鷲(hoya亞種)」會和母種重複計算。這些都不能算成一種鳥。
+    """
+    if not name or name == "鳥綱" or ";" in name:
+        return False
+    return not (name.endswith("屬") or name.endswith("科") or "亞種" in name)
+
+
+def get_tbn_species(span):
+    """翻完所有分頁，統計到底有幾種鳥、幾種保育類。
+
+    一次要 55 個請求左右，所以呼叫端每天只跑一次（見 SPECIES_TTL_H）。
+    """
+    url, seen, prot, fams = tbn_query(span, 1000), {}, {}, set()
+    pages = 0
+    while url and pages < 120:            # 上限純粹是保險，避免分頁壞掉時無限迴圈
+        d = json.loads(decode(fetch(url)))
+        for r in d.get("data", []):
+            name = (r.get("vernacularName") or "").strip()
+            if not is_species(name):
+                continue
+            seen[name] = seen.get(name, 0) + 1
+            if r.get("protectedStatusTW"):
+                prot[name] = r["protectedStatusTW"]
+            if r.get("familyVernacularName"):
+                fams.add(r["familyVernacularName"])
+        url = (d.get("links") or {}).get("next")
+        pages += 1
+
+    if not seen:
+        raise ValueError("TBN 分頁翻完但沒有可用的物種名")
+
+    # 挑幾種上得了檯面的：先瀕臨絕種、再珍貴稀有，同級的看紀錄數
+    def rank(item):
+        name, level = item
+        tier = 0 if "瀕臨絕種" in level else (1 if "珍貴稀有" in level else 2)
+        return (tier, -seen.get(name, 0))
+
+    notable = [{"name": n, "records": seen.get(n, 0), "status": lv}
+               for n, lv in sorted(prot.items(), key=rank)[:6]]
+
+    return {
+        "species_count": len(seen),
+        "protected_count": len(prot),
+        "family_count": len(fams),
+        "notable": notable,
+        "species_at": datetime.now(TPE).isoformat(timespec="seconds"),
+    }
+
+
+SPECIES_TTL_H = 24        # 物種組成變化很慢，一天翻一次分頁就夠了
+
+
+def get_tbn(prev=None):
+    """TBN 觀測紀錄：查風場所在的彰化縣、近一年的鳥類觀測。"""
     src = SOURCES["tbn"]
     today = datetime.now(TPE).date()
     span = "%s~%s" % ((today - timedelta(days=365)).strftime("%Y-%m"),
                       today.strftime("%Y-%m"))
-    url = "%s?taxonGroup=birds&eventPlaceAdminarea=%s&eventDate=%s&limit=1" % (
-        src["url"], urllib.parse.quote("彰化縣"), urllib.parse.quote(span))
 
-    data = json.loads(decode(fetch(url)))
+    data = json.loads(decode(fetch(tbn_query(span, 1))))
     # v2.6 把總筆數放在 meta.total；v2.5 以前是頂層的 count。兩種都接。
     total = (data.get("meta") or {}).get("total", data.get("count"))
     if total is None:
         raise ValueError("TBN 回傳找不到總筆數（meta.total / count）")
-    return {
+
+    out = {
         "status": "ok",
         "recent_12m": int(total),
         "area": "彰化縣",
@@ -257,6 +329,23 @@ def get_tbn():
         "source": src["name"],
         "source_url": src["page"],
     }
+
+    old = (prev or {}).get("sky") or {}
+    if fresh_enough(old.get("species_at"), SPECIES_TTL_H):
+        for k in ("species_count", "protected_count", "family_count",
+                  "notable", "species_at"):
+            if k in old:
+                out[k] = old[k]
+    else:
+        try:
+            out.update(get_tbn_species(span))
+        except Exception as e:        # 物種統計失敗不該讓整個天空面板掛掉
+            print("[warn] TBN 物種統計失敗，沿用舊值：%s" % e)
+            for k in ("species_count", "protected_count", "family_count",
+                      "notable", "species_at"):
+                if k in old:
+                    out[k] = old[k]
+    return out
 
 
 # ---------------------------------------------------------- 抓不到的時候
@@ -303,7 +392,8 @@ def main():
     for key, fn in (("power_live", get_taipower), ("power_year", get_energy),
                     ("sea", get_iocean), ("sky", get_tbn)):
         try:
-            result = fn()
+            # 只有 TBN 需要看上一版（決定物種統計要不要重算）
+            result = fn(prev) if key == "sky" else fn()
             print("[ok]   %-11s %s" % (key, SOURCES[KEY2SRC[key]]["name"]))
         except Exception as e:          # 任何一站掛掉都要能繼續跑完其他站
             result = failed(KEY2SRC[key], e)

@@ -251,6 +251,9 @@ body{
 #farms b{color:var(--ink-mint)}
 #growth div{background:var(--t-gold);border-color:rgba(255,197,49,.34)}
 #growth b{color:var(--ink-gold)}
+/* 保育類用粉色，跟藍色的環評預估值、薄荷色的風場出力區分開 */
+#birds div{background:var(--t-pink);border-color:rgba(255,107,121,.3)}
+#birds b{color:#B03448}
 
 /* 發電 */
 .power{display:grid;grid-template-columns:1fr 1fr;gap:18px}
@@ -515,6 +518,9 @@ input[type=range]:focus-visible::-webkit-slider-thumb{outline:3px solid var(--vi
         <div>灰面鵟鷹年預估撞擊 <b>0 隻</b>（安全容許量 1,004 隻）</div>
         <div>黑面琵鷺 <b>0.9 隻</b>（安全門檻 38 隻）</div>
       </div>
+
+      <p class="lead" id="birdsLead" style="margin:30px 0 0"></p>
+      <div class="guard" id="birds"></div>
     </section>
 
     <section class="sec">
@@ -678,7 +684,10 @@ function paintSky(s){
     set('skyNum', Number(s.recent_12m).toLocaleString('en-US'));
     set('skyUnit', '筆');
     set('skySrc', (s.area || '') + '鳥類觀測紀錄（農業部 TBN API v2.6，' + (s.window || '') + '）');
-    set('skyStatus', '鳥還在飛，風機也在轉：環評預估灰面鵟鷹年撞擊 0 隻');
+    /* 筆數只講熱鬧，種數才講得出「鳥沒有不見」 */
+    set('skyStatus', s.species_count
+      ? '記錄到 ' + s.species_count + ' 種鳥，其中 ' + s.protected_count + ' 種是保育類'
+      : '鳥還在飛，風機也在轉：環評預估灰面鵟鷹年撞擊 0 隻');
   }else{
     /* TBN 抓不到就不假裝有數字，改顯示環評核實值並講清楚它不是即時的 */
     set('skyNum', '0');
@@ -778,10 +787,34 @@ function paintStamp(){
     + '｜生態與噪音的環評數字為報告核實值，非即時感測');
 }
 
+/* ---- 風場旁邊實際有哪些保育類 ----
+   「灰面鵟鷹年撞擊 0 隻」是環評的預估值；這排是 TBN 近 12 個月的實際觀測，
+   一個是模型、一個是現場，擺在一起才完整。 */
+function paintBirds(s){
+  var box = $('birds'), lead = $('birdsLead');
+  if(!box) return;
+  if(!usable(s) || !s.notable || !s.notable.length){
+    box.innerHTML = '';
+    if(lead) lead.textContent = '';
+    return;
+  }
+  if(lead){
+    lead.textContent = '而風場旁邊的鳥並沒有不見。' + s.area + (s.window || '')
+      + '記錄到 ' + s.species_count + ' 種鳥、分屬 ' + s.family_count + ' 科，'
+      + '其中 ' + s.protected_count + ' 種是保育類——以下為紀錄數較多者：';
+  }
+  chips('birds', s.notable.map(function(b){
+    var tag = b.status.indexOf('瀕臨絕種') >= 0 ? '瀕臨絕種'
+            : (b.status.indexOf('珍貴稀有') >= 0 ? '珍貴稀有' : '應予保育');
+    return b.name + ' <b>' + b.records + ' 筆</b>　' + tag;
+  }));
+}
+
 function paint(d){
   LAST = d;
   paintHeader(d);
   paintSky(d.sky);
+  paintBirds(d.sky);
   paintSea(d.sea);
   paintLand(d.land);
   paintPower(d.power_live, d.power_year);
