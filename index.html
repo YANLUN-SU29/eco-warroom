@@ -196,6 +196,19 @@ body{
 .analogy{margin-top:20px;padding:16px 20px;border-radius:var(--r-sm);
   background:var(--t-gold);color:var(--ink-gold);font-size:15px;font-weight:700}
 
+/* 水下剖面：沿用噪音那張卡的版型，只換顏色 */
+.sea-fig .db,.sea-fig .dbu{color:var(--mint)}
+.sea-fig .slider input{accent-color:var(--mint)}
+.sea-fig input[type=range]::-webkit-slider-thumb{background:var(--mint)}
+.sea-fig input[type=range]::-moz-range-thumb{background:var(--mint)}
+.sea-fig .dist{display:flex;gap:8px;flex-wrap:wrap}
+.sea-fig .dist span{background:var(--sand);border-radius:999px;
+  padding:5px 12px;font-size:12.5px;font-weight:700}
+.sea-note{background:var(--t-mint) !important;color:var(--ink-mint) !important}
+.fig-src{margin:14px 0 0;font-size:12.5px;color:var(--muted);line-height:1.75}
+#zoneShallow,#zoneDeep{transition:opacity .25s ease}
+#depMark{transition:none}
+
 /* 護鳥三部曲：PLC 降載演示 */
 .plc{background:#fff;border-radius:var(--r);padding:18px 20px 12px;
   box-shadow:var(--shadow);border:1px solid var(--line);margin-bottom:18px}
@@ -524,6 +537,119 @@ input[type=range]:focus-visible::-webkit-slider-thumb{outline:3px solid var(--vi
     </section>
 
     <section class="sec">
+      <h2>海豚在哪一層，風機在哪一層</h2>
+      <p class="lead">「風機插在海裡，白海豚怎麼辦？」把水深拉出來看，兩邊幾乎不在同一層。拖動下方水深，看看那一層有誰。</p>
+      <div class="noise sea-fig">
+        <div class="noise-top">
+          <div class="readout">
+            <div><span class="db" id="depVal">6</span><span class="dbu">公尺</span></div>
+            <div class="grade" id="depGrade">中華白海豚活動範圍</div>
+            <div class="dist" id="depWho"></div>
+          </div>
+          <div class="chart">
+            <svg viewBox="0 0 560 300" role="img"
+                 aria-label="海底剖面示意圖：中華白海豚活動於水深 10 公尺以內的近岸，離岸風場設置於 20 公尺以上深水區，兩者棲地重疊度極低">
+              <defs>
+                <linearGradient id="seaG" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0" stop-color="#DCF0FA"/>
+                  <stop offset="1" stop-color="#9FD4EC"/>
+                </linearGradient>
+              </defs>
+
+              <rect x="0" y="36" width="560" height="264" fill="url(#seaG)"/>
+
+              <!-- 水深 10 公尺以內的近岸：白海豚的那一層 -->
+              <path id="zoneShallow" d="M40 36 H195 V95 L120 65.5 Z"
+                    fill="#35BE93" opacity=".16"/>
+              <!-- 水深 20 公尺以上：風場的那一層 -->
+              <path id="zoneDeep" d="M322 36 H560 V266 L545 260.2 430 213 345 165.8 322 154 Z"
+                    fill="#2FA9DC" opacity=".16"/>
+
+              <!-- 陸地與海床 -->
+              <path d="M40 36 120 65.5 195 95 275 130.4 345 165.8 430 213 545 260.2 560 266
+                       V300 H0 V22 Z" fill="#E6DFCF"/>
+              <path d="M40 36 120 65.5 195 95 275 130.4 345 165.8 430 213 545 260.2 560 266"
+                    fill="none" stroke="#C9BFA6" stroke-width="2"/>
+
+              <!-- 海面 -->
+              <path d="M0 36q14-6 28 0t28 0 28 0 28 0 28 0 28 0 28 0 28 0 28 0 28 0
+                       28 0 28 0 28 0 28 0 28 0 28 0 28 0 28 0 28 0 28 0"
+                    fill="none" stroke="#2FA9DC" stroke-width="2" opacity=".55"/>
+
+              <!-- 中華白海豚 -->
+              <g fill="#2A2438" opacity=".78">
+                <g transform="translate(96,58) scale(.62)">
+                  <path d="M-24 0Q-10-9 8-8 22-7 30 0 22 7 8 8-10 9-24 0Z"/>
+                  <path d="M4-8Q9-17 15-9Z"/><path d="M-24 0-35-6-31 0-35 6Z"/>
+                  <path d="M30 0 38 1.4 30 3.4Z"/>
+                </g>
+                <g transform="translate(158,80) scale(.46)">
+                  <path d="M-24 0Q-10-9 8-8 22-7 30 0 22 7 8 8-10 9-24 0Z"/>
+                  <path d="M4-8Q9-17 15-9Z"/><path d="M-24 0-35-6-31 0-35 6Z"/>
+                  <path d="M30 0 38 1.4 30 3.4Z"/>
+                </g>
+              </g>
+              <text x="118" y="112" font-size="11.5" fill="#1E7D5E" font-weight="700"
+                    text-anchor="middle">白海豚　水深 &lt; 10 m</text>
+
+              <!-- 離岸風機與管架式基座 -->
+              <g>
+                <path d="M452 223 453.4 14h3.2L458 223z" fill="#B9B2CC"/>
+                <rect x="448" y="8" width="14" height="7" rx="3.5" fill="#8B84A0"/>
+                <g fill="#2FA9DC">
+                  <path d="M455 12 456.4-12Q455-15 453.6-12Z"/>
+                  <path d="m456.2 14 21 12.6q2 1.4.6 3.2z"/>
+                  <path d="m453.8 14-22.6 9.6q-2.2.8-1.2 2.8z"/>
+                </g>
+                <circle cx="455" cy="13" r="3" fill="#FFC531"/>
+                <!-- 管架基座：四支斜腳加交叉撐 -->
+                <g stroke="#8B84A0" stroke-width="2.6" fill="none" stroke-linecap="round">
+                  <path d="M452 160 434 224M458 160 476 224"/>
+                  <path d="M452 178 476 210M458 178 434 210" stroke-width="1.8"/>
+                  <path d="M451 196h8" stroke-width="1.8"/>
+                </g>
+                <!-- 附著的藤壺與貽貝 -->
+                <g fill="#1E7D5E" opacity=".75">
+                  <circle cx="441" cy="207" r="2.4"/><circle cx="446" cy="216" r="2"/>
+                  <circle cx="469" cy="207" r="2.4"/><circle cx="464" cy="216" r="2"/>
+                  <circle cx="437" cy="218" r="2.2"/><circle cx="473" cy="218" r="2.2"/>
+                </g>
+                <!-- 聚集的魚群 -->
+                <g fill="#0E7FA8" opacity=".8">
+                  <g transform="translate(420,188)"><path d="M0 0q5-3.4 10 0-5 3.4-10 0z"/><path d="M0 0-4-2.6v5.2z"/></g>
+                  <g transform="translate(487,196) scale(.85)"><path d="M0 0q5-3.4 10 0-5 3.4-10 0z"/><path d="M0 0-4-2.6v5.2z"/></g>
+                  <g transform="translate(428,205) scale(.8)"><path d="M0 0q5-3.4 10 0-5 3.4-10 0z"/><path d="M0 0-4-2.6v5.2z"/></g>
+                  <g transform="translate(478,212) scale(.9)"><path d="M0 0q5-3.4 10 0-5 3.4-10 0z"/><path d="M0 0-4-2.6v5.2z"/></g>
+                  <g transform="translate(412,214) scale(.75)"><path d="M0 0q5-3.4 10 0-5 3.4-10 0z"/><path d="M0 0-4-2.6v5.2z"/></g>
+                  <g transform="translate(495,180) scale(.7)"><path d="M0 0q5-3.4 10 0-5 3.4-10 0z"/><path d="M0 0-4-2.6v5.2z"/></g>
+                </g>
+              </g>
+              <text x="455" y="248" font-size="11.5" fill="#1B6E96" font-weight="700"
+                    text-anchor="middle">離岸風場　水深 &gt; 20 m</text>
+
+              <!-- 水深指示線 -->
+              <g id="depMark">
+                <line id="depLine" x1="20" y1="71" x2="545" y2="71" stroke="#2A2438"
+                      stroke-width="1.6" stroke-dasharray="6 5" opacity=".55"/>
+                <rect id="depChipBg" x="20" y="60" width="62" height="22" rx="11" fill="#2A2438"/>
+                <text id="depChip" x="51" y="75" font-size="12" font-weight="700"
+                      fill="#fff" text-anchor="middle">6 m</text>
+              </g>
+            </svg>
+          </div>
+        </div>
+        <div class="slider">
+          <label for="depRng" style="font-size:14px;font-weight:700;color:var(--muted)">水深</label>
+          <input id="depRng" type="range" min="0" max="40" step="1" value="6">
+          <div class="ticks"><span>0 m</span><span>10</span><span>20</span>
+            <span>30</span><span>40 m</span></div>
+        </div>
+        <p class="analogy sea-note" id="depAnalogy"></p>
+        <p class="fig-src" id="depLive"></p>
+      </div>
+    </section>
+
+    <section class="sec">
       <h2>發的電也一起看</h2>
       <p class="lead">生態指標旁邊放上發電數據，才能同時回答「安全嗎」與「值得嗎」。</p>
       <div class="power">
@@ -650,6 +776,65 @@ function update(){
 rng.addEventListener('input',update);
 update();
 
+/* ---- 水下剖面互動 ----
+   噪音那張拉的是「距離岸邊」，這張拉的是「水深」，因為白海豚與風場的差別
+   就在水深這一個軸上。純 input 驅動，沒有動畫迴圈。 */
+(function(){
+  var rng = document.getElementById('depRng');
+  if(!rng) return;
+  var Y0 = 36, PX = 5.9;                    /* 0 公尺在 y=36，每公尺 5.9px */
+  var SHALLOW = 10, DEEP = 20;              /* 白海豚上限、風場下限 */
+  var line = document.getElementById('depLine'),
+      chip = document.getElementById('depChip'),
+      chipBg = document.getElementById('depChipBg'),
+      zs = document.getElementById('zoneShallow'),
+      zd = document.getElementById('zoneDeep');
+
+  function tell(d){
+    if(d < SHALLOW) return {
+      grade:['中華白海豚活動範圍', '#D7F2E8', '#1E7D5E'],
+      who:['白海豚　常見', '離岸風場　無'],
+      say:'白海豚就像只在水深 10 公尺的兒童戲水池活動——風場根本不在這一層。'
+    };
+    if(d < DEEP) return {
+      grade:['過渡帶，兩邊都少', '#F2EEE4', '#6E6880'],
+      who:['白海豚　少見', '離岸風場　尚未設置'],
+      say:'再往外，白海豚已經少見，風場也還沒開始。兩邊的重疊帶就只有這麼窄。'
+    };
+    return {
+      grade:['離岸風場設置水深', '#DCF0FA', '#1B6E96'],
+      who:['白海豚　罕見', '離岸風場　在這裡'],
+      say:'風場在這一層。基座附著藤壺與貽貝，反而把魚群聚了過來——與其說趕走生物，更像替牠們蓋了一棟海底高級公寓。'
+    };
+  }
+
+  function update(){
+    var d = +rng.value, y = Y0 + d * PX, t = tell(d);
+    document.getElementById('depVal').textContent = d;
+    line.setAttribute('y1', y.toFixed(1));
+    line.setAttribute('y2', y.toFixed(1));
+    chipBg.setAttribute('y', (y - 11).toFixed(1));
+    chip.setAttribute('y', (y + 4).toFixed(1));
+    chip.textContent = d + ' m';
+
+    var g = document.getElementById('depGrade');
+    g.textContent = t.grade[0];
+    g.style.background = t.grade[1];
+    g.style.color = t.grade[2];
+
+    document.getElementById('depWho').innerHTML =
+      '<span>' + t.who[0] + '</span><span>' + t.who[1] + '</span>';
+    document.getElementById('depAnalogy').textContent = t.say;
+
+    /* 目前這一層是誰的，就把那一區加亮 */
+    zs.setAttribute('opacity', d < SHALLOW ? '.34' : '.14');
+    zd.setAttribute('opacity', d >= DEEP ? '.34' : '.14');
+  }
+
+  rng.addEventListener('input', update);
+  update();
+})();
+
 /* ---- 讀取 data.json ----
    data.json 由 scripts/fetch_data.py 產生，內容全部來自政府開放資料出處：
      台電 即時各機組發電量、能源署 發電量年資料、海保署 iOcean、農業部 TBN。
@@ -709,6 +894,12 @@ function paintSea(s){
   set('seaUnit', '筆');
   set('seaSrc', '中華白海豚目擊回報（海保署 iOcean，' + (s.window || '') + '）');
   set('seaStatus', '同期鯨豚目擊共 ' + s.recent_12m + ' 筆｜最近一筆 ' + md(s.latest));
+
+  /* 剖面圖是環評與監測報告的示意，下面這行才是現場實際回報，兩者要分清楚 */
+  set('depLive', '剖面為示意圖，水深依國家海洋研究院《離岸風電場生態保育環境監測研究'
+    + '－苗栗及雲彰風場期末報告》。實際觀測：海保署 iOcean 近 12 個月仍有 '
+    + s.white_dolphin_12m + ' 筆中華白海豚目擊回報，最近一筆 ' + md(s.latest)
+    + '——白海豚並沒有因為風場而消失。');
 }
 
 /* ---- 陸地：環評 SoundPLAN 模型 ---- */
