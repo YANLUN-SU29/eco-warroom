@@ -210,6 +210,15 @@ body{
   font-size:12.5px;color:var(--muted);line-height:1.75}
 .fig-note em{font-style:normal;font-weight:700;color:var(--muted2);
   background:var(--sand);padding:2px 9px;border-radius:999px;margin-right:8px}
+/* 讀數列：風機圖示就是儀表，轉速跟著曲線走 */
+.fig-head{display:flex;align-items:center;gap:16px;
+  padding:0 4px 18px;margin-bottom:18px;border-bottom:1px solid var(--line)}
+.fig-turbine{width:56px;height:auto;flex:0 0 56px}
+.fig-read{display:flex;flex-direction:column;line-height:1.25}
+.fig-read-lab{font-size:13px;font-weight:700;color:var(--muted)}
+.fig-read-val{font-size:15px;color:var(--muted)}
+.fig-read-val b{font-size:30px;color:var(--sky);
+  font-variant-numeric:tabular-nums;margin-right:3px}
 #figHead{transition:opacity .4s ease}
 /* 播放頭經過時，下面對應的那張步驟卡跟著亮 */
 .step{transition:background .25s ease}
@@ -434,6 +443,24 @@ input[type=range]:focus-visible::-webkit-slider-thumb{outline:3px solid var(--vi
       <p class="lead">葉片不是失控的刀片，它連著一套會替鳥讓路的控制邏輯。</p>
 
       <div class="figure">
+        <div class="fig-head">
+          <svg class="fig-turbine" viewBox="0 0 80 96" aria-hidden="true">
+            <path d="M37.6 30h4.8l1.9 58h-8.6z" fill="#C9C3DC"/>
+            <rect x="30" y="86" width="20" height="4" rx="2" fill="#C9C3DC"/>
+            <rect x="34.5" y="24.5" width="11" height="7" rx="3.5" fill="#8B84A0"/>
+            <g id="figBlades" fill="#2FA9DC">
+              <path d="M40 28 41.9 6Q40 3 38.1 6Z"/>
+              <g transform="rotate(120 40 28)"><path d="M40 28 41.9 6Q40 3 38.1 6Z"/></g>
+              <g transform="rotate(240 40 28)"><path d="M40 28 41.9 6Q40 3 38.1 6Z"/></g>
+            </g>
+            <circle cx="40" cy="28" r="3.4" fill="#1B6E96"/>
+          </svg>
+          <div class="fig-read">
+            <span class="fig-read-lab">葉片轉速</span>
+            <span class="fig-read-val"><b id="figNow">7.2</b> rpm</span>
+          </div>
+        </div>
+
         <svg viewBox="0 0 760 262" role="img"
              aria-label="葉片轉速隨時間變化圖：雷達偵測到鳥群後，PLC 下令降載，轉速由 7.2 rpm 降至 0.6 rpm，鳥群通過後恢復">
           <!-- 降載區間 -->
@@ -470,8 +497,6 @@ input[type=range]:focus-visible::-webkit-slider-thumb{outline:3px solid var(--vi
             <text x="72" y="24" text-anchor="start" font-weight="700"
                   fill="#2A2438">葉片轉速（rpm）</text>
           </g>
-          <text id="figNow" x="182" y="24" font-size="12.5" font-weight="700"
-                fill="#2FA9DC"></text>
 
           <!-- 事件標記線 -->
           <g stroke="#2FA9DC" stroke-width="1.4" stroke-dasharray="4 4" opacity=".65">
@@ -984,6 +1009,7 @@ function countUpAll(){
       line = document.getElementById('figLine'),
       dot  = document.getElementById('figDot'),
       now  = document.getElementById('figNow'),
+      vane = document.getElementById('figBlades'),
       steps = document.querySelectorAll('.steps .step');
 
   /* 曲線頂點：[x, y, rpm]，跟 SVG 裡那條 path 是同一組數字 */
@@ -1016,11 +1042,18 @@ function countUpAll(){
 
   if(REDUCE){ now.textContent = '0.6'; return; }   /* 關動效就保持靜態圖 */
 
-  var start = 0, run = false, curStep = -1;
+  /* 圖示轉速與讀數成正比。橫軸本來就是壓縮過的時間（6 分鐘畫成 9 秒），
+     所以這裡不照實際 rpm 轉，只保持比例：7.2 rpm 看得出在轉，
+     0.6 rpm 幾乎停住——圖示本身就是那個讀數。 */
+  var DEG_PER_RPM = 15.5;
+
+  var start = 0, run = false, curStep = -1, spin = 0, last = 0;
 
   function frame(t){
     if(!run) return;
-    if(!start) start = t;
+    if(!start){ start = t; last = t; }
+    var dt = Math.min(.05, (t - last) / 1000);
+    last = t;
     var s = ((t - start) / 1000) % (SWEEP + HOLD);
     var x = X0 + Math.min(1, s / SWEEP) * (X1 - X0);
     var v = at(x);
@@ -1030,6 +1063,9 @@ function countUpAll(){
     dot.setAttribute('cx', x.toFixed(1));
     dot.setAttribute('cy', v[0].toFixed(1));
     now.textContent = v[1].toFixed(1);
+
+    spin = (spin + v[1] * DEG_PER_RPM * dt) % 360;
+    vane.setAttribute('transform', 'rotate(' + spin.toFixed(1) + ' 40 28)');
 
     var n = stepAt(x);
     if(n !== curStep){
