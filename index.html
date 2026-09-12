@@ -4,6 +4,26 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>風機與牠們的產地｜海陸空生態戰情室</title>
+<meta name="description" content="風機是鳥類果汁機？海豚殺手？三個離岸風電的都市傳說，用經濟部能源署、台電、海保署 iOcean、農業部 TBN 四個政府開放資料 API 一次拆完。">
+<meta name="author" content="三鳥牌">
+<meta name="theme-color" content="#2A2438">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="og.png">
+<link rel="canonical" href="https://yanlun-su29.github.io/eco-warroom/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:site_name" content="海陸空生態戰情室">
+<meta property="og:url" content="https://yanlun-su29.github.io/eco-warroom/">
+<meta property="og:title" content="風機是鳥類果汁機？海豚殺手？｜海陸空生態戰情室">
+<meta property="og:description" content="三個離岸風電的都市傳說，用四個政府開放資料 API 一次拆完。數字每半小時自動更新，抓不到就明說，不以舊值假裝即時。">
+<meta property="og:image" content="https://yanlun-su29.github.io/eco-warroom/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="海陸空生態戰情室：風機是鳥類果汁機？海豚殺手？">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="風機是鳥類果汁機？海豚殺手？｜海陸空生態戰情室">
+<meta name="twitter:description" content="三個離岸風電的都市傳說，用四個政府開放資料 API 一次拆完。">
+<meta name="twitter:image" content="https://yanlun-su29.github.io/eco-warroom/og.png">
 <style>
 /* ------------------------------------------------------------------
    配色直接取自決賽簡報「日系動漫風」的實際色票（從 pptx 抽出來的），
@@ -175,7 +195,39 @@ body{
 .analogy{margin-top:20px;padding:16px 20px;border-radius:var(--r-sm);
   background:var(--t-gold);color:var(--ink-gold);font-size:15px;font-weight:700}
 
-/* 護鳥三部曲 */
+/* 護鳥三部曲：PLC 降載演示 */
+.plc{background:#fff;border-radius:var(--r);padding:18px 20px 12px;
+  box-shadow:var(--shadow);border:1px solid var(--line);margin-bottom:18px}
+.plc svg{width:100%;height:auto;display:block}
+.plc-cap{margin:6px 0 0;font-size:13.5px;color:var(--muted);
+  display:flex;align-items:center;gap:10px;min-height:24px}
+.plc-tag{flex:0 0 auto;font-size:11px;font-weight:700;color:var(--muted2);
+  background:var(--sand);padding:3px 9px;border-radius:999px}
+#plcCap{font-weight:700;color:var(--ink)}
+
+/* 雷達圈只在偵測階段出現 */
+#radar{opacity:0;transition:opacity .35s ease}
+.plc[data-phase="1"] #radar,.plc[data-phase="2"] #radar{opacity:1}
+@media (prefers-reduced-motion:no-preference){
+  .plc[data-phase="1"] .ring,.plc[data-phase="2"] .ring{
+    animation:ping 1.8s ease-out infinite;transform-origin:560px 68px}
+  .plc .ring.r2{animation-delay:.9s}
+  @keyframes ping{
+    0%{transform:scale(.35);opacity:.9}
+    100%{transform:scale(1.9);opacity:0}
+  }
+}
+/* PLC 下指令時整條線路亮起來 */
+#plcBox rect,#wire{transition:stroke .3s ease, fill .3s ease}
+.plc[data-phase="2"] #plcBox rect{stroke:var(--sky);fill:var(--t-sky)}
+.plc[data-phase="2"] #wire,.plc[data-phase="3"] #wire{stroke:var(--sky)}
+.plc[data-phase="3"] #plcBox rect{stroke:var(--sky)}
+
+/* 當前步驟高亮 */
+.step{transition:background .3s ease}
+.step.on{background:var(--t-sky)}
+.step.on .n{background:var(--sky);color:#fff;box-shadow:inset 0 0 0 2px var(--sky)}
+
 .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:0;
   background:#fff;border-radius:var(--r);overflow:hidden;
   box-shadow:var(--shadow);border:1px solid var(--line)}
@@ -391,6 +443,53 @@ input[type=range]:focus-visible::-webkit-slider-thumb{outline:3px solid var(--vi
     <section class="sec">
       <h2>風機的護鳥三部曲</h2>
       <p class="lead">葉片不是失控的刀片，它連著一套會替鳥讓路的控制邏輯。</p>
+
+      <!-- PLC 降載邏輯演示。純示意，不是即時資料，所以標了 illustrative。 -->
+      <div class="plc" id="plc" data-phase="0">
+        <svg viewBox="0 0 760 210" role="img"
+             aria-label="示意圖：雷達偵測到鳥群接近，PLC 控制系統令葉片降速，鳥群通過後恢復發電">
+          <!-- 海面 -->
+          <path d="M0 178h760v32H0z" fill="#DCF0FA"/>
+          <path id="plcSea" d="M0 178q19 -7 38 0t38 0 38 0 38 0 38 0 38 0 38 0 38 0 38 0
+                   38 0 38 0 38 0 38 0 38 0 38 0 38 0 38 0 38 0 38 0 38 0v32H0z"
+                fill="#BEE2F4"/>
+          <!-- 塔架與機艙 -->
+          <path d="M553 178 L557 74 h6 l4 104z" fill="#B9B2CC"/>
+          <rect x="548" y="62" width="24" height="13" rx="6" fill="#8B84A0"/>
+          <!-- 葉片 -->
+          <g id="blades">
+            <g fill="#2FA9DC">
+              <path d="M560 66 562.6 12a2.6 2.6 0 0 0-5.2 0z"/>
+              <path d="m562.3 70 47.4 21.4a2.6 2.6 0 0 0 2.6-4.5z"/>
+              <path d="m557.7 70-50 16.9a2.6 2.6 0 0 0 2.6 4.5z"/>
+            </g>
+            <circle cx="560" cy="68" r="5" fill="#FFC531"/>
+          </g>
+          <!-- 雷達偵測圈 -->
+          <g id="radar" fill="none" stroke="#2FA9DC" stroke-width="2">
+            <circle class="ring" cx="560" cy="68" r="40"/>
+            <circle class="ring r2" cx="560" cy="68" r="40"/>
+          </g>
+          <!-- PLC 控制箱與訊號線 -->
+          <path id="wire" d="M150 132 H420 Q470 132 505 110 L545 84"
+                fill="none" stroke="#C9C3DC" stroke-width="2.5" stroke-linecap="round"/>
+          <g id="plcBox">
+            <rect x="34" y="108" width="116" height="48" rx="12"
+                  fill="#fff" stroke="#C9C3DC" stroke-width="2"/>
+            <text x="92" y="130" text-anchor="middle" font-size="15" font-weight="700"
+                  fill="#6E6880" font-family="inherit">PLC</text>
+            <text x="92" y="147" text-anchor="middle" font-size="11"
+                  fill="#958EA6" font-family="inherit">控制系統</text>
+          </g>
+          <!-- 鳥 -->
+          <g id="bird" fill="none" stroke="#2A2438" stroke-width="3.4"
+             stroke-linecap="round">
+            <path d="M-14 0q7-9 14 0"/><path d="M0 0q7-9 14 0"/>
+          </g>
+        </svg>
+        <p class="plc-cap"><span class="plc-tag">示意圖</span><span id="plcCap">　</span></p>
+      </div>
+
       <div class="steps">
         <div class="step">
           <div class="n">1</div>
@@ -653,17 +752,38 @@ function paintHeader(d){
     feed.textContent = '來源無回應';
     box.classList.add('stale');
   }
-  set('stamp', '資料擷取時間 ' + (d.updated || '未知')
+  paintStamp();
+}
+
+/* 「3 分鐘前更新」。抓取時間本身也要看得出新鮮度，否則畫面停住了也看不出來。 */
+function ago(iso){
+  var t = Date.parse(iso);
+  if(isNaN(t)) return '';
+  var s = Math.max(0, (Date.now() - t) / 1000);
+  if(s < 90)    return '剛剛更新';
+  if(s < 3600)  return Math.round(s / 60) + ' 分鐘前更新';
+  if(s < 86400) return Math.round(s / 3600) + ' 小時前更新';
+  return Math.round(s / 86400) + ' 天前更新';
+}
+
+var LAST = null;
+
+function paintStamp(){
+  var d = LAST || {};
+  var rel = d.generated_at ? '（' + ago(d.generated_at) + '）' : '';
+  set('stamp', '資料擷取時間 ' + (d.updated || '未知') + rel
     + '｜介接來源：台電即時發電、經濟部能源署、海保署 iOcean、農業部 TBN'
     + '｜生態與噪音的環評數字為報告核實值，非即時感測');
 }
 
 function paint(d){
+  LAST = d;
   paintHeader(d);
   paintSky(d.sky);
   paintSea(d.sea);
   paintLand(d.land);
   paintPower(d.power_live, d.power_year);
+  countUpAll();
 }
 
 function offline(){
@@ -671,10 +791,185 @@ function offline(){
           land:{value:'0.0', unit:'dB(A)', distance_m:2000, grade:'無影響或可忽略'} });
 }
 
-fetch('./data.json', {cache:'no-store'})
-  .then(function(r){ if(!r.ok) throw new Error('no data.json'); return r.json(); })
-  .then(paint)
-  .catch(offline);
+/* ---- 自動重抓 ----
+   排程每半小時會更新 data.json，但頁面原本只在載入時抓一次，
+   開著不動就會停在打開的那一刻。這裡每 5 分鐘重抓一次，
+   另外切回分頁時若已超過 1 分鐘也重抓，避免示範時畫面是舊的。 */
+var lastLoad = 0;
+
+function load(){
+  lastLoad = Date.now();
+  return fetch('./data.json', {cache:'no-store'})
+    .then(function(r){ if(!r.ok) throw new Error('no data.json'); return r.json(); })
+    .then(paint)
+    .catch(offline);
+}
+
+load();
+setInterval(load, 5 * 60 * 1000);
+setInterval(paintStamp, 30 * 1000);      /* 只重算相對時間，不打網路 */
+document.addEventListener('visibilitychange', function(){
+  if(!document.hidden && Date.now() - lastLoad > 60 * 1000) load();
+});
+
+/* ---- 大數字跑動 ----
+   滑到才觸發，而且每個數字只跑一次；之後 5 分鐘一次的自動更新
+   只會直接換數字，不會每次都重跑，免得看久了很煩。 */
+var REDUCE = window.matchMedia
+  && matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* 「3,588.8 MW」→ 前綴/數值/小數位/有無千分位/後綴 */
+function parseNum(txt){
+  var m = String(txt).match(/^(\D*?)([\d,]+(?:\.\d+)?)(.*)$/);
+  if(!m) return null;
+  return {
+    pre: m[1], post: m[3],
+    value: parseFloat(m[2].replace(/,/g, '')),
+    dec: (m[2].split('.')[1] || '').length,
+    comma: m[2].indexOf(',') >= 0
+  };
+}
+
+function fmtNum(v, p){
+  var s = v.toFixed(p.dec);
+  if(p.comma){
+    var q = s.split('.');
+    q[0] = (+q[0]).toLocaleString('en-US');
+    s = q.join('.');
+  }
+  return p.pre + s + p.post;
+}
+
+function countUp(el){
+  var target = el.getAttribute('data-target') || '';
+  var p = parseNum(target);
+  if(!p || REDUCE || !p.value){ el.textContent = target; return; }
+  if(el._raf) cancelAnimationFrame(el._raf);
+  var t0 = 0, dur = 1100;
+  function step(now){
+    if(!t0) t0 = now;
+    var k = Math.min(1, (now - t0) / dur);
+    var e = 1 - Math.pow(1 - k, 3);                  /* easeOutCubic */
+    if(k < 1){
+      el.textContent = fmtNum(p.value * e, p);
+      el._raf = requestAnimationFrame(step);
+    }else{
+      el.textContent = target;                       /* 收尾一定回到原字串 */
+      el._raf = 0;
+    }
+  }
+  el._raf = requestAnimationFrame(step);
+}
+
+var numIO = window.IntersectionObserver ? new IntersectionObserver(
+  function(items){
+    items.forEach(function(it){
+      if(!it.isIntersecting) return;
+      numIO.unobserve(it.target);
+      it.target.setAttribute('data-counted', '1');
+      countUp(it.target);
+    });
+  }, {threshold:.35}) : null;
+
+function countUpAll(){
+  var els = document.querySelectorAll('.panel .num, .stat .big');
+  [].forEach.call(els, function(el){
+    el.setAttribute('data-target', el.textContent);
+    if(el.getAttribute('data-counted') === '1') return;   /* 跑過了，直接顯示 */
+    var p = parseNum(el.textContent);
+    if(!p || !p.value) return;                            /* 「—」「0.0」不用跑 */
+    el.textContent = fmtNum(0, p);
+    if(numIO) numIO.observe(el);
+    else { el.setAttribute('data-counted', '1'); countUp(el); }
+  });
+}
+
+/* ---- 護鳥三部曲：PLC 降載演示 ----
+   一輪 15 秒：偵測 → PLC 下指令 → 葉片降速讓鳥通過 → 恢復發電。
+   葉片轉速用 rAF 平滑收斂到目標值，才看得出「煞車」而不是瞬間跳掉。 */
+(function(){
+  var box = document.getElementById('plc');
+  if(!box) return;
+  var blades = document.getElementById('blades');
+  var bird = document.getElementById('bird');
+  var cap = document.getElementById('plcCap');
+  var steps = document.querySelectorAll('.steps .step');
+
+  var FAST = 150, SLOW = 9, LOOP = 15;
+  var PHASES = [
+    {at:0,    step:0, text:'風機正常發電中'},
+    {at:2.4,  step:1, text:'雷達與熱影像偵測到鳥群接近'},
+    {at:5.2,  step:2, text:'PLC 判定風險，送出降載指令'},
+    {at:7.4,  step:3, text:'葉片降速，讓出通道'},
+    {at:11.6, step:0, text:'鳥群通過，恢復發電'}
+  ];
+
+  function show(i){
+    var p = PHASES[i];
+    box.setAttribute('data-phase', String(p.step));
+    cap.textContent = p.text;
+    [].forEach.call(steps, function(s, n){
+      s.classList.toggle('on', n === p.step - 1);
+    });
+  }
+
+  /* 關掉動態效果的人也要看得到結論，所以停在「降速讓鳥通過」那一格 */
+  if(REDUCE){
+    show(3);
+    blades.setAttribute('transform', 'rotate(18 560 68)');
+    bird.setAttribute('transform', 'translate(330,74)');
+    return;
+  }
+
+  var angle = 0, speed = FAST, last = 0, start = 0, cur = -1, run = false;
+
+  function frame(now){
+    if(!run) return;
+    if(!start){ start = now; last = now; }
+    var dt = Math.min(.05, (now - last) / 1000);
+    last = now;
+    var t = ((now - start) / 1000) % LOOP;
+
+    var i = 0;
+    for(var k = 0; k < PHASES.length; k++) if(t >= PHASES[k].at) i = k;
+    if(i !== cur){ cur = i; show(i); }
+
+    /* 降指令到鳥飛離這段期間踩煞車 */
+    var target = (t >= 5.6 && t < 11.6) ? SLOW : FAST;
+    speed += (target - speed) * Math.min(1, dt * 2.4);
+    angle = (angle + speed * dt) % 360;
+    blades.setAttribute('transform', 'rotate(' + angle.toFixed(1) + ' 560 68)');
+
+    /* 鳥從左邊飛進來、穿過風場、從右邊離開 */
+    var k2 = Math.max(0, Math.min(1, (t - 1.4) / 11));
+    var bx = -40 + k2 * 840;
+    var by = 74 + Math.sin(t * 2.6) * 7;
+    bird.setAttribute('transform', 'translate(' + bx.toFixed(1) + ',' + by.toFixed(1) + ')');
+
+    requestAnimationFrame(frame);
+  }
+
+  /* 捲出畫面就停掉，不要在背景一直燒 CPU */
+  function setRun(on){
+    if(on === run) return;
+    run = on;
+    if(on){ start = 0; requestAnimationFrame(frame); }
+  }
+
+  if(window.IntersectionObserver){
+    new IntersectionObserver(function(items){
+      setRun(items[0].isIntersecting);
+    }, {threshold:.2}).observe(box);
+  }else{
+    setRun(true);
+  }
+  document.addEventListener('visibilitychange', function(){
+    if(document.hidden){ setRun(false); return; }
+    /* 切回來要自己恢復——IntersectionObserver 不會因為分頁切換再觸發一次 */
+    var r = box.getBoundingClientRect();
+    setRun(r.bottom > 0 && r.top < innerHeight);
+  });
+})();
 
 /* ---- 引註溯源 ---- */
 document.querySelectorAll('.ref').forEach(function(b){

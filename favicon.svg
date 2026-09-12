@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img"
+     aria-label="離岸風機">
+  <rect width="64" height="64" rx="14" fill="#2A2438"/>
+  <!-- 海面 -->
+  <path d="M0 50h64v14H0z" fill="#35BE93" opacity=".22"/>
+  <path d="M0 50c6 0 6 3 12 3s6-3 12-3 6 3 12 3 6-3 12-3 6 3 12 3v11H0z"
+        fill="#35BE93" opacity=".35"/>
+  <!-- 塔架 -->
+  <path d="M30.4 50 31.3 25h1.4l.9 25z" fill="#D8D2E8"/>
+  <!-- 葉片 -->
+  <g fill="#2FA9DC">
+    <path d="M32 22 33.6 7.5a1.7 1.7 0 0 0-3.2 0z"/>
+    <path d="m33.4 24.6 13.3 6a1.7 1.7 0 0 0 1.6-2.8z"/>
+    <path d="m30.6 24.6-14.9 3.2a1.7 1.7 0 0 0 1.6 2.8z"/>
+  </g>
+  <circle cx="32" cy="23.5" r="3" fill="#FFC531"/>
+</svg>
