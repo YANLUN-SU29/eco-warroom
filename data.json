@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-13T02:42:26+08:00",
-  "updated": "2026-09-13 02:42",
+  "generated_at": "2026-09-13T02:44:32+08:00",
+  "updated": "2026-09-13 02:44",
   "power_live": {
     "status": "ok",
     "sample_time": "2026-09-13T02:30:00",
@@ -52,7 +52,7 @@
     ],
     "source": "台灣電力公司　各機組發電量即時資訊（含外購電力）",
     "source_url": "https://data.gov.tw/dataset/8931",
-    "fetched_at": "2026-09-13T02:42:26+08:00"
+    "fetched_at": "2026-09-13T02:44:33+08:00"
   },
   "power_year": {
     "status": "ok",
