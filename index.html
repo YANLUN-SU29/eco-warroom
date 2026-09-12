@@ -206,6 +206,14 @@ body{
   padding:5px 12px;font-size:12.5px;font-weight:700}
 .sea-note{background:var(--t-mint) !important;color:var(--ink-mint) !important}
 .fig-src{margin:14px 0 0;font-size:12.5px;color:var(--muted);line-height:1.75}
+.fig-src b{color:var(--ink)}
+.fig-src i{font-style:italic}
+/* 水下那組步驟與膠囊用薄荷色，跟天空那組（藍）分開。
+   選擇器要比後面的 .step .n 更明確，否則會被蓋掉。 */
+.steps.sea-steps .n{background:var(--t-mint);color:var(--ink-mint);
+  box-shadow:inset 0 0 0 2px var(--mint)}
+#reefFacts div{background:var(--t-mint);border-color:rgba(53,190,147,.26)}
+#reefFacts b{color:var(--ink-mint)}
 #zoneShallow,#zoneDeep{transition:opacity .25s ease}
 #depMark{transition:none}
 
@@ -508,7 +516,7 @@ input[type=range]:focus-visible::-webkit-slider-thumb{outline:3px solid var(--vi
         <p class="plc-cap"><span class="plc-tag">示意圖</span><span id="plcCap">　</span></p>
       </div>
 
-      <div class="steps">
+      <div class="steps" id="birdSteps">
         <div class="step">
           <div class="n">1</div>
           <h3>雷達與熱影像偵測</h3>
@@ -647,7 +655,36 @@ input[type=range]:focus-visible::-webkit-slider-thumb{outline:3px solid var(--vi
         <p class="analogy sea-note" id="depAnalogy"></p>
         <p class="fig-src" id="depLive"></p>
       </div>
-    </section>
+      <p class="lead" style="margin:34px 0 0">漁民擔心捕不到魚，結果剛好相反。原本是沙泥底的海域多了一組硬底質結構，生物就住了進來。</p>
+      <div class="steps sea-steps">
+        <div class="step">
+          <div class="n">1</div>
+          <h3>管架基座入海</h3>
+          <p>沙泥底的海域憑空多出硬底質，對附著生物來說是全新的落腳處。</p>
+        </div>
+        <div class="step">
+          <div class="n">2</div>
+          <h3>濾食生物附著</h3>
+          <p>藤壺、貽貝等濾食生物大量附著，本身就成了食物來源。</p>
+        </div>
+        <div class="step">
+          <div class="n">3</div>
+          <h3>魚群聚集覓食</h3>
+          <p>底棲生物與捕食性魚類跟著聚過來，形成人工魚礁效應。</p>
+        </div>
+      </div>
+      <div class="guard" id="reefFacts">
+        <div>基座周邊 30 公尺底棲魚類生物量 <b>約 1.5 倍</b>（對照 240 公尺處）</div>
+        <div>比目魚類 <b>1.6 倍</b>　黑線鱈 <b>1.5 倍</b></div>
+        <div>量測地點 <b>Beatrice 離岸風場</b>（蘇格蘭）</div>
+      </div>
+      <p class="fig-src">數據出自 Bicknell 等人（2026）<i>Frontiers in Marine Science</i> 13:1765872，
+        於蘇格蘭 Beatrice 風場實測管架基座周邊 250 公尺內的魚類生物量。
+        <b>但要講清楚</b>：該研究同時指出，目前無法判定這是把別處的魚「吸引」過來，
+        還是真的「增產」——作者原文稱這需要 direct evidence for enhanced production。
+        因此本站只陳述基座周邊生物量較高，不宣稱整體漁獲增加。</p>
+
+      </section>
 
     <section class="sec">
       <h2>發的電也一起看</h2>
@@ -697,6 +734,7 @@ input[type=range]:focus-visible::-webkit-slider-thumb{outline:3px solid var(--vi
       <li>海洋委員會海保署《iOcean 海洋生物目擊回報》CSV　<a href="https://data.gov.tw/dataset/157621" target="_blank" rel="noopener">data.gov.tw／157621</a></li>
       <li>農業部 臺灣生物多樣性網絡 TBN 物種觀測 API v2.6　<a href="https://www.tbn.org.tw/data/api/v26/occurrence" target="_blank" rel="noopener">API 說明</a></li>
       <li>國家海洋研究院 苗栗、雲彰風場生態監測期末報告</li>
+      <li>Bicknell 等（2026）離岸風機基座周邊魚類生物量實測　<a href="https://doi.org/10.3389/fmars.2026.1765872" target="_blank" rel="noopener">Frontiers in Marine Science 13:1765872</a></li>
       <li>環境部環評書件：大中部離岸風力發電計畫、海洋竹南（第 6 次變更）</li>
     </ul>
     <p class="team" style="border-top:0;padding-top:0;margin-top:10px">發電與生態數字由 <code>scripts/fetch_data.py</code> 直接向上列出處抓取後產生 <code>data.json</code>，非人工輸入；抓不到的來源會標示「來源無回應」，不以舊值假裝即時。</p>
@@ -1166,7 +1204,7 @@ function countUpAll(){
   var blades = document.getElementById('blades');
   var bird = document.getElementById('bird');
   var cap = document.getElementById('plcCap');
-  var steps = document.querySelectorAll('.steps .step');
+  var steps = document.querySelectorAll('#birdSteps .step');
 
   var FAST = 150, SLOW = 9, LOOP = 15;
   var PHASES = [
