@@ -1,59 +1,59 @@
 {
-  "generated_at": "2026-09-13T02:46:57+08:00",
-  "updated": "2026-09-13 02:46",
+  "generated_at": "2026-09-13T04:57:52+08:00",
+  "updated": "2026-09-13 04:57",
   "power_live": {
     "status": "ok",
-    "sample_time": "2026-09-13T02:40:00",
-    "total_mw": 1215.9,
+    "sample_time": "2026-09-13T04:50:00",
+    "total_mw": 1459.2,
     "farm_count": 16,
     "capacity_mw": 3042.9,
-    "capacity_factor": 21.0,
+    "capacity_factor": 24.3,
     "farms": [
       {
-        "name": "沃四風",
-        "mw": 374.9,
-        "cap": null
-      },
-      {
         "name": "沃一風",
-        "mw": 335.2,
+        "mw": 488.0,
         "cap": 605.2
       },
       {
+        "name": "沃四風",
+        "mw": 432.1,
+        "cap": null
+      },
+      {
         "name": "沃二風",
-        "mw": 163.2,
+        "mw": 236.3,
         "cap": 294.8
       },
       {
         "name": "龍A風",
-        "mw": 98.0,
+        "mw": 134.2,
+        "cap": null
+      },
+      {
+        "name": "龍B風",
+        "mw": 81.5,
         "cap": null
       },
       {
         "name": "沃南風",
-        "mw": 61.2,
+        "mw": 71.1,
         "cap": null
       },
       {
-        "name": "芳二風",
-        "mw": 49.6,
-        "cap": 499.2
+        "name": "允西",
+        "mw": 9.2,
+        "cap": 320.0
       },
       {
-        "name": "龍B風",
-        "mw": 41.8,
-        "cap": null
-      },
-      {
-        "name": "中能風",
-        "mw": 26.3,
-        "cap": 294.5
+        "name": "允湖",
+        "mw": 5.6,
+        "cap": 320.0
       }
     ],
     "source": "台灣電力公司　各機組發電量即時資訊（含外購電力）",
     "source_url": "https://data.gov.tw/dataset/8931",
     "live_url": "https://dr.taipower.com.tw/d006/loadGraph/loadGraph/genshx_.html",
-    "fetched_at": "2026-09-13T02:46:58+08:00"
+    "fetched_at": "2026-09-13T04:57:53+08:00"
   },
   "power_year": {
     "status": "ok",
@@ -138,7 +138,7 @@
       }
     ],
     "species_at": "2026-09-13T02:07:44+08:00",
-    "fetched_at": "2026-09-13T02:38:15+08:00"
+    "fetched_at": "2026-09-13T04:57:54+08:00"
   },
   "land": {
     "status": "model",
