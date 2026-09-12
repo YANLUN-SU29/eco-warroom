@@ -41,6 +41,8 @@ SOURCES = {
         "name": "台灣電力公司　各機組發電量即時資訊（含外購電力）",
         "url": "https://service.taipower.com.tw/data/opendata/apply/file/d006001/001.json",
         "page": "https://data.gov.tw/dataset/8931",
+        # 台電自己的即時表格頁，數字可以當場逐列核對
+        "live_page": "https://dr.taipower.com.tw/d006/loadGraph/loadGraph/genshx_.html",
     },
     "energy": {
         "name": "經濟部能源署　發電量年資料（再生能源_風力_全國）",
@@ -163,6 +165,7 @@ def get_taipower():
         "farms": farms[:8],
         "source": src["name"],
         "source_url": src["page"],
+        "live_url": src["live_page"],
     }
 
 

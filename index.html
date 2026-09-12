@@ -207,6 +207,9 @@ body{
 .sea-note{background:var(--t-mint) !important;color:var(--ink-mint) !important}
 .fig-src{margin:14px 0 0;font-size:12.5px;color:var(--muted);line-height:1.75}
 .fig-src b{color:var(--ink)}
+.fig-src a{color:#1B6E96;text-decoration:none;font-weight:700;
+  border-bottom:1px solid rgba(47,169,220,.45)}
+.fig-src a:hover{border-bottom-color:var(--sky)}
 .fig-src i{font-style:italic}
 /* 水下那組步驟與膠囊用薄荷色，跟天空那組（藍）分開。
    選擇器要比後面的 .step .n 更明確，否則會被蓋掉。 */
@@ -701,6 +704,10 @@ input[type=range]:focus-visible::-webkit-slider-thumb{outline:3px solid var(--vi
       </div>
       <div class="guard" id="farms"></div>
       <div class="guard" id="growth"></div>
+      <p class="fig-src">即時出力是台電〈各機組發電量〉表中所有離岸風場的加總。
+        數字可以當場核對：打開 <a href="https://dr.taipower.com.tw/d006/loadGraph/loadGraph/genshx_.html"
+        target="_blank" rel="noopener">台電即時頁面</a>，機組類型「風力」裡的
+        離岸一期、海洋竹南、海能風、沃一風等就是本站統計的範圍。</p>
     </section>
 
     <section class="sec">
@@ -727,7 +734,7 @@ input[type=range]:focus-visible::-webkit-slider-thumb{outline:3px solid var(--vi
   <div class="wrap">
     <h3>資料來源</h3>
     <ul>
-      <li>台灣電力公司《各機組發電量即時資訊（含外購電力）》JSON　<a href="https://data.gov.tw/dataset/8931" target="_blank" rel="noopener">data.gov.tw／8931</a></li>
+      <li>台灣電力公司《各機組發電量即時資訊（含外購電力）》JSON　<a href="https://data.gov.tw/dataset/8931" target="_blank" rel="noopener">data.gov.tw／8931</a>　<a href="https://dr.taipower.com.tw/d006/loadGraph/loadGraph/genshx_.html" target="_blank" rel="noopener">台電即時頁面</a></li>
       <li>經濟部能源署《發電量年資料》CSV　<a href="https://data.gov.tw/dataset/16481" target="_blank" rel="noopener">data.gov.tw／16481</a></li>
       <li>海洋委員會海保署《iOcean 海洋生物目擊回報》CSV　<a href="https://data.gov.tw/dataset/157621" target="_blank" rel="noopener">data.gov.tw／157621</a></li>
       <li>農業部 臺灣生物多樣性網絡 TBN 物種觀測 API v2.6　<a href="https://www.tbn.org.tw/data/api/v26/occurrence" target="_blank" rel="noopener">API 說明</a></li>
