@@ -36,9 +36,11 @@ UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
 # 與提案書「五、開放資料 API 介接與參考文獻」逐項對應
 SOURCES = {
     "taipower": {
-        "name": "台灣電力公司　即時各機組發電量",
+        # 名稱用 data.gov.tw 上的正式名稱。「含外購電力」不是贅字——
+        # 統計到的離岸風場（沃一風、海能風等）都是購電，不是台電自有機組。
+        "name": "台灣電力公司　各機組發電量即時資訊（含外購電力）",
         "url": "https://service.taipower.com.tw/data/opendata/apply/file/d006001/001.json",
-        "page": "https://service.taipower.com.tw/data/opendata/apply/html/d006001.html",
+        "page": "https://data.gov.tw/dataset/8931",
     },
     "energy": {
         "name": "經濟部能源署　發電量年資料（再生能源_風力_全國）",
@@ -435,7 +437,7 @@ def main():
         "distance_m": 2000,
         "grade": "無影響或可忽略",
         "source": "環境部《海洋竹南離岸式風力發電計畫（第 6 次變更）環境影響差異分析報告》SoundPLAN 模型",
-        "source_url": "https://eiareport.moenv.gov.tw/",
+        "source_url": "https://eiadoc.moenv.gov.tw/eiaweb/",
     }
 
     ok = [k for k in KEY2SRC if out[k]["status"] == "ok"]

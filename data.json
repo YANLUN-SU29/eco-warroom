@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-13T02:39:00+08:00",
-  "updated": "2026-09-13 02:39",
+  "generated_at": "2026-09-13T02:42:26+08:00",
+  "updated": "2026-09-13 02:42",
   "power_live": {
     "status": "ok",
     "sample_time": "2026-09-13T02:30:00",
@@ -50,9 +50,9 @@
         "cap": 294.5
       }
     ],
-    "source": "台灣電力公司　即時各機組發電量",
-    "source_url": "https://service.taipower.com.tw/data/opendata/apply/html/d006001.html",
-    "fetched_at": "2026-09-13T02:39:02+08:00"
+    "source": "台灣電力公司　各機組發電量即時資訊（含外購電力）",
+    "source_url": "https://data.gov.tw/dataset/8931",
+    "fetched_at": "2026-09-13T02:42:26+08:00"
   },
   "power_year": {
     "status": "ok",
@@ -146,7 +146,7 @@
     "distance_m": 2000,
     "grade": "無影響或可忽略",
     "source": "環境部《海洋竹南離岸式風力發電計畫（第 6 次變更）環境影響差異分析報告》SoundPLAN 模型",
-    "source_url": "https://eiareport.moenv.gov.tw/"
+    "source_url": "https://eiadoc.moenv.gov.tw/eiaweb/"
   },
   "live": true,
   "live_count": 4,
