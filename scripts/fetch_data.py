@@ -43,6 +43,9 @@ SOURCES = {
         "page": "https://data.gov.tw/dataset/8931",
         # 台電自己的即時表格頁，數字可以當場逐列核對
         "live_page": "https://dr.taipower.com.tw/d006/loadGraph/loadGraph/genshx_.html",
+        # 即時頁面同源的資料檔。比 d006001 多一欄「離岸風力台電自有／購電」，
+        # 離岸的判定直接用它，不要自己猜名稱。
+        "category_url": "https://dr.taipower.com.tw/d006/loadGraph/loadGraph/data/genary.json",
     },
     "energy": {
         "name": "經濟部能源署　發電量年資料（再生能源_風力_全國）",
@@ -123,45 +126,79 @@ def yi_du(gwh):
 
 
 # ------------------------------------------------------------ 1. 台電即時
-def get_taipower():
-    src = SOURCES["taipower"]
-    raw = json.loads(decode(fetch(src["url"])))
-    rows = raw.get("aaData") or []
-    farms, total_mw, total_cap = [], 0.0, 0.0
+def strip_tags(x):
+    return re.sub(r"<[^>]+>", "", str(x or "")).replace("&amp;", "&").strip()
 
-    for r in rows:
-        if r.get("機組類型") != "風力":
-            continue
-        name = (r.get("機組名稱") or "").strip()
-        if not name or name.startswith("小計"):
-            continue
-        if not name.startswith(OFFSHORE_PREFIX):
-            continue
-        mw = num(r.get("淨發電量(MW)"))
-        cap = num(r.get("裝置容量(MW)"))
-        if mw is None:
-            continue
-        # (註10) 這種尾註不是風場名稱的一部分，拿掉才好讀
-        clean = re.sub(r"\(註\d+\)", "", name).strip()
-        farms.append({"name": clean, "mw": round(mw, 1),
-                      "cap": round(cap, 1) if cap else None})
-        total_mw += mw
-        if cap:
-            total_cap += cap
+
+def farm_name(x):
+    """「沃四風(註10)」→「沃四風」。尾註不是風場名稱的一部分。"""
+    return re.sub(r"\(註\d+\)", "", strip_tags(x)).strip()
+
+
+def get_taipower():
+    """離岸風場即時出力。
+
+    分類直接用台電自己標的「離岸風力台電自有」「離岸風力購電」，不自己猜。
+    genary.json（台電即時頁面同源）第 2 欄就是這個分類；data.gov.tw 登記的
+    d006001 只有「風力」一層，分不出離岸陸域，所以拿它當備援時才退回名稱比對。
+    """
+    src = SOURCES["taipower"]
+    farms, sample, basis = [], None, None
+
+    try:
+        raw = json.loads(decode(fetch(src["category_url"])))
+        sample = raw.get("")                      # genary.json 把時間放在空字串鍵
+        for r in raw.get("aaData") or []:
+            if len(r) < 5 or "離岸風力" not in strip_tags(r[1]):
+                continue
+            mw, cap = num(strip_tags(r[4])), num(strip_tags(r[3]))
+            if mw is None:
+                continue
+            farms.append({"name": farm_name(r[2]), "mw": round(mw, 1),
+                          "cap": round(cap, 1) if cap else None,
+                          "owner": "台電自有" if "自有" in strip_tags(r[1]) else "民營購電"})
+        basis = "台電官方分類（離岸風力台電自有／購電）"
+    except Exception as e:
+        print("[warn] genary 分類資料抓不到，改用登記版 d006001：%s" % e)
+
+    if not farms:
+        # 備援：d006001 沒有離岸／陸域分類，只能用名稱比對。
+        # 這份清單會漏掉之後才併網、名字不在裡面的新風場，所以只當備援。
+        raw = json.loads(decode(fetch(src["url"])))
+        sample = raw.get("DateTime")
+        for r in raw.get("aaData") or []:
+            if r.get("機組類型") != "風力":
+                continue
+            name = (r.get("機組名稱") or "").strip()
+            if not name or name.startswith("小計") or not name.startswith(OFFSHORE_PREFIX):
+                continue
+            mw, cap = num(r.get("淨發電量(MW)")), num(r.get("裝置容量(MW)"))
+            if mw is None:
+                continue
+            farms.append({"name": farm_name(name), "mw": round(mw, 1),
+                          "cap": round(cap, 1) if cap else None, "owner": None})
+        basis = "名稱比對（備援，台電分類資料無法取得）"
 
     if not farms:
         raise ValueError("台電回傳裡找不到離岸風力機組")
 
     farms.sort(key=lambda f: f["mw"], reverse=True)
+    total_mw = sum(f["mw"] for f in farms)
+    total_cap = sum(f["cap"] for f in farms if f["cap"])
     # 部分新併網風場容量欄位是「-」。容量因數只用有申報容量的機組算，才不會灌水。
     rated_mw = sum(f["mw"] for f in farms if f["cap"])
+    owned = [f for f in farms if f.get("owner") == "台電自有"]
+
     return {
         "status": "ok",
-        "sample_time": raw.get("DateTime"),
+        "sample_time": sample,
         "total_mw": round(total_mw, 1),
         "farm_count": len(farms),
+        "owned_count": len(owned) or None,
+        "ipp_count": (len(farms) - len(owned)) or None,
         "capacity_mw": round(total_cap, 1),
         "capacity_factor": round(rated_mw / total_cap * 100, 1) if total_cap else None,
+        "classification": basis,
         "farms": farms[:8],
         "source": src["name"],
         "source_url": src["page"],
