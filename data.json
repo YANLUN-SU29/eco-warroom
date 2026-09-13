@@ -1,38 +1,38 @@
 {
-  "generated_at": "2026-09-14T03:53:19+08:00",
-  "updated": "2026-09-14 03:53",
+  "generated_at": "2026-09-14T06:12:39+08:00",
+  "updated": "2026-09-14 06:12",
   "power_live": {
     "status": "ok",
-    "sample_time": "2026-09-14T03:40:00",
-    "total_mw": 2511.8,
+    "sample_time": "2026-09-14T06:00:00",
+    "total_mw": 2614.6,
     "farm_count": 16,
     "owned_count": null,
     "ipp_count": 16,
     "capacity_mw": 3042.9,
-    "capacity_factor": 52.6,
+    "capacity_factor": 56.2,
     "classification": "名稱比對（備援，台電分類資料無法取得）",
     "farms": [
       {
         "name": "沃一風",
-        "mw": 584.1,
+        "mw": 582.4,
         "cap": 605.2,
         "owner": null
       },
       {
         "name": "沃四風",
-        "mw": 439.8,
+        "mw": 436.9,
         "cap": null,
         "owner": null
       },
       {
         "name": "芳二風",
-        "mw": 304.9,
+        "mw": 306.9,
         "cap": 499.2,
         "owner": null
       },
       {
         "name": "沃二風",
-        "mw": 279.7,
+        "mw": 279.2,
         "cap": 294.8,
         "owner": null
       },
@@ -44,19 +44,19 @@
       },
       {
         "name": "龍B風",
-        "mw": 192.8,
+        "mw": 190.1,
         "cap": null,
         "owner": null
       },
       {
         "name": "海能風",
-        "mw": 186.1,
+        "mw": 180.4,
         "cap": 376.0,
         "owner": null
       },
       {
         "name": "中能風",
-        "mw": 98.4,
+        "mw": 168.4,
         "cap": 294.5,
         "owner": null
       }
@@ -64,7 +64,7 @@
     "source": "台灣電力公司　各機組發電量即時資訊（含外購電力）",
     "source_url": "https://data.gov.tw/dataset/8931",
     "live_url": "https://dr.taipower.com.tw/d006/loadGraph/loadGraph/genshx_.html",
-    "fetched_at": "2026-09-14T03:53:21+08:00"
+    "fetched_at": "2026-09-14T06:12:41+08:00"
   },
   "power_year": {
     "status": "ok",
@@ -151,7 +151,7 @@
       }
     ],
     "species_at": "2026-09-14T02:30:29+08:00",
-    "fetched_at": "2026-09-14T03:53:21+08:00"
+    "fetched_at": "2026-09-14T06:12:42+08:00"
   },
   "land": {
     "status": "model",
