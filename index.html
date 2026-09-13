@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="海陸空生態戰情室">
 <meta property="og:url" content="https://yanlun-su29.github.io/eco-warroom/">
 <meta property="og:title" content="風機是鳥類果汁機？海豚殺手？｜海陸空生態戰情室">
-<meta property="og:description" content="三個離岸風電的都市傳說，用四個政府開放資料 API 一次拆完。數字每半小時自動更新，抓不到就明說，不以舊值假裝即時。">
+<meta property="og:description" content="三個離岸風電的都市傳說，用四個政府開放資料 API 一次拆完。數字定時自動更新並標示擷取時間，抓不到就明說，不以舊值假裝即時。">
 <meta property="og:image" content="https://yanlun-su29.github.io/eco-warroom/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -973,11 +973,14 @@ function paintPower(live, year){
   }
 
   if(usable(year)){
-    set('s2lab', year.year + ' 年全國風力發電量');
+    /* 標籤一定要寫明「陸域＋離岸」。能源署這份開放資料沒有分離岸／陸域，
+       簡報講的是離岸口徑，兩邊擺在一起不寫清楚就會看起來互相矛盾。 */
+    set('s2lab', year.year + ' 年風力發電量（陸域＋離岸）');
     set('s2val', year.yi.toFixed(1) + ' 億度');
     var g = year.growth_pct;
     set('s2note', '較前一年 ' + (g >= 0 ? '+' : '') + g.toFixed(2)
-      + '%｜以 Python 讀取能源署原始 CSV 重算');
+      + '%｜以 Python 讀取能源署原始 CSV 重算'
+      + '｜此為全國風力合計，能源署開放資料未分離岸／陸域');
     chips('growth', (year.growth_series || []).map(function(x){
       return x.year + ' 年成長 <b>' + (x.pct >= 0 ? '+' : '') + x.pct.toFixed(2) + '%</b>';
     }));
@@ -1069,7 +1072,7 @@ function offline(){
 }
 
 /* ---- 自動重抓 ----
-   排程每半小時會更新 data.json，但頁面原本只在載入時抓一次，
+   排程會定時更新 data.json，但頁面原本只在載入時抓一次，
    開著不動就會停在打開的那一刻。這裡每 5 分鐘重抓一次，
    另外切回分頁時若已超過 1 分鐘也重抓，避免示範時畫面是舊的。 */
 var lastLoad = 0;
