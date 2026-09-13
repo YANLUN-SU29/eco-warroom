@@ -1,59 +1,59 @@
 {
-  "generated_at": "2026-09-13T06:57:00+08:00",
-  "updated": "2026-09-13 06:57",
+  "generated_at": "2026-09-13T08:47:44+08:00",
+  "updated": "2026-09-13 08:47",
   "power_live": {
     "status": "ok",
-    "sample_time": "2026-09-13T06:50:00",
-    "total_mw": 961.4,
+    "sample_time": "2026-09-13T08:40:00",
+    "total_mw": 1023.1,
     "farm_count": 16,
     "capacity_mw": 3042.9,
-    "capacity_factor": 12.0,
+    "capacity_factor": 14.5,
     "farms": [
       {
         "name": "沃四風",
-        "mw": 358.3,
+        "mw": 377.4,
         "cap": null
-      },
-      {
-        "name": "沃一風",
-        "mw": 202.7,
-        "cap": 605.2
       },
       {
         "name": "沃二風",
-        "mw": 156.2,
+        "mw": 240.8,
         "cap": 294.8
       },
       {
-        "name": "龍B風",
-        "mw": 90.5,
-        "cap": null
+        "name": "沃一風",
+        "mw": 193.2,
+        "cap": 605.2
       },
       {
         "name": "龍A風",
-        "mw": 85.4,
+        "mw": 75.9,
         "cap": null
       },
       {
         "name": "沃南風",
-        "mw": 60.0,
+        "mw": 75.5,
+        "cap": null
+      },
+      {
+        "name": "龍B風",
+        "mw": 51.8,
         "cap": null
       },
       {
         "name": "芳二風",
-        "mw": 7.6,
+        "mw": 5.0,
         "cap": 499.2
       },
       {
-        "name": "離岸二期",
-        "mw": 0.7,
-        "cap": null
+        "name": "允湖",
+        "mw": 2.5,
+        "cap": 320.0
       }
     ],
     "source": "台灣電力公司　各機組發電量即時資訊（含外購電力）",
     "source_url": "https://data.gov.tw/dataset/8931",
     "live_url": "https://dr.taipower.com.tw/d006/loadGraph/loadGraph/genshx_.html",
-    "fetched_at": "2026-09-13T06:57:01+08:00"
+    "fetched_at": "2026-09-13T08:47:46+08:00"
   },
   "power_year": {
     "status": "ok",
@@ -93,7 +93,7 @@
     "window": "近 12 個月",
     "source": "海洋委員會海保署　iOcean 海洋生物目擊回報",
     "source_url": "https://data.gov.tw/dataset/157621",
-    "fetched_at": "2026-09-13T02:38:14+08:00"
+    "fetched_at": "2026-09-13T08:47:48+08:00"
   },
   "sky": {
     "status": "ok",
@@ -138,7 +138,7 @@
       }
     ],
     "species_at": "2026-09-13T02:07:44+08:00",
-    "fetched_at": "2026-09-13T06:57:02+08:00"
+    "fetched_at": "2026-09-13T08:47:49+08:00"
   },
   "land": {
     "status": "model",
