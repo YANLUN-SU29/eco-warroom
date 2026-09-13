@@ -75,6 +75,26 @@ UI 也註明「非即時感測」。
 - GitHub → Actions → 更新開放資料 → Run workflow，或
 - 本機執行 `py -3 scripts/fetch_data.py` 後 commit、push
 
+### 想要真的每 10 分鐘：用本機排程
+
+`scripts/auto_update.ps1` 會抓取、有變動才 commit 並 push，說十分鐘就是十分鐘，
+代價是電腦要開著。註冊（PowerShell，不需要系統管理員）：
+
+```powershell
+$a = New-ScheduledTaskAction -Execute "powershell.exe" `
+       -Argument '-NoProfile -WindowStyle Hidden -ExecutionPolicy Bypass -File "D:\程式\eco-warroom\scriptsuto_update.ps1"'
+$t = New-ScheduledTaskTrigger -Once -At (Get-Date) `
+       -RepetitionInterval (New-TimeSpan -Minutes 10)
+Register-ScheduledTask -TaskName "eco-warroom 更新開放資料" -Action $a -Trigger $t
+```
+
+停用：`Unregister-ScheduledTask -TaskName "eco-warroom 更新開放資料" -Confirm:$false`
+紀錄：`Get-Content "$env:TEMP\eco-warroom-update.log" -Tail 20`
+
+這支只能在 Windows PowerShell 5.1 下正確讀中文，所以檔案存成 UTF-8 with BOM，
+編輯時不要把 BOM 去掉。另外用 `py -3` 而不是 `python`，因為 Windows 的 `python`
+可能指到 Microsoft Store 的空殼。
+
 ### 抓不到的時候
 
 三個原則：
