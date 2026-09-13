@@ -1,59 +1,59 @@
 {
-  "generated_at": "2026-09-13T13:25:42+08:00",
-  "updated": "2026-09-13 13:25",
+  "generated_at": "2026-09-13T18:31:19+08:00",
+  "updated": "2026-09-13 18:31",
   "power_live": {
     "status": "ok",
-    "sample_time": "2026-09-13T13:20:00",
-    "total_mw": 436.0,
+    "sample_time": "2026-09-13T18:20:00",
+    "total_mw": 3092.9,
     "farm_count": 16,
     "capacity_mw": 3042.9,
-    "capacity_factor": 5.9,
+    "capacity_factor": 71.8,
     "farms": [
       {
-        "name": "沃四風",
-        "mw": 200.0,
-        "cap": null
-      },
-      {
-        "name": "沃二風",
-        "mw": 75.9,
-        "cap": 294.8
-      },
-      {
         "name": "沃一風",
-        "mw": 75.6,
+        "mw": 580.2,
         "cap": 605.2
       },
       {
-        "name": "龍A風",
-        "mw": 20.6,
+        "name": "沃四風",
+        "mw": 438.1,
         "cap": null
       },
       {
-        "name": "沃南風",
-        "mw": 20.4,
-        "cap": null
+        "name": "芳二風",
+        "mw": 430.9,
+        "cap": 499.2
+      },
+      {
+        "name": "沃二風",
+        "mw": 276.6,
+        "cap": 294.8
+      },
+      {
+        "name": "中能風",
+        "mw": 272.0,
+        "cap": 294.5
       },
       {
         "name": "海能風",
-        "mw": 15.8,
+        "mw": 232.9,
         "cap": 376.0
       },
       {
-        "name": "龍B風",
-        "mw": 13.3,
+        "name": "龍A風",
+        "mw": 197.4,
         "cap": null
       },
       {
-        "name": "海洋竹南",
-        "mw": 5.9,
-        "cap": 128.0
+        "name": "龍B風",
+        "mw": 190.4,
+        "cap": null
       }
     ],
     "source": "台灣電力公司　各機組發電量即時資訊（含外購電力）",
     "source_url": "https://data.gov.tw/dataset/8931",
     "live_url": "https://dr.taipower.com.tw/d006/loadGraph/loadGraph/genshx_.html",
-    "fetched_at": "2026-09-13T13:25:43+08:00"
+    "fetched_at": "2026-09-13T18:31:20+08:00"
   },
   "power_year": {
     "status": "ok",
@@ -93,7 +93,7 @@
     "window": "近 12 個月",
     "source": "海洋委員會海保署　iOcean 海洋生物目擊回報",
     "source_url": "https://data.gov.tw/dataset/157621",
-    "fetched_at": "2026-09-13T08:47:48+08:00"
+    "fetched_at": "2026-09-13T18:31:23+08:00"
   },
   "sky": {
     "status": "ok",
@@ -138,7 +138,7 @@
       }
     ],
     "species_at": "2026-09-13T02:07:44+08:00",
-    "fetched_at": "2026-09-13T13:25:44+08:00"
+    "fetched_at": "2026-09-13T18:31:24+08:00"
   },
   "land": {
     "status": "model",
