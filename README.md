@@ -82,7 +82,7 @@ UI 也註明「非即時感測」。
 
 ```powershell
 $a = New-ScheduledTaskAction -Execute "powershell.exe" `
-       -Argument '-NoProfile -WindowStyle Hidden -ExecutionPolicy Bypass -File "D:\程式\eco-warroom\scriptsuto_update.ps1"'
+       -Argument '-NoProfile -WindowStyle Hidden -ExecutionPolicy Bypass -File "D:\程式\eco-warroom\scripts\auto_update.ps1"'
 $t = New-ScheduledTaskTrigger -Once -At (Get-Date) `
        -RepetitionInterval (New-TimeSpan -Minutes 10)
 Register-ScheduledTask -TaskName "eco-warroom 更新開放資料" -Action $a -Trigger $t
