@@ -1,47 +1,47 @@
 {
-  "generated_at": "2026-09-13T18:31:19+08:00",
-  "updated": "2026-09-13 18:31",
+  "generated_at": "2026-09-13T21:10:03+08:00",
+  "updated": "2026-09-13 21:10",
   "power_live": {
     "status": "ok",
-    "sample_time": "2026-09-13T18:20:00",
-    "total_mw": 3092.9,
+    "sample_time": "2026-09-13T21:00:00",
+    "total_mw": 3032.1,
     "farm_count": 16,
     "capacity_mw": 3042.9,
-    "capacity_factor": 71.8,
+    "capacity_factor": 70.0,
     "farms": [
       {
         "name": "沃一風",
-        "mw": 580.2,
+        "mw": 576.5,
         "cap": 605.2
       },
       {
         "name": "沃四風",
-        "mw": 438.1,
+        "mw": 436.0,
         "cap": null
       },
       {
         "name": "芳二風",
-        "mw": 430.9,
+        "mw": 420.0,
         "cap": 499.2
       },
       {
         "name": "沃二風",
-        "mw": 276.6,
+        "mw": 273.8,
         "cap": 294.8
       },
       {
         "name": "中能風",
-        "mw": 272.0,
+        "mw": 263.5,
         "cap": 294.5
       },
       {
         "name": "海能風",
-        "mw": 232.9,
+        "mw": 241.5,
         "cap": 376.0
       },
       {
         "name": "龍A風",
-        "mw": 197.4,
+        "mw": 197.6,
         "cap": null
       },
       {
@@ -53,7 +53,7 @@
     "source": "台灣電力公司　各機組發電量即時資訊（含外購電力）",
     "source_url": "https://data.gov.tw/dataset/8931",
     "live_url": "https://dr.taipower.com.tw/d006/loadGraph/loadGraph/genshx_.html",
-    "fetched_at": "2026-09-13T18:31:20+08:00"
+    "fetched_at": "2026-09-13T21:10:04+08:00"
   },
   "power_year": {
     "status": "ok",
@@ -138,7 +138,7 @@
       }
     ],
     "species_at": "2026-09-13T02:07:44+08:00",
-    "fetched_at": "2026-09-13T18:31:24+08:00"
+    "fetched_at": "2026-09-13T21:10:04+08:00"
   },
   "land": {
     "status": "model",
