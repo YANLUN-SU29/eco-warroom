@@ -741,7 +741,7 @@ input[type=range]:focus-visible::-webkit-slider-thumb{outline:3px solid var(--vi
     <h3>資料來源</h3>
     <ul>
       <li>台灣電力公司《各機組發電量即時資訊（含外購電力）》JSON　<a href="https://data.gov.tw/dataset/8931" target="_blank" rel="noopener">data.gov.tw／8931</a>　<a href="https://dr.taipower.com.tw/d006/loadGraph/loadGraph/genshx_.html" target="_blank" rel="noopener">台電即時頁面</a></li>
-      <li>經濟部能源署《發電量年資料》CSV　<a href="https://data.gov.tw/dataset/16481" target="_blank" rel="noopener">data.gov.tw／16481</a></li>
+      <li>經濟部能源署《4-01 再生能源發電量》能源統計專區 OPEN API（陸域／離岸分列）　<a href="https://ea01.moeaea.gov.tw/a0303/02/database/api/" target="_blank" rel="noopener">API 專區</a>　備援 <a href="https://data.gov.tw/dataset/16481" target="_blank" rel="noopener">data.gov.tw／16481</a></li>
       <li>海洋委員會海保署《iOcean 海洋生物目擊回報》CSV　<a href="https://data.gov.tw/dataset/157621" target="_blank" rel="noopener">data.gov.tw／157621</a></li>
       <li>農業部 臺灣生物多樣性網絡 TBN 物種觀測 API v2.6　<a href="https://www.tbn.org.tw/data/api/v26/occurrence" target="_blank" rel="noopener">API 說明</a></li>
       <li>國家海洋研究院 苗栗、雲彰風場生態監測期末報告</li>
@@ -977,16 +977,21 @@ function paintPower(live, year){
   }
 
   if(usable(year)){
-    /* 標籤一定要寫明「陸域＋離岸」。能源署這份開放資料沒有分離岸／陸域，
-       簡報講的是離岸口徑，兩邊擺在一起不寫清楚就會看起來互相矛盾。 */
-    set('s2lab', year.year + ' 年風力發電量（陸域＋離岸）');
+    /* 能源統計專區 API 的 4-01 有陸域／離岸分欄，所以能直接講離岸口徑，
+       跟簡報對得起來。備援的 CSV 只有合計，那時 scope 會是 wind_total。 */
+    var off = year.scope === 'offshore';
+    set('s2lab', year.year + (off ? ' 年離岸風電發電量' : ' 年風力發電量（陸域＋離岸）'));
     set('s2val', year.yi.toFixed(1) + ' 億度');
     var g = year.growth_pct;
-    set('s2note', '較前一年 ' + (g >= 0 ? '+' : '') + g.toFixed(2)
-      + '%｜以 Python 讀取能源署原始 CSV 重算'
-      + '｜此為全國風力合計，能源署開放資料未分離岸／陸域');
+    set('s2note', '較前一年 ' + (g >= 0 ? '+' : '') + g.toFixed(2) + '%'
+      + (off && year.wind_total_yi
+           ? '｜同年全國風力合計 ' + year.wind_total_yi.toFixed(1) + ' 億度（含陸域 '
+             + year.onshore_yi.toFixed(1) + ' 億度）' : '')
+      + '｜' + (off ? '能源署能源統計專區 API，陸域／離岸分列'
+                    : '備援來源為年資料 CSV，未分離岸／陸域'));
     chips('growth', (year.growth_series || []).map(function(x){
-      return x.year + ' 年成長 <b>' + (x.pct >= 0 ? '+' : '') + x.pct.toFixed(2) + '%</b>';
+      return x.year + ' 年' + (off ? '離岸' : '') + '成長 <b>'
+        + (x.pct >= 0 ? '+' : '') + x.pct.toFixed(2) + '%</b>';
     }));
   }else{
     set('s2val', '—');

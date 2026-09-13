@@ -48,9 +48,16 @@ SOURCES = {
         "category_url": "https://dr.taipower.com.tw/d006/loadGraph/loadGraph/data/genary.json",
     },
     "energy": {
-        "name": "經濟部能源署　發電量年資料（再生能源_風力_全國）",
-        "url": "https://www.moeaea.gov.tw/ECW/populace/opendata/wHandOpenData_File.ashx?set_id=70",
-        "page": "https://data.gov.tw/dataset/16481",
+        # 能源統計專區 OPEN API 的 4-01 再生能源發電量。這是目前唯一查得到
+        # 離岸「發電量」的政府資料——它把風力分成陸域與離岸兩欄。
+        # Swagger: https://ea01.moeaea.gov.tw/a0303/02/api/pages/database/api
+        "name": "經濟部能源署　能源統計專區 OPEN API《4-01 再生能源發電量》",
+        "url": "https://ea01.moeaea.gov.tw/a0303/02/api/v1/zone/monthly/4/1",
+        "page": "https://ea01.moeaea.gov.tw/a0303/02/database/api/",
+        # 備援：data.gov.tw 登記的年資料 CSV，只有風力合計
+        "fallback_name": "經濟部能源署　發電量年資料（再生能源_風力_全國）",
+        "fallback_url": "https://www.moeaea.gov.tw/ECW/populace/opendata/wHandOpenData_File.ashx?set_id=70",
+        "fallback_page": "https://data.gov.tw/dataset/16481",
     },
     "iocean": {
         "name": "海洋委員會海保署　iOcean 海洋生物目擊回報",
@@ -207,13 +214,74 @@ def get_taipower():
 
 
 # ------------------------------------------------------- 2. 能源署年發電量
+YI_MWH = 1e5          # 1 億度 = 100,000 MWh（1 MWh = 1,000 度）
+
+
 def get_energy():
+    """離岸風電年發電量。
+
+    用能源署「能源統計專區 OPEN API」的 4-01 再生能源發電量。這份表把風力
+    分成陸域（Column11）與離岸（Column13），是目前唯一查得到離岸「發電量」
+    的政府資料——data.gov.tw 上那份 CSV 只有風力合計，分不出離岸。
+
+    抓不到時退回原本的 CSV，屆時只會有合計值，欄位會標成 wind_total。
+    """
     src = SOURCES["energy"]
-    text = decode(fetch(src["url"]))
-    rows = list(csv.DictReader(io.StringIO(text)))
+    try:
+        return energy_from_api(src)
+    except Exception as e:
+        print("[warn] 能源統計 API 失敗，退回 data.gov.tw CSV：%s" % e)
+        return energy_from_csv(src)
+
+
+def energy_from_api(src):
+    d = json.loads(decode(fetch(src["url"])))
+    rows = d.get("再生能源") or []
+    key = next((k for k in rows[0] if "再生能源發電量" in k), None) if rows else None
+    if not key:
+        raise ValueError("能源統計 API 回傳找不到表頭欄位")
+
+    years = []
+    for r in rows:
+        m = re.fullmatch(r"(\d{2,3})年", str(r.get(key) or "").strip())
+        if not m:
+            continue                      # 月份列、成長率列都跳過，只留整年
+        off, on = r.get("Column13"), r.get("Column11")
+        if not isinstance(off, (int, float)):
+            continue
+        years.append({"year": int(m.group(1)) + 1911, "off": off,
+                      "on": on if isinstance(on, (int, float)) else 0})
+    if len(years) < 2:
+        raise ValueError("能源統計 API 的離岸年度資料不足")
+    years.sort(key=lambda x: x["year"])
+
+    growth = []
+    for a, b in zip(years, years[1:]):
+        if a["off"] > 0:
+            growth.append({"year": b["year"],
+                           "pct": round((b["off"] / a["off"] - 1) * 100, 2)})
+
+    last = years[-1]
+    return {
+        "status": "ok",
+        "scope": "offshore",
+        "year": last["year"],
+        "yi": round(last["off"] / YI_MWH, 1),
+        "onshore_yi": round(last["on"] / YI_MWH, 1),
+        "wind_total_yi": round((last["off"] + last["on"]) / YI_MWH, 1),
+        "growth_pct": growth[-1]["pct"] if growth else None,
+        "growth_series": growth[-4:],
+        "unit_note": "原始單位 MWh，本站換算為億度（1 億度 = 100,000 MWh）",
+        "source": src["name"],
+        "source_url": src["page"],
+    }
+
+
+def energy_from_csv(src):
+    """備援：data.gov.tw 的發電量年資料，只有風力合計、分不出離岸。"""
+    rows = list(csv.DictReader(io.StringIO(decode(fetch(src["fallback_url"])))))
     if not rows:
         raise ValueError("能源署 CSV 是空的")
-
     key_year = next(k for k in rows[0] if "西元年" in k)
     key_wind = next(k for k in rows[0] if "再生能源_風力_全國" in k)
 
@@ -226,22 +294,19 @@ def get_energy():
     if len(series) < 2:
         raise ValueError("能源署 CSV 風力欄位資料不足")
 
-    growth = []
-    for (prev_y, prev_v), (y, v) in zip(series, series[1:]):
-        if prev_v:
-            growth.append({"year": y, "pct": round((v / prev_v - 1) * 100, 2)})
-
+    growth = [{"year": y, "pct": round((v / pv - 1) * 100, 2)}
+              for (py, pv), (y, v) in zip(series, series[1:]) if pv]
     year, gwh = series[-1]
     return {
         "status": "ok",
+        "scope": "wind_total",
         "year": year,
-        "gwh": round(gwh, 1),
         "yi": yi_du(gwh),
         "growth_pct": growth[-1]["pct"] if growth else None,
         "growth_series": growth[-4:],
         "unit_note": "原始單位百萬度，本站換算為億度",
-        "source": src["name"],
-        "source_url": src["page"],
+        "source": src["fallback_name"],
+        "source_url": src["fallback_page"],
     }
 
 
