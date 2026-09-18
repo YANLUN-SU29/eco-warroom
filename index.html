@@ -313,6 +313,75 @@ body{
 .rule{margin-top:22px;padding-top:18px;border-top:1px solid var(--line);
   font-size:14px;color:var(--ink-mint);font-weight:700}
 
+/* ---- 產出標記：對應簡報 p.9 的 ①動態戰情室 ②互動懶人包 ③LINE 闢謠神器 ---- */
+.tag{font-size:11.5px;font-weight:700;letter-spacing:.3px;padding:4px 11px;
+  border-radius:999px;background:var(--t-sky);color:#1B6E96;
+  border:1px solid rgba(47,169,220,.32);white-space:nowrap}
+.tag.warm{background:var(--t-gold);color:var(--ink-gold);
+  border-color:rgba(255,197,49,.5)}
+
+/* ---- 互動懶人包：工程術語翻成大白話 ---- */
+.jargon{background:#fff;border-radius:var(--r);padding:26px 28px;
+  box-shadow:var(--shadow);border:1px solid var(--line)}
+.jg-tabs{display:flex;gap:9px;flex-wrap:wrap;margin:0 0 22px}
+.jg-tabs button{font-family:inherit;font-size:13.5px;font-weight:700;
+  padding:8px 15px;border-radius:999px;cursor:pointer;background:var(--sand);
+  color:var(--muted);border:1px solid transparent;transition:background .18s ease}
+.jg-tabs button:hover{color:var(--ink);background:#E8E3D7}
+.jg-tabs button[aria-selected="true"]{background:var(--plum);color:#fff}
+.jg-tabs button:focus-visible{outline:3px solid var(--sky);outline-offset:2px}
+.jg-row{margin:0 0 16px}
+.jg-k{display:block;font-size:11.5px;font-weight:700;letter-spacing:.4px;
+  color:var(--muted2);margin-bottom:5px}
+.jg-row p{margin:0;font-size:15px;line-height:1.85}
+.jg-raw p{color:var(--muted);font-size:14px;
+  border-left:3px solid var(--line);padding-left:14px}
+.jg-plain p{color:var(--ink);font-weight:700}
+.jargon .analogy{margin-top:20px}
+
+/* ---- LINE 闢謠神器：純前端對話展示 ---- */
+.bot{max-width:520px;border-radius:var(--r);overflow:hidden;
+  box-shadow:var(--shadow);border:1px solid var(--line);background:#fff}
+.bot-bar{display:flex;align-items:center;gap:10px;background:var(--plum);
+  color:#fff;padding:13px 18px;font-size:15px;font-weight:700}
+.bot-ava{width:26px;height:26px;border-radius:50%;background:var(--mint);
+  color:#fff;font-size:13px;display:flex;align-items:center;
+  justify-content:center;flex:0 0 26px}
+.bot-bar .st{margin-left:auto;font-size:11px;font-weight:700;color:var(--lilac);
+  background:rgba(216,210,232,.16);border-radius:999px;padding:3px 10px}
+.bot-log{background:var(--sand);padding:18px;height:330px;overflow-y:auto;
+  display:flex;flex-direction:column;gap:12px}
+.bb{max-width:82%;display:flex;flex-direction:column;gap:4px}
+.bb p{margin:0;padding:11px 15px;font-size:14.5px;line-height:1.8;
+  border-radius:var(--r-sm);white-space:pre-wrap;overflow-wrap:anywhere}
+.bb.me{align-self:flex-end;align-items:flex-end}
+.bb.me p{background:var(--mint);color:#fff;border-bottom-right-radius:3px}
+.bb.ai{align-self:flex-start}
+.bb.ai p{background:#fff;color:var(--ink);border:1px solid var(--line);
+  border-bottom-left-radius:3px}
+.bb .cite{font-size:11.5px;color:var(--muted2);padding:0 6px;line-height:1.6}
+.bot-quick{display:flex;gap:7px;flex-wrap:wrap;padding:13px 16px 0}
+.bot-quick button{font-family:inherit;font-size:12.5px;cursor:pointer;
+  background:var(--t-mint);color:var(--ink-mint);border:1px solid rgba(53,190,147,.3);
+  border-radius:999px;padding:6px 13px;font-weight:700}
+.bot-quick button:hover{background:#C2EADC}
+.bot-quick button:focus-visible{outline:3px solid var(--mint);outline-offset:2px}
+.bot-in{display:flex;gap:9px;padding:13px 16px 16px}
+.bot-in input{flex:1;min-width:0;font-family:inherit;font-size:14px;
+  padding:10px 14px;border-radius:999px;border:1px solid var(--line);
+  background:var(--cream);color:var(--ink)}
+.bot-in input:focus-visible{outline:3px solid var(--mint);outline-offset:1px}
+.bot-in button{font-family:inherit;font-size:14px;font-weight:700;cursor:pointer;
+  background:var(--plum);color:#fff;border:0;border-radius:999px;padding:10px 20px}
+.bot-in button:hover{background:var(--plum2)}
+
+@media(max-width:880px){
+  .sec > h2{flex-wrap:wrap}
+  .jargon{padding:20px 18px}
+  .bot-log{height:290px}
+  .bb{max-width:92%}
+}
+
 /* footer */
 footer{background:var(--plum);color:var(--lilac);padding:40px 0;margin-top:24px;
   font-size:13px}
@@ -473,7 +542,7 @@ input[type=range]:focus-visible::-webkit-slider-thumb{outline:3px solid var(--vi
     </section>
 
     <section class="sec">
-      <h2>風機的護鳥三部曲</h2>
+      <h2>風機的護鳥三部曲<span class="tag">互動懶人包 · 高科技交通警察</span></h2>
       <p class="lead">葉片不是失控的刀片，它連著一套會替鳥讓路的控制邏輯。</p>
 
       <!-- PLC 降載邏輯演示。純示意，不是即時資料，所以標了 illustrative。 -->
@@ -551,7 +620,7 @@ input[type=range]:focus-visible::-webkit-slider-thumb{outline:3px solid var(--vi
     </section>
 
     <section class="sec">
-      <h2>海豚在哪一層，風機在哪一層</h2>
+      <h2>海豚在哪一層，風機在哪一層<span class="tag">互動懶人包 · 海底高級公寓</span></h2>
       <p class="lead">「風機插在海裡，白海豚怎麼辦？」把水深拉出來看，兩邊幾乎不在同一層。拖動下方水深，看看那一層有誰。</p>
       <div class="noise sea-fig">
         <div class="noise-top">
@@ -717,6 +786,48 @@ input[type=range]:focus-visible::-webkit-slider-thumb{outline:3px solid var(--vi
         target="_blank" rel="noopener">台電即時頁面</a>，該表把風力分成「陸域風力台電自有／購電」與
         「離岸風力台電自有／購電」四類，本站只加總後面兩類——離岸的判定用台電自己標的
         分類，不是靠名稱猜的。</p>
+    </section>
+
+    <section class="sec">
+      <h2>風機大腦解密<span class="tag">互動懶人包</span></h2>
+      <p class="lead">環評報告書寫的是工程師的語言。這裡把上面用到的每個術語，
+        原文擺左邊、大白話擺右邊，點一個看一個。</p>
+
+      <div class="jargon">
+        <div class="jg-tabs" id="jgTabs" role="tablist" aria-label="工程術語"></div>
+        <div class="jg-row jg-raw">
+          <span class="jg-k">報告書怎麼寫</span>
+          <p id="jgRaw">　</p>
+        </div>
+        <div class="jg-row jg-plain">
+          <span class="jg-k">翻成大白話</span>
+          <p id="jgPlain">　</p>
+        </div>
+        <p class="analogy" id="jgSay">　</p>
+        <p class="fig-src" id="jgSrc">　</p>
+      </div>
+    </section>
+
+    <section class="sec">
+      <h2>闢謠神器 LINE Bot<span class="tag warm">概念展示</span></h2>
+      <p class="lead">看到假訊息就貼進來。它用生活化的比喻回你，而且每一句都附得出出處；
+        查不到出處的，它會直接說不知道。</p>
+
+      <div class="bot">
+        <div class="bot-bar"><span class="bot-ava">謠</span>闢謠神器<span class="st">UI 概念展示</span></div>
+        <div class="bot-log" id="botLog" role="log" aria-live="polite" aria-label="對話內容"></div>
+        <div class="bot-quick" id="botQuick"></div>
+        <form class="bot-in" id="botForm">
+          <input id="botText" type="text" autocomplete="off" aria-label="輸入訊息"
+                 placeholder="把看到的假訊息貼進來…">
+          <button type="submit">送出</button>
+        </form>
+      </div>
+
+      <p class="fig-src"><b>這一區是 UI 概念展示。</b>回覆是預先撰寫的規則比對結果，
+        <b>尚未串接 LLM 與 RAG</b>（提案書列為開發中）。但引用的數字是真的——
+        鳥類、鯨豚、發電那幾項直接讀同一份 <i>data.json</i>，跟上面的戰情室同一個來源，
+        所以它報出來的筆數會跟著政府 API 一起變。</p>
     </section>
 
     <section class="sec">
@@ -1307,6 +1418,211 @@ function countUpAll(){
   });
 })();
 
+
+/* ---- 互動懶人包：工程術語翻成大白話 ----
+   簡報 p.9 的產出②。上面幾張圖講的是「發生什麼事」，這一區講的是
+   「報告書為什麼要那樣寫」——術語原文擺左邊、白話擺右邊，才不會變成我們自己編的。 */
+(function(){
+  var TABS = document.getElementById('jgTabs');
+  if(!TABS) return;
+
+  var TERMS = [
+    {t:'PLC 控制系統',
+     raw:'偵測系統判定風險後連動 PLC 控制系統，自動改變葉片攻角以執行降載。',
+     plain:'PLC 是風機的大腦。不用人在現場按鈕，它收到「有鳥靠近」的訊號就自己下令把葉片轉慢。',
+     say:'就像捷運的自動列車控制——前面有狀況，系統自己踩煞車，不必等司機反應過來。',
+     src:'環境部環評書件查詢系統《大中部離岸風力發電計畫環境影響說明書》'},
+
+    {t:'雷達與熱影像偵測',
+     raw:'以雷達併同熱影像儀進行全天候鳥群動態監測。',
+     plain:'雷達看得到形狀跟距離，熱影像看得到體溫。兩個一起用，晚上跟起霧的時候照樣看得到鳥。',
+     say:'等於幫風機裝了一副會夜視的天眼，不是靠人拿望遠鏡在岸邊盯。',
+     src:'環境部環評書件查詢系統《大中部離岸風力發電計畫環境影響說明書》'},
+
+    {t:'降載／隨需停機 SDoD',
+     raw:'鳥群通過期間執行降載或停轉（Shutdown on Demand, SDoD）。',
+     plain:'降載是少發一點電，停轉是整台停下來。鳥飛過去了再恢復發電。',
+     say:'像看到小朋友要衝出馬路，先放開油門。停一天的發電損失可以到百萬歐元等級——沒有人會為自己不做的事情付這個錢。',
+     src:'國際規範部分出自團隊簡報引用之產業報告（德、波、西、美已列為標準規範），非政府開放資料，性質與本站其他數字不同'},
+
+    {t:'管架式基座',
+     raw:'採管架式（Jacket）基座插置於海床，提供硬底質。',
+     plain:'就是一組鋼製腳架插在海底。原本那片海床是沙泥，軟的，什麼都附不住。',
+     say:'等於在一片沙地正中間蓋了一棟大樓。對藤壺跟貽貝來說，這是憑空出現的新房子。',
+     src:'國家海洋研究院《離岸風電場生態保育環境監測研究－苗栗及雲彰風場期末報告》'},
+
+    {t:'人工魚礁效應',
+     raw:'基座附著濾食性生物，誘集底棲生物與捕食性魚類，形成人工魚礁效應。',
+     plain:'藤壺、貽貝先住進來，小魚來吃牠們，大魚再來吃小魚，一整條食物鏈就這樣搬過來了。',
+     say:'海底高級公寓：一樓開餐廳，樓上住滿房客。與其說風機把魚趕走，不如說它蓋了一個社區。',
+     src:'同上報告。其中「建置後漁獲量約 2 倍」是該報告轉述的國外研究，原始文獻未指名'},
+
+    {t:'噪音增量 dB(A)',
+     raw:'距岸 2,000 公尺處噪音增量 0.0 dB(A)，屬「無影響或可忽略」等級。',
+     plain:'「增量」是指比原本的環境音多出多少，不是風機自己有多大聲。多 0.0 就是量不出差別。',
+     say:'你人在台北車站，卻擔心被板橋車站裡的一隻蚊子吵得睡不著覺。聲音隨距離衰減是物理，不是公關話術。',
+     src:'環境部《海洋竹南離岸式風力發電計畫（第 6 次變更）環境影響差異分析報告》SoundPLAN 模型'},
+
+    {t:'族群安全容許量',
+     raw:'灰面鵟鷹年預估撞擊數 0 隻，族群安全容許量 1,004 隻（以 14MW 機組計）。',
+     plain:'安全容許量是「這個族群一年最多少掉幾隻還撐得住」。預估撞擊 0 隻，離門檻還很遠。',
+     say:'但 0 隻不是「風機天生不撞鳥」，而是「裝了防護之後算出來的預測值」——就像安全氣囊普及後死亡率下降，不代表車子本來就安全。',
+     src:'環境部環評書件（14MW 機組）。這是預估值不是實測值，實際觀測請看上面 TBN 那一排數字'}
+  ];
+
+  var R = document.getElementById('jgRaw'), P = document.getElementById('jgPlain'),
+      S = document.getElementById('jgSay'), C = document.getElementById('jgSrc');
+
+  function show(i){
+    var x = TERMS[i];
+    R.textContent = '「' + x.raw + '」';
+    P.textContent = x.plain;
+    S.textContent = x.say;
+    C.textContent = '出處：' + x.src;
+    [].forEach.call(TABS.children, function(b, k){
+      b.setAttribute('aria-selected', String(k === i));
+    });
+  }
+
+  TERMS.forEach(function(x, i){
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.setAttribute('role', 'tab');
+    b.setAttribute('aria-selected', 'false');
+    b.textContent = x.t;
+    b.addEventListener('click', function(){ show(i); });
+    TABS.appendChild(b);
+  });
+  show(0);
+})();
+
+/* ---- LINE 闢謠神器：純前端對話展示 ----
+   提案書把它列為開發中，所以這裡不假裝背後有 RAG 在跑：回覆是關鍵字規則比對。
+   但引用的筆數直接讀 LAST（也就是 data.json），跟上面的戰情室同一個來源，
+   政府 API 一更新，它報出來的數字就跟著變。
+   比對不到的問題一律回「不知道」——無法回到原始文件的敘述不上架，這條對機器人也適用。 */
+(function(){
+  var LOG = document.getElementById('botLog');
+  if(!LOG) return;
+  var FORM = document.getElementById('botForm'),
+      TEXT = document.getElementById('botText'),
+      QUICK = document.getElementById('botQuick');
+
+  function n(v){ return Number(v).toLocaleString('en-US'); }
+  function D(){ return (typeof LAST !== 'undefined' && LAST) || {}; }
+
+  /* 有抓到資料就講實際筆數，沒抓到就講不出來，不要填一個假的 */
+  function skyLine(){
+    var s = D().sky;
+    if(!(s && s.recent_12m)) return '鳥類觀測資料這次沒抓到（來源無回應），我不補一個數字給你';
+    return '風場所在的彰化縣近 12 個月有 ' + n(s.recent_12m) + ' 筆鳥類觀測'
+      + (s.species_count ? '、' + s.species_count + ' 種鳥，其中 ' + s.protected_count + ' 種是保育類' : '');
+  }
+  function seaLine(){
+    var s = D().sea;
+    if(!(s && s.white_dolphin_12m)) return '白海豚目擊資料這次沒抓到（來源無回應），我不補一個數字給你';
+    var day = String(s.latest || '');
+    return '海保署 iOcean 近 12 個月仍有 ' + n(s.white_dolphin_12m) + ' 筆中華白海豚目擊回報'
+      + (day ? '，最近一筆 ' + day.slice(5).replace('-', '/') : '');
+  }
+
+  var RULES = [
+    {k:['吵','噪音','低頻','睡不','耳鳴','轟','聲音','分貝'],
+     a:function(){ return [
+       '查核完畢：距岸 2 公里外的噪音增量是 0.0 dB(A)，屬「無影響或可忽略」等級。\n\n'
+       + '注意這是「增量」——比原本的環境音多出多少，不是風機自己有多大聲。多 0.0 就是量不出差別。\n\n'
+       + '就像你人在台北車站，卻擔心被板橋車站裡的一隻蚊子吵得睡不著覺。免驚啦～',
+       '環境部《海洋竹南離岸式風力發電計畫（第 6 次變更）》SoundPLAN 模型']; }},
+
+    {k:['鳥','果汁機','絞','撞','老鷹','候鳥','琵鷺','鵟鷹','飛'],
+     a:function(){ return [
+       '查核完畢：風機不是失控的刀片，它連著一套會替鳥讓路的控制邏輯——雷達與熱影像偵測到鳥群，'
+       + '就連動 PLC 降速讓路，這叫隨需停機（SDoD）。\n\n'
+       + '風場也不是一道牆：風機間距大於 700 公尺，還留了 2 公里寬的鳥類綠色通道。\n\n'
+       + '而且鳥並沒有不見——' + skyLine() + '。\n\n'
+       + '順帶一提，真正的「果汁機」是大樓玻璃：美國研究估計窗殺約 5.99 億隻／年，風機約數十萬隻／年。',
+       '農業部 TBN 物種觀測 API v2.6 ＋ 環境部環評書件；窗殺數字為 Loss 等人 2013／2014 研究']; }},
+
+    {k:['海豚','鯨','打樁','震','擱淺'],
+     a:function(){ return [
+       '查核完畢：兩邊根本不在同一層。中華白海豚活動水深不到 10 公尺，離岸風場多設在 20 公尺以上的深水區，棲地重疊度極低。\n\n'
+       + '白海豚就像只在水深 10 公尺的兒童戲水池活動——風場不在那一層。\n\n'
+       + '而且' + seaLine() + '——牠並沒有因為風場而消失。',
+       '國家海洋研究院《離岸風電場生態保育環境監測研究－苗栗及雲彰風場期末報告》＋ 海保署 iOcean']; }},
+
+    {k:['魚','漁','捕不到','漁獲','漁民','生計'],
+     a:function(){ return [
+       '查核完畢：結果剛好相反。\n\n'
+       + '原本是沙泥底的海域，多了一組硬底質的管架基座，藤壺、貽貝先附上去，底棲生物跟捕食性魚類跟著聚過來，這叫人工魚礁效應。\n\n'
+       + '與其說風機把魚趕走，不如說它替牠們蓋了一棟海底高級公寓。',
+       '國海院期末報告。報告轉述的國外研究指建置後漁獲量約 2 倍，原始文獻未指名，性質與其他可逐項回查的政府資料不同']; }},
+
+    {k:['發電','電量','沒用','不穩','效率','浪費','幾度','出力','缺電'],
+     a:function(){
+       var p = D().power_live, y = D().power_year, a = [];
+       if(p && p.total_mw) a.push('離岸風場此刻總出力 ' + n(p.total_mw) + ' MW，' + p.farm_count + ' 座在發電。');
+       if(y && y.yi) a.push(y.year + ' 年離岸風電發電量 ' + y.yi.toFixed(1) + ' 億度'
+         + (y.growth_pct != null ? '，較前一年 ' + (y.growth_pct >= 0 ? '+' : '') + y.growth_pct.toFixed(2) + '%' : '') + '。');
+       if(!a.length) a.push('發電資料這次沒抓到（來源無回應），我不補一個數字給你。');
+       return ['查核完畢：\n\n' + a.join('\n') + '\n\n這兩個數字上面的戰情室也看得到，可以當場跟台電的即時頁面逐列核對。',
+         '台電《各機組發電量即時資訊（含外購電力）》＋ 經濟部能源署《4-01 再生能源發電量》']; }}
+  ];
+
+  function reply(q){
+    for(var i = 0; i < RULES.length; i++){
+      for(var j = 0; j < RULES[i].k.length; j++){
+        if(q.indexOf(RULES[i].k[j]) >= 0) return RULES[i].a();
+      }
+    }
+    return ['這題我沒有把握，所以不回答。\n\n'
+      + '我的知識庫只放得進可以回查政府原始文件的敘述，查不到出處的我不會編一個答案給你。\n\n'
+      + '目前查得到的有：鳥類、白海豚、漁獲、低頻噪音、發電量。', null];
+  }
+
+  function bubble(who, text, cite){
+    var w = document.createElement('div');
+    w.className = 'bb ' + who;
+    var p = document.createElement('p');
+    p.textContent = text;              /* 一律 textContent，貼什麼進來都不會變成 HTML */
+    w.appendChild(p);
+    if(cite){
+      var c = document.createElement('span');
+      c.className = 'cite';
+      c.textContent = '出處：' + cite;
+      w.appendChild(c);
+    }
+    LOG.appendChild(w);
+    LOG.scrollTop = LOG.scrollHeight;
+  }
+
+  var busy = false;
+
+  function ask(q){
+    q = String(q || '').trim().slice(0, 200);
+    if(!q || busy) return;
+    busy = true;
+    bubble('me', q);
+    TEXT.value = '';
+    var r = reply(q);
+    /* 停一下再回才像在查東西；關掉動態效果的人就直接給答案 */
+    var wait = (typeof REDUCE !== 'undefined' && REDUCE) ? 0 : 520;
+    setTimeout(function(){ bubble('ai', r[0], r[1]); busy = false; }, wait);
+  }
+
+  ['聽說風機吵死人？', '風機是鳥類果汁機吧？', '打樁會震聾白海豚？',
+   '風機插在海裡，漁民以後捕不到魚？'].forEach(function(t){
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.textContent = t;
+    b.addEventListener('click', function(){ ask(t); });
+    QUICK.appendChild(b);
+  });
+
+  FORM.addEventListener('submit', function(e){ e.preventDefault(); ask(TEXT.value); });
+
+  bubble('ai', '我是闢謠神器。把你看到的說法貼進來，我用政府開放資料回你，'
+    + '而且每一句都附得出出處。\n\n下面有幾個常見的，點一下就能試。', null);
+})();
 
 /* ---- 引註溯源 ---- */
 document.querySelectorAll('.ref').forEach(function(b){
