@@ -307,6 +307,9 @@ body{
 .doc.open{display:block}
 .doc .t{font-size:13px;font-weight:700;color:var(--ink);margin-bottom:4px}
 .doc .d{font-size:13.5px;color:var(--muted);margin:0}
+.doc .d a{color:var(--ink-mint);font-weight:700;text-decoration:none;
+  border-bottom:1px solid rgba(30,125,94,.4);white-space:nowrap}
+.doc .d a:hover{border-bottom-color:var(--ink-mint)}
 .rule{margin-top:22px;padding-top:18px;border-top:1px solid var(--line);
   font-size:14px;color:var(--ink-mint);font-weight:700}
 
@@ -723,7 +726,7 @@ input[type=range]:focus-visible::-webkit-slider-thumb{outline:3px solid var(--vi
         <p class="claim">水下基座會附著藤壺與貽貝等濾食生物，吸引底棲生物與捕食性魚類聚集，形成人工魚礁效應<button class="ref" data-doc="d1" aria-expanded="false">來源 1</button>；而距岸 2 公里以上的低頻噪音增量已降至 0.0 dB(A)<button class="ref" data-doc="d2" aria-expanded="false">來源 2</button>。</p>
         <div class="doc" id="d1">
           <div class="t">國家海洋研究院｜離岸風電場生態保育環境監測研究－苗栗及雲彰風場期末報告</div>
-          <p class="d">政府資料開放平臺公開報告。團隊人工核實聚魚效應敘述與監測方法後才納入知識庫。</p>
+          <p class="d">國家海洋研究院資訊公開專區之委託研究報告（報告編號 NAMR111012，111 年 9 月發布，海洋生態及保育研究中心）。團隊人工核實聚魚效應敘述與監測方法後才納入知識庫。<a href="https://www.namr.gov.tw/ch/home.jsp?id=50&amp;parentpath=0,7&amp;mcustomize=research_view.jsp&amp;dataserno=202209130006" target="_blank" rel="noopener">開啟研究報告頁</a>　<a href="https://www.namr.gov.tw/filedownload?file=research/202301111100060.pdf&amp;filedisplay=%28NAMR111012%29111%E9%9B%A2%E5%B2%B8%E9%A2%A8%E9%9B%BB%E5%A0%B4%E7%94%9F%E6%85%8B%E4%BF%9D%E8%82%B2%E7%92%B0%E5%A2%83%E7%9B%A3%E6%B8%AC%E7%A0%94%E7%A9%B6%28%E6%9C%9F%E6%9C%AB%E5%A0%B1%E5%91%8A%29-ss.pdf&amp;flag=doc" target="_blank" rel="noopener">期末報告 PDF</a></p>
         </div>
         <div class="doc" id="d2">
           <div class="t">環境部｜海洋竹南離岸式風力發電計畫（第 6 次變更）環境影響差異分析報告</div>
@@ -744,7 +747,7 @@ input[type=range]:focus-visible::-webkit-slider-thumb{outline:3px solid var(--vi
       <li>經濟部能源署《4-01 再生能源發電量》能源統計專區 OPEN API（陸域／離岸分列）　<a href="https://ea01.moeaea.gov.tw/a0303/02/database/api/" target="_blank" rel="noopener">API 專區</a>　備援 <a href="https://data.gov.tw/dataset/16481" target="_blank" rel="noopener">data.gov.tw／16481</a></li>
       <li>海洋委員會海保署《iOcean 海洋生物目擊回報》CSV　<a href="https://data.gov.tw/dataset/157621" target="_blank" rel="noopener">data.gov.tw／157621</a></li>
       <li>農業部 臺灣生物多樣性網絡 TBN 物種觀測 API v2.6　<a href="https://www.tbn.org.tw/data/api/v26/occurrence" target="_blank" rel="noopener">API 說明</a></li>
-      <li>國家海洋研究院 苗栗、雲彰風場生態監測期末報告</li>
+      <li>國家海洋研究院《離岸風電場生態保育環境監測研究－苗栗及雲彰風場》期末報告（NAMR111012，111 年 9 月）　<a href="https://www.namr.gov.tw/ch/home.jsp?id=50&amp;parentpath=0,7&amp;mcustomize=research_view.jsp&amp;dataserno=202209130006" target="_blank" rel="noopener">研究報告頁</a>　<a href="https://www.namr.gov.tw/filedownload?file=research/202301111100060.pdf&amp;filedisplay=%28NAMR111012%29111%E9%9B%A2%E5%B2%B8%E9%A2%A8%E9%9B%BB%E5%A0%B4%E7%94%9F%E6%85%8B%E4%BF%9D%E8%82%B2%E7%92%B0%E5%A2%83%E7%9B%A3%E6%B8%AC%E7%A0%94%E7%A9%B6%28%E6%9C%9F%E6%9C%AB%E5%A0%B1%E5%91%8A%29-ss.pdf&amp;flag=doc" target="_blank" rel="noopener">期末報告 PDF（14 MB）</a></li>
       <li>環境部環評書件：大中部離岸風力發電計畫、海洋竹南（第 6 次變更）　<a href="https://eiadoc.moenv.gov.tw/eiaweb/" target="_blank" rel="noopener">環評書件查詢系統</a></li>
     </ul>
     <p class="team" style="border-top:0;padding-top:0;margin-top:10px">發電與生態數字由 <code>scripts/fetch_data.py</code> 直接向上列出處抓取後產生 <code>data.json</code>，非人工輸入；抓不到的來源會標示「來源無回應」，不以舊值假裝即時。</p>
