@@ -1,62 +1,62 @@
 {
-  "generated_at": "2026-09-24T01:13:19+08:00",
-  "updated": "2026-09-24 01:13",
+  "generated_at": "2026-09-24T04:29:20+08:00",
+  "updated": "2026-09-24 04:29",
   "power_live": {
     "status": "ok",
-    "sample_time": "2026-09-24T01:00:00",
-    "total_mw": 1306.6,
+    "sample_time": "2026-09-24T04:20:00",
+    "total_mw": 1134.0,
     "farm_count": 16,
     "owned_count": null,
     "ipp_count": 16,
     "capacity_mw": 3380.0,
-    "capacity_factor": 24.5,
+    "capacity_factor": 20.1,
     "classification": "名稱比對（備援，台電分類資料無法取得）",
     "farms": [
       {
         "name": "沃一風",
-        "mw": 309.1,
+        "mw": 294.3,
         "cap": 605.2,
         "owner": null
       },
       {
         "name": "沃四風",
-        "mw": 285.8,
+        "mw": 283.0,
         "cap": null,
         "owner": null
       },
       {
         "name": "沃二風",
-        "mw": 139.7,
+        "mw": 134.7,
         "cap": 294.8,
         "owner": null
       },
       {
+        "name": "龍A風",
+        "mw": 119.0,
+        "cap": null,
+        "owner": null
+      },
+      {
         "name": "芳二風",
-        "mw": 131.3,
+        "mw": 100.2,
         "cap": 499.2,
         "owner": null
       },
       {
-        "name": "龍A風",
-        "mw": 130.2,
-        "cap": null,
-        "owner": null
-      },
-      {
-        "name": "允西",
-        "mw": 66.6,
-        "cap": 320.0,
-        "owner": null
-      },
-      {
         "name": "龍B風",
-        "mw": 61.3,
+        "mw": 53.0,
         "cap": null,
+        "owner": null
+      },
+      {
+        "name": "沃南風",
+        "mw": 45.0,
+        "cap": 337.1,
         "owner": null
       },
       {
         "name": "中能風",
-        "mw": 59.5,
+        "mw": 38.5,
         "cap": 294.5,
         "owner": null
       }
@@ -64,7 +64,7 @@
     "source": "台灣電力公司　各機組發電量即時資訊（含外購電力）",
     "source_url": "https://data.gov.tw/dataset/8931",
     "live_url": "https://dr.taipower.com.tw/d006/loadGraph/loadGraph/genshx_.html",
-    "fetched_at": "2026-09-24T01:13:22+08:00"
+    "fetched_at": "2026-09-24T04:29:23+08:00"
   },
   "power_year": {
     "status": "ok",
@@ -95,7 +95,7 @@
     "unit_note": "原始單位 MWh，本站換算為億度（1 億度 = 100,000 MWh）",
     "source": "經濟部能源署　能源統計專區 OPEN API《4-01 再生能源發電量》",
     "source_url": "https://ea01.moeaea.gov.tw/a0303/02/database/api/",
-    "fetched_at": "2026-09-23T01:21:35+08:00"
+    "fetched_at": "2026-09-24T04:29:26+08:00"
   },
   "sea": {
     "status": "ok",
@@ -106,7 +106,7 @@
     "window": "近 12 個月",
     "source": "海洋委員會海保署　iOcean 海洋生物目擊回報",
     "source_url": "https://data.gov.tw/dataset/157621",
-    "fetched_at": "2026-09-23T20:12:53+08:00"
+    "fetched_at": "2026-09-24T04:29:29+08:00"
   },
   "sky": {
     "status": "ok",
@@ -115,43 +115,43 @@
     "window": "近 12 個月",
     "source": "農業部　臺灣生物多樣性網絡 TBN 物種觀測 API v2.6",
     "source_url": "https://www.tbn.org.tw/data/api/v26/occurrence",
-    "species_count": 185,
-    "protected_count": 35,
+    "species_count": 195,
+    "protected_count": 39,
     "family_count": 55,
     "notable": [
       {
         "name": "黑面琵鷺",
-        "records": 121,
+        "records": 122,
         "status": "瀕臨絕種保育類野生動物"
       },
       {
         "name": "東方白鸛",
-        "records": 33,
+        "records": 34,
         "status": "瀕臨絕種保育類野生動物"
       },
       {
         "name": "黑翅鳶",
-        "records": 325,
+        "records": 326,
         "status": "珍貴稀有保育類野生動物"
       },
       {
         "name": "黑嘴鷗",
-        "records": 142,
+        "records": 143,
         "status": "珍貴稀有保育類野生動物"
       },
       {
         "name": "紅隼",
-        "records": 133,
+        "records": 134,
         "status": "珍貴稀有保育類野生動物"
       },
       {
         "name": "鳳頭蒼鷹",
-        "records": 72,
+        "records": 82,
         "status": "珍貴稀有保育類野生動物"
       }
     ],
-    "species_at": "2026-09-23T01:25:00+08:00",
-    "fetched_at": "2026-09-24T01:13:22+08:00"
+    "species_at": "2026-09-24T04:32:52+08:00",
+    "fetched_at": "2026-09-24T04:32:52+08:00"
   },
   "land": {
     "status": "model",
