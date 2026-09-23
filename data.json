@@ -1,70 +1,70 @@
 {
-  "generated_at": "2026-09-24T04:29:20+08:00",
-  "updated": "2026-09-24 04:29",
+  "generated_at": "2026-09-24T07:05:37+08:00",
+  "updated": "2026-09-24 07:05",
   "power_live": {
     "status": "ok",
-    "sample_time": "2026-09-24T04:20:00",
-    "total_mw": 1134.0,
+    "sample_time": "2026-09-24T07:00:00",
+    "total_mw": 698.5,
     "farm_count": 16,
     "owned_count": null,
     "ipp_count": 16,
     "capacity_mw": 3380.0,
-    "capacity_factor": 20.1,
+    "capacity_factor": 10.8,
     "classification": "名稱比對（備援，台電分類資料無法取得）",
     "farms": [
       {
+        "name": "沃四風",
+        "mw": 214.5,
+        "cap": null,
+        "owner": null
+      },
+      {
         "name": "沃一風",
-        "mw": 294.3,
+        "mw": 186.8,
         "cap": 605.2,
         "owner": null
       },
       {
-        "name": "沃四風",
-        "mw": 283.0,
+        "name": "龍A風",
+        "mw": 82.4,
         "cap": null,
         "owner": null
       },
       {
         "name": "沃二風",
-        "mw": 134.7,
+        "mw": 79.5,
         "cap": 294.8,
         "owner": null
       },
       {
-        "name": "龍A風",
-        "mw": 119.0,
-        "cap": null,
-        "owner": null
-      },
-      {
         "name": "芳二風",
-        "mw": 100.2,
+        "mw": 38.1,
         "cap": 499.2,
         "owner": null
       },
       {
         "name": "龍B風",
-        "mw": 53.0,
+        "mw": 36.4,
         "cap": null,
         "owner": null
       },
       {
         "name": "沃南風",
-        "mw": 45.0,
+        "mw": 30.6,
         "cap": 337.1,
         "owner": null
       },
       {
-        "name": "中能風",
-        "mw": 38.5,
-        "cap": 294.5,
+        "name": "芳一風",
+        "mw": 7.0,
+        "cap": 96.0,
         "owner": null
       }
     ],
     "source": "台灣電力公司　各機組發電量即時資訊（含外購電力）",
     "source_url": "https://data.gov.tw/dataset/8931",
     "live_url": "https://dr.taipower.com.tw/d006/loadGraph/loadGraph/genshx_.html",
-    "fetched_at": "2026-09-24T04:29:23+08:00"
+    "fetched_at": "2026-09-24T07:05:39+08:00"
   },
   "power_year": {
     "status": "ok",
@@ -151,7 +151,7 @@
       }
     ],
     "species_at": "2026-09-24T04:32:52+08:00",
-    "fetched_at": "2026-09-24T04:32:52+08:00"
+    "fetched_at": "2026-09-24T07:05:40+08:00"
   },
   "land": {
     "status": "model",
