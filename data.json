@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-09-26T01:27:26+08:00",
-  "updated": "2026-09-26 01:27",
+  "generated_at": "2026-09-26T04:41:43+08:00",
+  "updated": "2026-09-26 04:41",
   "power_live": {
     "status": "ok",
-    "sample_time": "2026-09-26T01:20:00",
-    "total_mw": 0.5,
+    "sample_time": "2026-09-26T04:30:00",
+    "total_mw": 0.7,
     "farm_count": 16,
     "owned_count": null,
     "ipp_count": 16,
@@ -14,7 +14,7 @@
     "farms": [
       {
         "name": "離岸二期",
-        "mw": 0.5,
+        "mw": 0.7,
         "cap": null,
         "owner": null
       },
@@ -64,7 +64,7 @@
     "source": "台灣電力公司　各機組發電量即時資訊（含外購電力）",
     "source_url": "https://data.gov.tw/dataset/8931",
     "live_url": "https://dr.taipower.com.tw/d006/loadGraph/loadGraph/genshx_.html",
-    "fetched_at": "2026-09-26T01:27:27+08:00"
+    "fetched_at": "2026-09-26T04:41:45+08:00"
   },
   "power_year": {
     "status": "ok",
@@ -95,7 +95,7 @@
     "unit_note": "原始單位 MWh，本站換算為億度（1 億度 = 100,000 MWh）",
     "source": "經濟部能源署　能源統計專區 OPEN API《4-01 再生能源發電量》",
     "source_url": "https://ea01.moeaea.gov.tw/a0303/02/database/api/",
-    "fetched_at": "2026-09-25T04:34:35+08:00"
+    "fetched_at": "2026-09-26T04:41:46+08:00"
   },
   "sea": {
     "status": "ok",
@@ -150,8 +150,8 @@
         "status": "珍貴稀有保育類野生動物"
       }
     ],
-    "species_at": "2026-09-25T04:37:45+08:00",
-    "fetched_at": "2026-09-26T01:27:31+08:00"
+    "species_at": "2026-09-26T04:45:17+08:00",
+    "fetched_at": "2026-09-26T04:45:17+08:00"
   },
   "land": {
     "status": "model",
