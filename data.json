@@ -1,70 +1,70 @@
 {
-  "generated_at": "2026-09-28T22:27:12+08:00",
-  "updated": "2026-09-28 22:27",
+  "generated_at": "2026-09-29T04:42:03+08:00",
+  "updated": "2026-09-29 04:42",
   "power_live": {
     "status": "ok",
-    "sample_time": "2026-09-28T22:20:00",
-    "total_mw": 474.1,
+    "sample_time": "2026-09-29T04:30:00",
+    "total_mw": 666.3,
     "farm_count": 16,
     "owned_count": null,
     "ipp_count": 16,
     "capacity_mw": 3380.0,
-    "capacity_factor": 10.3,
+    "capacity_factor": 16.2,
     "classification": "名稱比對（備援，台電分類資料無法取得）",
     "farms": [
       {
-        "name": "沃一風",
-        "mw": 86.2,
-        "cap": 605.2,
-        "owner": null
-      },
-      {
-        "name": "沃四風",
-        "mw": 77.5,
-        "cap": null,
-        "owner": null
-      },
-      {
-        "name": "芳二風",
-        "mw": 72.2,
-        "cap": 499.2,
-        "owner": null
-      },
-      {
         "name": "海能風",
-        "mw": 49.1,
+        "mw": 199.5,
         "cap": 376.0,
         "owner": null
       },
       {
+        "name": "沃四風",
+        "mw": 78.2,
+        "cap": null,
+        "owner": null
+      },
+      {
+        "name": "沃一風",
+        "mw": 77.0,
+        "cap": 605.2,
+        "owner": null
+      },
+      {
+        "name": "海洋竹南",
+        "mw": 44.5,
+        "cap": 128.0,
+        "owner": null
+      },
+      {
+        "name": "芳二風",
+        "mw": 44.2,
+        "cap": 499.2,
+        "owner": null
+      },
+      {
         "name": "沃二風",
-        "mw": 36.7,
+        "mw": 39.5,
         "cap": 294.8,
         "owner": null
       },
       {
-        "name": "中能風",
-        "mw": 30.7,
-        "cap": 294.5,
+        "name": "允西",
+        "mw": 35.3,
+        "cap": 320.0,
         "owner": null
       },
       {
         "name": "沃南風",
-        "mw": 30.4,
+        "mw": 33.5,
         "cap": 337.1,
-        "owner": null
-      },
-      {
-        "name": "龍A風",
-        "mw": 29.6,
-        "cap": null,
         "owner": null
       }
     ],
     "source": "台灣電力公司　各機組發電量即時資訊（含外購電力）",
     "source_url": "https://data.gov.tw/dataset/8931",
     "live_url": "https://dr.taipower.com.tw/d006/loadGraph/loadGraph/genshx_.html",
-    "fetched_at": "2026-09-28T22:27:13+08:00"
+    "fetched_at": "2026-09-29T04:42:05+08:00"
   },
   "power_year": {
     "status": "ok",
@@ -99,14 +99,14 @@
   },
   "sea": {
     "status": "ok",
-    "recent_12m": 129,
-    "white_dolphin_12m": 95,
+    "recent_12m": 126,
+    "white_dolphin_12m": 92,
     "total_records": 1112,
     "latest": "2026-08-29",
     "window": "近 12 個月",
     "source": "海洋委員會海保署　iOcean 海洋生物目擊回報",
     "source_url": "https://data.gov.tw/dataset/157621",
-    "fetched_at": "2026-09-28T22:27:16+08:00"
+    "fetched_at": "2026-09-29T04:42:07+08:00"
   },
   "sky": {
     "status": "ok",
@@ -151,7 +151,7 @@
       }
     ],
     "species_at": "2026-09-28T06:25:59+08:00",
-    "fetched_at": "2026-09-28T22:27:17+08:00"
+    "fetched_at": "2026-09-29T04:42:08+08:00"
   },
   "land": {
     "status": "model",
