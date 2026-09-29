@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-29T21:05:11+08:00",
-  "updated": "2026-09-29 21:05",
+  "generated_at": "2026-09-30T02:36:28+08:00",
+  "updated": "2026-09-30 02:36",
   "power_live": {
     "status": "ok",
     "sample_time": "2026-09-29T15:30:00",
@@ -64,7 +64,7 @@
     "source": "台灣電力公司　各機組發電量即時資訊（含外購電力）",
     "source_url": "https://data.gov.tw/dataset/8931",
     "live_url": "https://dr.taipower.com.tw/d006/loadGraph/loadGraph/genshx_.html",
-    "fetched_at": "2026-09-29T21:05:14+08:00"
+    "fetched_at": "2026-09-30T02:36:31+08:00"
   },
   "power_year": {
     "status": "ok",
@@ -151,7 +151,7 @@
       }
     ],
     "species_at": "2026-09-29T08:40:51+08:00",
-    "fetched_at": "2026-09-29T21:05:17+08:00"
+    "fetched_at": "2026-09-30T02:36:31+08:00"
   },
   "land": {
     "status": "model",
