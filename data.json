@@ -1,70 +1,70 @@
 {
-  "generated_at": "2026-09-29T04:42:03+08:00",
-  "updated": "2026-09-29 04:42",
+  "generated_at": "2026-09-29T08:36:55+08:00",
+  "updated": "2026-09-29 08:36",
   "power_live": {
     "status": "ok",
-    "sample_time": "2026-09-29T04:30:00",
-    "total_mw": 666.3,
+    "sample_time": "2026-09-29T08:30:00",
+    "total_mw": 431.5,
     "farm_count": 16,
     "owned_count": null,
     "ipp_count": 16,
     "capacity_mw": 3380.0,
-    "capacity_factor": 16.2,
+    "capacity_factor": 10.2,
     "classification": "名稱比對（備援，台電分類資料無法取得）",
     "farms": [
       {
         "name": "海能風",
-        "mw": 199.5,
+        "mw": 126.8,
         "cap": 376.0,
         "owner": null
       },
       {
-        "name": "沃四風",
-        "mw": 78.2,
-        "cap": null,
-        "owner": null
-      },
-      {
         "name": "沃一風",
-        "mw": 77.0,
+        "mw": 69.7,
         "cap": 605.2,
         "owner": null
       },
       {
-        "name": "海洋竹南",
+        "name": "沃四風",
+        "mw": 61.0,
+        "cap": null,
+        "owner": null
+      },
+      {
+        "name": "沃二風",
         "mw": 44.5,
+        "cap": 294.8,
+        "owner": null
+      },
+      {
+        "name": "沃南風",
+        "mw": 40.6,
+        "cap": 337.1,
+        "owner": null
+      },
+      {
+        "name": "海洋竹南",
+        "mw": 33.8,
         "cap": 128.0,
         "owner": null
       },
       {
         "name": "芳二風",
-        "mw": 44.2,
+        "mw": 16.2,
         "cap": 499.2,
         "owner": null
       },
       {
-        "name": "沃二風",
-        "mw": 39.5,
-        "cap": 294.8,
-        "owner": null
-      },
-      {
-        "name": "允西",
-        "mw": 35.3,
-        "cap": 320.0,
-        "owner": null
-      },
-      {
-        "name": "沃南風",
-        "mw": 33.5,
-        "cap": 337.1,
+        "name": "龍A風",
+        "mw": 15.6,
+        "cap": null,
         "owner": null
       }
     ],
     "source": "台灣電力公司　各機組發電量即時資訊（含外購電力）",
     "source_url": "https://data.gov.tw/dataset/8931",
     "live_url": "https://dr.taipower.com.tw/d006/loadGraph/loadGraph/genshx_.html",
-    "fetched_at": "2026-09-29T04:42:05+08:00"
+    "fetched_at": "2026-09-29T08:37:10+08:00"
   },
   "power_year": {
     "status": "ok",
@@ -95,7 +95,7 @@
     "unit_note": "原始單位 MWh，本站換算為億度（1 億度 = 100,000 MWh）",
     "source": "經濟部能源署　能源統計專區 OPEN API《4-01 再生能源發電量》",
     "source_url": "https://ea01.moeaea.gov.tw/a0303/02/database/api/",
-    "fetched_at": "2026-09-28T06:19:37+08:00"
+    "fetched_at": "2026-09-29T08:37:12+08:00"
   },
   "sea": {
     "status": "ok",
@@ -150,8 +150,8 @@
         "status": "珍貴稀有保育類野生動物"
       }
     ],
-    "species_at": "2026-09-28T06:25:59+08:00",
-    "fetched_at": "2026-09-29T04:42:08+08:00"
+    "species_at": "2026-09-29T08:40:51+08:00",
+    "fetched_at": "2026-09-29T08:40:51+08:00"
   },
   "land": {
     "status": "model",
