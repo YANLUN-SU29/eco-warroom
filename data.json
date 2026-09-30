@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-09-30T22:07:32+08:00",
-  "updated": "2026-09-30 22:07",
+  "generated_at": "2026-10-01T03:17:48+08:00",
+  "updated": "2026-10-01 03:17",
   "power_live": {
     "status": "ok",
-    "sample_time": "2026-09-30T22:00:00",
+    "sample_time": "2026-10-01T03:10:00",
     "total_mw": 0.3,
     "farm_count": 16,
     "owned_count": null,
@@ -64,7 +64,7 @@
     "source": "台灣電力公司　各機組發電量即時資訊（含外購電力）",
     "source_url": "https://data.gov.tw/dataset/8931",
     "live_url": "https://dr.taipower.com.tw/d006/loadGraph/loadGraph/genshx_.html",
-    "fetched_at": "2026-09-30T22:07:33+08:00"
+    "fetched_at": "2026-10-01T03:17:49+08:00"
   },
   "power_year": {
     "status": "ok",
@@ -110,7 +110,7 @@
   },
   "sky": {
     "status": "ok",
-    "recent_12m": 55066,
+    "recent_12m": 39341,
     "area": "彰化縣",
     "window": "近 12 個月",
     "source": "農業部　臺灣生物多樣性網絡 TBN 物種觀測 API v2.6",
@@ -151,7 +151,7 @@
       }
     ],
     "species_at": "2026-09-30T09:37:32+08:00",
-    "fetched_at": "2026-09-30T22:07:37+08:00"
+    "fetched_at": "2026-10-01T03:17:50+08:00"
   },
   "land": {
     "status": "model",
