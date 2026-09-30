@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-10-01T03:17:48+08:00",
-  "updated": "2026-10-01 03:17",
+  "generated_at": "2026-10-01T07:05:30+08:00",
+  "updated": "2026-10-01 07:05",
   "power_live": {
     "status": "ok",
-    "sample_time": "2026-10-01T03:10:00",
+    "sample_time": "2026-10-01T07:00:00",
     "total_mw": 0.3,
     "farm_count": 16,
     "owned_count": null,
@@ -64,7 +64,7 @@
     "source": "台灣電力公司　各機組發電量即時資訊（含外購電力）",
     "source_url": "https://data.gov.tw/dataset/8931",
     "live_url": "https://dr.taipower.com.tw/d006/loadGraph/loadGraph/genshx_.html",
-    "fetched_at": "2026-10-01T03:17:49+08:00"
+    "fetched_at": "2026-10-01T07:05:31+08:00"
   },
   "power_year": {
     "status": "ok",
@@ -106,7 +106,7 @@
     "window": "近 12 個月",
     "source": "海洋委員會海保署　iOcean 海洋生物目擊回報",
     "source_url": "https://data.gov.tw/dataset/157621",
-    "fetched_at": "2026-09-30T22:07:36+08:00"
+    "fetched_at": "2026-10-01T07:05:33+08:00"
   },
   "sky": {
     "status": "ok",
@@ -151,7 +151,7 @@
       }
     ],
     "species_at": "2026-09-30T09:37:32+08:00",
-    "fetched_at": "2026-10-01T03:17:50+08:00"
+    "fetched_at": "2026-10-01T07:05:34+08:00"
   },
   "land": {
     "status": "model",
