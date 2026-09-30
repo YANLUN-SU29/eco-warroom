@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-30T06:35:55+08:00",
-  "updated": "2026-09-30 06:35",
+  "generated_at": "2026-09-30T09:33:29+08:00",
+  "updated": "2026-09-30 09:33",
   "power_live": {
     "status": "ok",
     "sample_time": "2026-09-29T15:30:00",
@@ -64,7 +64,7 @@
     "source": "台灣電力公司　各機組發電量即時資訊（含外購電力）",
     "source_url": "https://data.gov.tw/dataset/8931",
     "live_url": "https://dr.taipower.com.tw/d006/loadGraph/loadGraph/genshx_.html",
-    "fetched_at": "2026-09-30T06:35:58+08:00"
+    "fetched_at": "2026-09-30T09:33:30+08:00"
   },
   "power_year": {
     "status": "ok",
@@ -95,7 +95,7 @@
     "unit_note": "原始單位 MWh，本站換算為億度（1 億度 = 100,000 MWh）",
     "source": "經濟部能源署　能源統計專區 OPEN API《4-01 再生能源發電量》",
     "source_url": "https://ea01.moeaea.gov.tw/a0303/02/database/api/",
-    "fetched_at": "2026-09-29T08:37:12+08:00"
+    "fetched_at": "2026-09-30T09:33:32+08:00"
   },
   "sea": {
     "status": "ok",
@@ -150,8 +150,8 @@
         "status": "珍貴稀有保育類野生動物"
       }
     ],
-    "species_at": "2026-09-29T08:40:51+08:00",
-    "fetched_at": "2026-09-30T06:36:02+08:00"
+    "species_at": "2026-09-30T09:37:32+08:00",
+    "fetched_at": "2026-09-30T09:37:32+08:00"
   },
   "land": {
     "status": "model",
