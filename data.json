@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-10-01T07:05:30+08:00",
-  "updated": "2026-10-01 07:05",
+  "generated_at": "2026-10-01T10:06:01+08:00",
+  "updated": "2026-10-01 10:06",
   "power_live": {
     "status": "ok",
-    "sample_time": "2026-10-01T07:00:00",
+    "sample_time": "2026-10-01T10:00:00",
     "total_mw": 0.3,
     "farm_count": 16,
     "owned_count": null,
@@ -64,7 +64,7 @@
     "source": "台灣電力公司　各機組發電量即時資訊（含外購電力）",
     "source_url": "https://data.gov.tw/dataset/8931",
     "live_url": "https://dr.taipower.com.tw/d006/loadGraph/loadGraph/genshx_.html",
-    "fetched_at": "2026-10-01T07:05:31+08:00"
+    "fetched_at": "2026-10-01T10:06:02+08:00"
   },
   "power_year": {
     "status": "ok",
@@ -95,7 +95,7 @@
     "unit_note": "原始單位 MWh，本站換算為億度（1 億度 = 100,000 MWh）",
     "source": "經濟部能源署　能源統計專區 OPEN API《4-01 再生能源發電量》",
     "source_url": "https://ea01.moeaea.gov.tw/a0303/02/database/api/",
-    "fetched_at": "2026-09-30T09:33:32+08:00"
+    "fetched_at": "2026-10-01T10:06:03+08:00"
   },
   "sea": {
     "status": "ok",
@@ -115,13 +115,13 @@
     "window": "近 12 個月",
     "source": "農業部　臺灣生物多樣性網絡 TBN 物種觀測 API v2.6",
     "source_url": "https://www.tbn.org.tw/data/api/v26/occurrence",
-    "species_count": 195,
-    "protected_count": 39,
-    "family_count": 55,
+    "species_count": 190,
+    "protected_count": 37,
+    "family_count": 53,
     "notable": [
       {
         "name": "黑面琵鷺",
-        "records": 122,
+        "records": 119,
         "status": "瀕臨絕種保育類野生動物"
       },
       {
@@ -131,7 +131,7 @@
       },
       {
         "name": "黑翅鳶",
-        "records": 326,
+        "records": 278,
         "status": "珍貴稀有保育類野生動物"
       },
       {
@@ -141,17 +141,17 @@
       },
       {
         "name": "紅隼",
-        "records": 134,
+        "records": 133,
         "status": "珍貴稀有保育類野生動物"
       },
       {
         "name": "鳳頭蒼鷹",
-        "records": 82,
+        "records": 66,
         "status": "珍貴稀有保育類野生動物"
       }
     ],
-    "species_at": "2026-09-30T09:37:32+08:00",
-    "fetched_at": "2026-10-01T07:05:34+08:00"
+    "species_at": "2026-10-01T10:08:33+08:00",
+    "fetched_at": "2026-10-01T10:08:33+08:00"
   },
   "land": {
     "status": "model",
