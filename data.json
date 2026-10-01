@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-10-01T10:06:01+08:00",
-  "updated": "2026-10-01 10:06",
+  "generated_at": "2026-10-01T16:51:27+08:00",
+  "updated": "2026-10-01 16:51",
   "power_live": {
     "status": "ok",
-    "sample_time": "2026-10-01T10:00:00",
-    "total_mw": 0.3,
+    "sample_time": "2026-10-01T16:40:00",
+    "total_mw": 1.4,
     "farm_count": 16,
     "owned_count": null,
     "ipp_count": 16,
@@ -12,6 +12,12 @@
     "capacity_factor": 0.0,
     "classification": "名稱比對（備援，台電分類資料無法取得）",
     "farms": [
+      {
+        "name": "允湖",
+        "mw": 1.1,
+        "cap": 320.0,
+        "owner": null
+      },
       {
         "name": "離岸二期",
         "mw": 0.3,
@@ -53,18 +59,12 @@
         "mw": 0.0,
         "cap": null,
         "owner": null
-      },
-      {
-        "name": "沃南風",
-        "mw": 0.0,
-        "cap": 337.1,
-        "owner": null
       }
     ],
     "source": "台灣電力公司　各機組發電量即時資訊（含外購電力）",
     "source_url": "https://data.gov.tw/dataset/8931",
     "live_url": "https://dr.taipower.com.tw/d006/loadGraph/loadGraph/genshx_.html",
-    "fetched_at": "2026-10-01T10:06:02+08:00"
+    "fetched_at": "2026-10-01T16:51:28+08:00"
   },
   "power_year": {
     "status": "ok",
@@ -106,7 +106,7 @@
     "window": "近 12 個月",
     "source": "海洋委員會海保署　iOcean 海洋生物目擊回報",
     "source_url": "https://data.gov.tw/dataset/157621",
-    "fetched_at": "2026-10-01T07:05:33+08:00"
+    "fetched_at": "2026-10-01T16:51:31+08:00"
   },
   "sky": {
     "status": "ok",
@@ -151,7 +151,7 @@
       }
     ],
     "species_at": "2026-10-01T10:08:33+08:00",
-    "fetched_at": "2026-10-01T10:08:33+08:00"
+    "fetched_at": "2026-10-01T16:51:32+08:00"
   },
   "land": {
     "status": "model",
