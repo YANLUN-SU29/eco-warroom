@@ -1,70 +1,70 @@
 {
-  "generated_at": "2026-10-04T06:13:32+08:00",
-  "updated": "2026-10-04 06:13",
+  "generated_at": "2026-10-04T08:44:48+08:00",
+  "updated": "2026-10-04 08:44",
   "power_live": {
     "status": "ok",
-    "sample_time": "2026-10-04T06:00:00",
-    "total_mw": 204.7,
+    "sample_time": "2026-10-04T08:30:00",
+    "total_mw": 55.6,
     "farm_count": 16,
     "owned_count": null,
     "ipp_count": 16,
     "capacity_mw": 3380.0,
-    "capacity_factor": 3.4,
+    "capacity_factor": 0.7,
     "classification": "名稱比對（備援，台電分類資料無法取得）",
     "farms": [
       {
         "name": "沃四風",
-        "mw": 64.2,
+        "mw": 30.1,
         "cap": null,
         "owner": null
       },
       {
         "name": "沃一風",
-        "mw": 60.2,
+        "mw": 13.2,
         "cap": 605.2,
         "owner": null
       },
       {
         "name": "沃二風",
-        "mw": 23.8,
+        "mw": 9.5,
         "cap": 294.8,
         "owner": null
       },
       {
-        "name": "沃南風",
-        "mw": 23.8,
-        "cap": 337.1,
-        "owner": null
-      },
-      {
         "name": "龍A風",
-        "mw": 18.5,
+        "mw": 2.1,
         "cap": null,
-        "owner": null
-      },
-      {
-        "name": "龍B風",
-        "mw": 7.0,
-        "cap": null,
-        "owner": null
-      },
-      {
-        "name": "允西",
-        "mw": 6.4,
-        "cap": 320.0,
         "owner": null
       },
       {
         "name": "離岸二期",
-        "mw": 0.5,
+        "mw": 0.7,
         "cap": null,
+        "owner": null
+      },
+      {
+        "name": "離岸一期",
+        "mw": 0.0,
+        "cap": 109.2,
+        "owner": null
+      },
+      {
+        "name": "海洋竹南",
+        "mw": 0.0,
+        "cap": 128.0,
+        "owner": null
+      },
+      {
+        "name": "海能風",
+        "mw": 0.0,
+        "cap": 376.0,
         "owner": null
       }
     ],
     "source": "台灣電力公司　各機組發電量即時資訊（含外購電力）",
     "source_url": "https://data.gov.tw/dataset/8931",
     "live_url": "https://dr.taipower.com.tw/d006/loadGraph/loadGraph/genshx_.html",
-    "fetched_at": "2026-10-04T06:13:34+08:00"
+    "fetched_at": "2026-10-04T08:44:50+08:00"
   },
   "power_year": {
     "status": "ok",
@@ -151,7 +151,7 @@
       }
     ],
     "species_at": "2026-10-03T14:42:24+08:00",
-    "fetched_at": "2026-10-04T06:13:39+08:00"
+    "fetched_at": "2026-10-04T08:44:51+08:00"
   },
   "land": {
     "status": "model",
