@@ -1,70 +1,70 @@
 {
-  "generated_at": "2026-10-05T10:05:13+08:00",
-  "updated": "2026-10-05 10:05",
+  "generated_at": "2026-10-05T16:56:08+08:00",
+  "updated": "2026-10-05 16:56",
   "power_live": {
     "status": "ok",
-    "sample_time": "2026-10-05T10:00:00",
-    "total_mw": 3033.3,
+    "sample_time": "2026-10-05T16:50:00",
+    "total_mw": 3931.5,
     "farm_count": 16,
     "owned_count": null,
     "ipp_count": 16,
     "capacity_mw": 3380.0,
-    "capacity_factor": 65.9,
+    "capacity_factor": 89.9,
     "classification": "名稱比對（備援，台電分類資料無法取得）",
     "farms": [
       {
         "name": "沃一風",
-        "mw": 567.0,
+        "mw": 566.7,
         "cap": 605.2,
         "owner": null
       },
       {
+        "name": "芳二風",
+        "mw": 446.3,
+        "cap": 499.2,
+        "owner": null
+      },
+      {
         "name": "沃四風",
-        "mw": 421.5,
+        "mw": 427.7,
         "cap": null,
         "owner": null
       },
       {
         "name": "海能風",
-        "mw": 340.4,
+        "mw": 343.6,
         "cap": 376.0,
         "owner": null
       },
       {
-        "name": "芳二風",
-        "mw": 270.8,
-        "cap": 499.2,
+        "name": "允西",
+        "mw": 297.4,
+        "cap": 320.0,
         "owner": null
       },
       {
-        "name": "沃二風",
-        "mw": 268.0,
-        "cap": 294.8,
-        "owner": null
-      },
-      {
-        "name": "沃南風",
-        "mw": 266.6,
-        "cap": 337.1,
+        "name": "允湖",
+        "mw": 294.0,
+        "cap": 320.0,
         "owner": null
       },
       {
         "name": "龍A風",
-        "mw": 240.4,
+        "mw": 285.4,
         "cap": null,
         "owner": null
       },
       {
-        "name": "中能風",
-        "mw": 188.4,
-        "cap": 294.5,
+        "name": "沃南風",
+        "mw": 284.8,
+        "cap": 337.1,
         "owner": null
       }
     ],
     "source": "台灣電力公司　各機組發電量即時資訊（含外購電力）",
     "source_url": "https://data.gov.tw/dataset/8931",
     "live_url": "https://dr.taipower.com.tw/d006/loadGraph/loadGraph/genshx_.html",
-    "fetched_at": "2026-10-05T10:05:15+08:00"
+    "fetched_at": "2026-10-05T16:56:10+08:00"
   },
   "power_year": {
     "status": "ok",
@@ -106,7 +106,7 @@
     "window": "近 12 個月",
     "source": "海洋委員會海保署　iOcean 海洋生物目擊回報",
     "source_url": "https://data.gov.tw/dataset/157621",
-    "fetched_at": "2026-10-05T04:09:10+08:00"
+    "fetched_at": "2026-10-05T16:56:13+08:00"
   },
   "sky": {
     "status": "ok",
@@ -151,7 +151,7 @@
       }
     ],
     "species_at": "2026-10-04T20:49:33+08:00",
-    "fetched_at": "2026-10-05T10:05:16+08:00"
+    "fetched_at": "2026-10-05T16:56:15+08:00"
   },
   "land": {
     "status": "model",
