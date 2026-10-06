@@ -1,62 +1,62 @@
 {
-  "generated_at": "2026-10-06T02:11:33+08:00",
-  "updated": "2026-10-06 02:11",
+  "generated_at": "2026-10-06T08:08:52+08:00",
+  "updated": "2026-10-06 08:08",
   "power_live": {
     "status": "ok",
-    "sample_time": "2026-10-06T02:00:00",
-    "total_mw": 3970.7,
+    "sample_time": "2026-10-06T08:00:00",
+    "total_mw": 3956.7,
     "farm_count": 16,
     "owned_count": null,
     "ipp_count": 16,
     "capacity_mw": 3380.0,
-    "capacity_factor": 90.2,
+    "capacity_factor": 89.8,
     "classification": "名稱比對（備援，台電分類資料無法取得）",
     "farms": [
       {
         "name": "沃一風",
-        "mw": 577.9,
+        "mw": 576.8,
         "cap": 605.2,
         "owner": null
       },
       {
         "name": "沃四風",
-        "mw": 455.1,
+        "mw": 455.8,
         "cap": null,
         "owner": null
       },
       {
         "name": "芳二風",
-        "mw": 438.8,
+        "mw": 437.4,
         "cap": 499.2,
         "owner": null
       },
       {
         "name": "海能風",
-        "mw": 344.8,
+        "mw": 337.7,
         "cap": 376.0,
         "owner": null
       },
       {
         "name": "沃南風",
-        "mw": 301.6,
+        "mw": 301.3,
         "cap": 337.1,
         "owner": null
       },
       {
         "name": "允西",
-        "mw": 297.6,
+        "mw": 297.4,
         "cap": 320.0,
         "owner": null
       },
       {
         "name": "允湖",
-        "mw": 294.8,
+        "mw": 294.0,
         "cap": 320.0,
         "owner": null
       },
       {
         "name": "龍A風",
-        "mw": 285.4,
+        "mw": 283.1,
         "cap": null,
         "owner": null
       }
@@ -64,7 +64,7 @@
     "source": "台灣電力公司　各機組發電量即時資訊（含外購電力）",
     "source_url": "https://data.gov.tw/dataset/8931",
     "live_url": "https://dr.taipower.com.tw/d006/loadGraph/loadGraph/genshx_.html",
-    "fetched_at": "2026-10-06T02:11:35+08:00"
+    "fetched_at": "2026-10-06T08:08:59+08:00"
   },
   "power_year": {
     "status": "ok",
@@ -151,7 +151,7 @@
       }
     ],
     "species_at": "2026-10-06T02:15:50+08:00",
-    "fetched_at": "2026-10-06T02:15:50+08:00"
+    "fetched_at": "2026-10-06T08:09:00+08:00"
   },
   "land": {
     "status": "model",
