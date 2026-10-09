@@ -1,70 +1,70 @@
 {
-  "generated_at": "2026-10-09T21:50:48+08:00",
-  "updated": "2026-10-09 21:50",
+  "generated_at": "2026-10-10T03:19:30+08:00",
+  "updated": "2026-10-10 03:19",
   "power_live": {
     "status": "ok",
-    "sample_time": "2026-10-09T21:40:00",
-    "total_mw": 3692.0,
+    "sample_time": "2026-10-10T03:10:00",
+    "total_mw": 3088.4,
     "farm_count": 16,
     "owned_count": null,
     "ipp_count": 16,
     "capacity_mw": 3380.0,
-    "capacity_factor": 84.6,
+    "capacity_factor": 66.4,
     "classification": "名稱比對（備援，台電分類資料無法取得）",
     "farms": [
       {
         "name": "沃一風",
-        "mw": 564.5,
+        "mw": 533.7,
         "cap": 605.2,
         "owner": null
       },
       {
-        "name": "芳二風",
-        "mw": 410.8,
-        "cap": 499.2,
-        "owner": null
-      },
-      {
         "name": "沃四風",
-        "mw": 410.3,
+        "mw": 429.0,
         "cap": null,
         "owner": null
       },
       {
-        "name": "海能風",
-        "mw": 312.1,
-        "cap": 376.0,
+        "name": "芳二風",
+        "mw": 342.2,
+        "cap": 499.2,
         "owner": null
       },
       {
-        "name": "允西",
-        "mw": 287.6,
-        "cap": 320.0,
+        "name": "龍A風",
+        "mw": 240.4,
+        "cap": null,
+        "owner": null
+      },
+      {
+        "name": "沃二風",
+        "mw": 233.2,
+        "cap": 294.8,
         "owner": null
       },
       {
         "name": "沃南風",
-        "mw": 268.5,
+        "mw": 230.7,
         "cap": 337.1,
         "owner": null
       },
       {
-        "name": "中能風",
-        "mw": 266.3,
-        "cap": 294.5,
+        "name": "允西",
+        "mw": 224.0,
+        "cap": 320.0,
         "owner": null
       },
       {
-        "name": "允湖",
-        "mw": 264.3,
-        "cap": 320.0,
+        "name": "中能風",
+        "mw": 216.3,
+        "cap": 294.5,
         "owner": null
       }
     ],
     "source": "台灣電力公司　各機組發電量即時資訊（含外購電力）",
     "source_url": "https://data.gov.tw/dataset/8931",
     "live_url": "https://dr.taipower.com.tw/d006/loadGraph/loadGraph/genshx_.html",
-    "fetched_at": "2026-10-09T21:50:50+08:00"
+    "fetched_at": "2026-10-10T03:19:33+08:00"
   },
   "power_year": {
     "status": "ok",
@@ -151,7 +151,7 @@
       }
     ],
     "species_at": "2026-10-09T08:41:58+08:00",
-    "fetched_at": "2026-10-09T21:50:53+08:00"
+    "fetched_at": "2026-10-10T03:19:34+08:00"
   },
   "land": {
     "status": "model",
