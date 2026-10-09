@@ -1,70 +1,70 @@
 {
-  "generated_at": "2026-10-09T14:44:01+08:00",
-  "updated": "2026-10-09 14:44",
+  "generated_at": "2026-10-09T21:50:48+08:00",
+  "updated": "2026-10-09 21:50",
   "power_live": {
     "status": "ok",
-    "sample_time": "2026-10-09T14:30:00",
-    "total_mw": 3631.8,
+    "sample_time": "2026-10-09T21:40:00",
+    "total_mw": 3692.0,
     "farm_count": 16,
     "owned_count": null,
     "ipp_count": 16,
     "capacity_mw": 3380.0,
-    "capacity_factor": 82.4,
+    "capacity_factor": 84.6,
     "classification": "名稱比對（備援，台電分類資料無法取得）",
     "farms": [
       {
         "name": "沃一風",
-        "mw": 564.8,
+        "mw": 564.5,
         "cap": 605.2,
         "owner": null
       },
       {
-        "name": "沃四風",
-        "mw": 415.1,
-        "cap": null,
-        "owner": null
-      },
-      {
         "name": "芳二風",
-        "mw": 399.6,
+        "mw": 410.8,
         "cap": 499.2,
         "owner": null
       },
       {
-        "name": "海能風",
-        "mw": 356.8,
-        "cap": 376.0,
-        "owner": null
-      },
-      {
-        "name": "中能風",
-        "mw": 274.4,
-        "cap": 294.5,
-        "owner": null
-      },
-      {
-        "name": "沃二風",
-        "mw": 264.6,
-        "cap": 294.8,
-        "owner": null
-      },
-      {
-        "name": "龍A風",
-        "mw": 257.4,
+        "name": "沃四風",
+        "mw": 410.3,
         "cap": null,
         "owner": null
       },
       {
+        "name": "海能風",
+        "mw": 312.1,
+        "cap": 376.0,
+        "owner": null
+      },
+      {
+        "name": "允西",
+        "mw": 287.6,
+        "cap": 320.0,
+        "owner": null
+      },
+      {
         "name": "沃南風",
-        "mw": 255.7,
+        "mw": 268.5,
         "cap": 337.1,
+        "owner": null
+      },
+      {
+        "name": "中能風",
+        "mw": 266.3,
+        "cap": 294.5,
+        "owner": null
+      },
+      {
+        "name": "允湖",
+        "mw": 264.3,
+        "cap": 320.0,
         "owner": null
       }
     ],
     "source": "台灣電力公司　各機組發電量即時資訊（含外購電力）",
     "source_url": "https://data.gov.tw/dataset/8931",
     "live_url": "https://dr.taipower.com.tw/d006/loadGraph/loadGraph/genshx_.html",
-    "fetched_at": "2026-10-09T14:44:03+08:00"
+    "fetched_at": "2026-10-09T21:50:50+08:00"
   },
   "power_year": {
     "status": "ok",
@@ -106,7 +106,7 @@
     "window": "近 12 個月",
     "source": "海洋委員會海保署　iOcean 海洋生物目擊回報",
     "source_url": "https://data.gov.tw/dataset/157621",
-    "fetched_at": "2026-10-09T14:44:05+08:00"
+    "fetched_at": "2026-10-09T21:50:52+08:00"
   },
   "sky": {
     "status": "ok",
@@ -151,7 +151,7 @@
       }
     ],
     "species_at": "2026-10-09T08:41:58+08:00",
-    "fetched_at": "2026-10-09T14:44:06+08:00"
+    "fetched_at": "2026-10-09T21:50:53+08:00"
   },
   "land": {
     "status": "model",
