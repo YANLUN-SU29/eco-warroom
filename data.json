@@ -1,70 +1,70 @@
 {
-  "generated_at": "2026-10-10T23:13:41+08:00",
-  "updated": "2026-10-10 23:13",
+  "generated_at": "2026-10-11T03:20:42+08:00",
+  "updated": "2026-10-11 03:20",
   "power_live": {
     "status": "ok",
-    "sample_time": "2026-10-10T23:00:00",
-    "total_mw": 3652.7,
+    "sample_time": "2026-10-11T03:10:00",
+    "total_mw": 3126.7,
     "farm_count": 16,
     "owned_count": null,
     "ipp_count": 16,
     "capacity_mw": 3380.0,
-    "capacity_factor": 82.6,
+    "capacity_factor": 67.1,
     "classification": "名稱比對（備援，台電分類資料無法取得）",
     "farms": [
       {
         "name": "沃一風",
-        "mw": 555.2,
+        "mw": 554.7,
         "cap": 605.2,
         "owner": null
       },
       {
         "name": "沃四風",
-        "mw": 431.9,
+        "mw": 431.2,
         "cap": null,
         "owner": null
       },
       {
         "name": "芳二風",
-        "mw": 398.2,
+        "mw": 328.2,
         "cap": 499.2,
         "owner": null
       },
       {
-        "name": "海能風",
-        "mw": 293.6,
-        "cap": 376.0,
-        "owner": null
-      },
-      {
-        "name": "沃南風",
-        "mw": 275.1,
-        "cap": 337.1,
-        "owner": null
-      },
-      {
-        "name": "允西",
-        "mw": 275.0,
-        "cap": 320.0,
-        "owner": null
-      },
-      {
         "name": "沃二風",
-        "mw": 259.8,
+        "mw": 261.5,
         "cap": 294.8,
         "owner": null
       },
       {
+        "name": "沃南風",
+        "mw": 261.2,
+        "cap": 337.1,
+        "owner": null
+      },
+      {
+        "name": "海能風",
+        "mw": 261.0,
+        "cap": 376.0,
+        "owner": null
+      },
+      {
         "name": "龍A風",
-        "mw": 257.4,
+        "mw": 254.6,
         "cap": null,
+        "owner": null
+      },
+      {
+        "name": "中能風",
+        "mw": 185.0,
+        "cap": 294.5,
         "owner": null
       }
     ],
     "source": "台灣電力公司　各機組發電量即時資訊（含外購電力）",
     "source_url": "https://data.gov.tw/dataset/8931",
     "live_url": "https://dr.taipower.com.tw/d006/loadGraph/loadGraph/genshx_.html",
-    "fetched_at": "2026-10-10T23:13:43+08:00"
+    "fetched_at": "2026-10-11T03:20:43+08:00"
   },
   "power_year": {
     "status": "ok",
@@ -151,7 +151,7 @@
       }
     ],
     "species_at": "2026-10-10T10:38:07+08:00",
-    "fetched_at": "2026-10-10T23:13:46+08:00"
+    "fetched_at": "2026-10-11T03:20:44+08:00"
   },
   "land": {
     "status": "model",
