@@ -1,70 +1,70 @@
 {
-  "generated_at": "2026-10-14T18:19:06+08:00",
-  "updated": "2026-10-14 18:19",
+  "generated_at": "2026-10-14T23:15:21+08:00",
+  "updated": "2026-10-14 23:15",
   "power_live": {
     "status": "ok",
-    "sample_time": "2026-10-14T18:10:00",
-    "total_mw": 3691.1,
+    "sample_time": "2026-10-14T23:10:00",
+    "total_mw": 3205.0,
     "farm_count": 16,
     "owned_count": null,
     "ipp_count": 16,
     "capacity_mw": 3380.0,
-    "capacity_factor": 83.9,
+    "capacity_factor": 70.8,
     "classification": "名稱比對（備援，台電分類資料無法取得）",
     "farms": [
       {
         "name": "沃一風",
-        "mw": 568.4,
+        "mw": 558.6,
         "cap": 605.2,
         "owner": null
       },
       {
         "name": "沃四風",
-        "mw": 442.0,
+        "mw": 434.4,
         "cap": null,
         "owner": null
       },
       {
         "name": "芳二風",
-        "mw": 420.0,
+        "mw": 394.2,
         "cap": 499.2,
         "owner": null
       },
       {
         "name": "海能風",
-        "mw": 352.4,
+        "mw": 322.8,
         "cap": 376.0,
         "owner": null
       },
       {
-        "name": "允西",
-        "mw": 265.2,
-        "cap": 320.0,
-        "owner": null
-      },
-      {
-        "name": "中能風",
-        "mw": 265.1,
-        "cap": 294.5,
-        "owner": null
-      },
-      {
         "name": "沃二風",
-        "mw": 249.2,
+        "mw": 252.6,
         "cap": 294.8,
         "owner": null
       },
       {
         "name": "沃南風",
-        "mw": 248.7,
+        "mw": 249.1,
         "cap": 337.1,
+        "owner": null
+      },
+      {
+        "name": "中能風",
+        "mw": 235.6,
+        "cap": 294.5,
+        "owner": null
+      },
+      {
+        "name": "龍A風",
+        "mw": 226.6,
+        "cap": null,
         "owner": null
       }
     ],
     "source": "台灣電力公司　各機組發電量即時資訊（含外購電力）",
     "source_url": "https://data.gov.tw/dataset/8931",
     "live_url": "https://dr.taipower.com.tw/d006/loadGraph/loadGraph/genshx_.html",
-    "fetched_at": "2026-10-14T18:19:07+08:00"
+    "fetched_at": "2026-10-14T23:15:23+08:00"
   },
   "power_year": {
     "status": "ok",
@@ -109,7 +109,7 @@
     "fetched_at": "2026-10-14T18:19:10+08:00"
   },
   "sky": {
-    "status": "ok",
+    "status": "stale",
     "recent_12m": 63810,
     "area": "彰化縣",
     "window": "近 12 個月",
@@ -151,7 +151,9 @@
       }
     ],
     "species_at": "2026-10-14T00:09:47+08:00",
-    "fetched_at": "2026-10-14T18:19:11+08:00"
+    "fetched_at": "2026-10-14T18:19:11+08:00",
+    "error": "ValueError: TBN 回傳找不到總筆數（meta.total / count）",
+    "last_ok": "2026-10-14T18:19:06+08:00"
   },
   "land": {
     "status": "model",
@@ -163,6 +165,6 @@
     "source_url": "https://eiadoc.moenv.gov.tw/eiaweb/"
   },
   "live": true,
-  "live_count": 4,
+  "live_count": 3,
   "total_count": 4
 }
