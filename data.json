@@ -1,51 +1,51 @@
 {
-  "generated_at": "2026-10-17T14:11:16+08:00",
-  "updated": "2026-10-17 14:11",
+  "generated_at": "2026-10-17T18:55:14+08:00",
+  "updated": "2026-10-17 18:55",
   "power_live": {
     "status": "ok",
-    "sample_time": "2026-10-17T14:00:00",
-    "total_mw": 12.8,
+    "sample_time": "2026-10-17T18:50:00",
+    "total_mw": 233.2,
     "farm_count": 16,
     "owned_count": null,
     "ipp_count": 16,
     "capacity_mw": 3380.0,
-    "capacity_factor": 0.4,
+    "capacity_factor": 3.4,
     "classification": "名稱比對（備援，台電分類資料無法取得）",
     "farms": [
       {
-        "name": "海能風",
-        "mw": 5.0,
-        "cap": 376.0,
-        "owner": null
-      },
-      {
-        "name": "允西",
-        "mw": 5.0,
-        "cap": 320.0,
-        "owner": null
-      },
-      {
-        "name": "沃二風",
-        "mw": 1.4,
-        "cap": 294.8,
-        "owner": null
-      },
-      {
-        "name": "允湖",
-        "mw": 0.8,
-        "cap": 320.0,
-        "owner": null
-      },
-      {
-        "name": "離岸二期",
-        "mw": 0.3,
+        "name": "沃四風",
+        "mw": 81.0,
         "cap": null,
         "owner": null
       },
       {
-        "name": "中能風",
-        "mw": 0.3,
-        "cap": 294.5,
+        "name": "沃一風",
+        "mw": 59.6,
+        "cap": 605.2,
+        "owner": null
+      },
+      {
+        "name": "沃二風",
+        "mw": 28.3,
+        "cap": 294.8,
+        "owner": null
+      },
+      {
+        "name": "沃南風",
+        "mw": 26.8,
+        "cap": 337.1,
+        "owner": null
+      },
+      {
+        "name": "龍A風",
+        "mw": 21.4,
+        "cap": null,
+        "owner": null
+      },
+      {
+        "name": "龍B風",
+        "mw": 16.1,
+        "cap": null,
         "owner": null
       },
       {
@@ -55,16 +55,16 @@
         "owner": null
       },
       {
-        "name": "海洋竹南",
+        "name": "離岸二期",
         "mw": 0.0,
-        "cap": 128.0,
+        "cap": null,
         "owner": null
       }
     ],
     "source": "台灣電力公司　各機組發電量即時資訊（含外購電力）",
     "source_url": "https://data.gov.tw/dataset/8931",
     "live_url": "https://dr.taipower.com.tw/d006/loadGraph/loadGraph/genshx_.html",
-    "fetched_at": "2026-10-17T14:11:18+08:00"
+    "fetched_at": "2026-10-17T18:55:18+08:00"
   },
   "power_year": {
     "status": "ok",
@@ -151,7 +151,7 @@
       }
     ],
     "species_at": "2026-10-17T07:43:33+08:00",
-    "fetched_at": "2026-10-17T14:11:21+08:00"
+    "fetched_at": "2026-10-17T18:55:19+08:00"
   },
   "land": {
     "status": "model",
