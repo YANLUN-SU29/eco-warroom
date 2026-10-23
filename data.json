@@ -1,45 +1,45 @@
 {
-  "generated_at": "2026-10-23T09:39:49+08:00",
-  "updated": "2026-10-23 09:39",
+  "generated_at": "2026-10-23T14:30:32+08:00",
+  "updated": "2026-10-23 14:30",
   "power_live": {
-    "status": "stale",
-    "sample_time": "2026-10-23T03:50:00",
-    "total_mw": 467.5,
+    "status": "ok",
+    "sample_time": "2026-10-23T14:20:00",
+    "total_mw": 193.4,
     "farm_count": 16,
     "owned_count": null,
     "ipp_count": 16,
     "capacity_mw": 3380.0,
-    "capacity_factor": 13.8,
+    "capacity_factor": 5.7,
     "classification": "名稱比對（備援，台電分類資料無法取得）",
     "farms": [
       {
-        "name": "海能風",
-        "mw": 234.6,
-        "cap": 376.0,
-        "owner": null
-      },
-      {
         "name": "芳二風",
-        "mw": 85.4,
+        "mw": 102.2,
         "cap": 499.2,
         "owner": null
       },
       {
-        "name": "海洋竹南",
-        "mw": 81.9,
-        "cap": 128.0,
-        "owner": null
-      },
-      {
         "name": "中能風",
-        "mw": 46.0,
+        "mw": 45.0,
         "cap": 294.5,
         "owner": null
       },
       {
+        "name": "海能風",
+        "mw": 29.0,
+        "cap": 376.0,
+        "owner": null
+      },
+      {
         "name": "芳一風",
-        "mw": 19.3,
+        "mw": 11.2,
         "cap": 96.0,
+        "owner": null
+      },
+      {
+        "name": "海洋竹南",
+        "mw": 5.7,
+        "cap": 128.0,
         "owner": null
       },
       {
@@ -64,9 +64,7 @@
     "source": "台灣電力公司　各機組發電量即時資訊（含外購電力）",
     "source_url": "https://data.gov.tw/dataset/8931",
     "live_url": "https://dr.taipower.com.tw/d006/loadGraph/loadGraph/genshx_.html",
-    "fetched_at": "2026-10-23T04:02:51+08:00",
-    "error": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>",
-    "last_ok": "2026-10-23T04:02:50+08:00"
+    "fetched_at": "2026-10-23T14:30:34+08:00"
   },
   "power_year": {
     "status": "ok",
@@ -97,7 +95,7 @@
     "unit_note": "原始單位 MWh，本站換算為億度（1 億度 = 100,000 MWh）",
     "source": "經濟部能源署　能源統計專區 OPEN API《4-01 再生能源發電量》",
     "source_url": "https://ea01.moeaea.gov.tw/a0303/02/database/api/",
-    "fetched_at": "2026-10-22T13:59:22+08:00"
+    "fetched_at": "2026-10-23T14:30:35+08:00"
   },
   "sea": {
     "status": "ok",
@@ -108,7 +106,7 @@
     "window": "近 12 個月",
     "source": "海洋委員會海保署　iOcean 海洋生物目擊回報",
     "source_url": "https://data.gov.tw/dataset/157621",
-    "fetched_at": "2026-10-23T07:19:45+08:00"
+    "fetched_at": "2026-10-23T14:30:38+08:00"
   },
   "sky": {
     "status": "ok",
@@ -152,8 +150,8 @@
         "status": "珍貴稀有保育類野生動物"
       }
     ],
-    "species_at": "2026-10-22T14:03:08+08:00",
-    "fetched_at": "2026-10-23T09:40:36+08:00"
+    "species_at": "2026-10-23T14:33:58+08:00",
+    "fetched_at": "2026-10-23T14:33:58+08:00"
   },
   "land": {
     "status": "model",
@@ -165,6 +163,6 @@
     "source_url": "https://eiadoc.moenv.gov.tw/eiaweb/"
   },
   "live": true,
-  "live_count": 3,
+  "live_count": 4,
   "total_count": 4
 }
