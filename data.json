@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-30T17:03:32+08:00",
-  "updated": "2026-10-30 17:03",
+  "generated_at": "2026-10-30T23:51:44+08:00",
+  "updated": "2026-10-30 23:51",
   "power_live": {
     "status": "stale",
     "sample_time": "2026-10-30T10:30:00",
@@ -108,7 +108,7 @@
     "window": "近 12 個月",
     "source": "海洋委員會海保署　iOcean 海洋生物目擊回報",
     "source_url": "https://data.gov.tw/dataset/157621",
-    "fetched_at": "2026-10-30T17:04:22+08:00"
+    "fetched_at": "2026-10-30T23:52:33+08:00"
   },
   "sky": {
     "status": "ok",
@@ -153,7 +153,7 @@
       }
     ],
     "species_at": "2026-10-30T03:06:27+08:00",
-    "fetched_at": "2026-10-30T17:04:23+08:00"
+    "fetched_at": "2026-10-30T23:52:34+08:00"
   },
   "land": {
     "status": "model",
