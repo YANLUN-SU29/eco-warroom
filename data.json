@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-31T08:01:43+08:00",
-  "updated": "2026-10-31 08:01",
+  "generated_at": "2026-10-31T13:31:10+08:00",
+  "updated": "2026-10-31 13:31",
   "power_live": {
     "status": "stale",
     "sample_time": "2026-10-30T10:30:00",
@@ -111,7 +111,7 @@
     "fetched_at": "2026-10-31T08:02:34+08:00"
   },
   "sky": {
-    "status": "stale",
+    "status": "ok",
     "recent_12m": 63810,
     "area": "彰化縣",
     "window": "近 12 個月",
@@ -152,10 +152,8 @@
         "status": "珍貴稀有保育類野生動物"
       }
     ],
-    "species_at": "2026-10-30T03:06:27+08:00",
-    "fetched_at": "2026-10-30T23:52:34+08:00",
-    "error": "HTTPError: HTTP Error 403: Forbidden",
-    "last_ok": "2026-10-30T23:51:44+08:00"
+    "species_at": "2026-10-31T13:35:36+08:00",
+    "fetched_at": "2026-10-31T13:35:36+08:00"
   },
   "land": {
     "status": "model",
@@ -167,6 +165,6 @@
     "source_url": "https://eiadoc.moenv.gov.tw/eiaweb/"
   },
   "live": true,
-  "live_count": 2,
+  "live_count": 3,
   "total_count": 4
 }
