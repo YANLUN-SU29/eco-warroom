@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-31T04:31:05+08:00",
-  "updated": "2026-10-31 04:31",
+  "generated_at": "2026-10-31T08:01:43+08:00",
+  "updated": "2026-10-31 08:01",
   "power_live": {
     "status": "stale",
     "sample_time": "2026-10-30T10:30:00",
@@ -101,14 +101,14 @@
   },
   "sea": {
     "status": "ok",
-    "recent_12m": 115,
-    "white_dolphin_12m": 70,
+    "recent_12m": 114,
+    "white_dolphin_12m": 69,
     "total_records": 1141,
     "latest": "2026-09-19",
     "window": "近 12 個月",
     "source": "海洋委員會海保署　iOcean 海洋生物目擊回報",
     "source_url": "https://data.gov.tw/dataset/157621",
-    "fetched_at": "2026-10-30T23:52:33+08:00"
+    "fetched_at": "2026-10-31T08:02:34+08:00"
   },
   "sky": {
     "status": "stale",
@@ -154,7 +154,7 @@
     ],
     "species_at": "2026-10-30T03:06:27+08:00",
     "fetched_at": "2026-10-30T23:52:34+08:00",
-    "error": "HTTPError: HTTP Error 503: Service Unavailable",
+    "error": "HTTPError: HTTP Error 403: Forbidden",
     "last_ok": "2026-10-30T23:51:44+08:00"
   },
   "land": {
