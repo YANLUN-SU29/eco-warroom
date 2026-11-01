@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-11-01T10:20:43+08:00",
-  "updated": "2026-11-01 10:20",
+  "generated_at": "2026-11-01T17:32:42+08:00",
+  "updated": "2026-11-01 17:32",
   "power_live": {
-    "status": "ok",
+    "status": "stale",
     "sample_time": "2026-11-01T10:10:00",
     "total_mw": 419.7,
     "farm_count": 16,
@@ -64,7 +64,9 @@
     "source": "台灣電力公司　各機組發電量即時資訊（含外購電力）",
     "source_url": "https://data.gov.tw/dataset/8931",
     "live_url": "https://dr.taipower.com.tw/d006/loadGraph/loadGraph/genshx_.html",
-    "fetched_at": "2026-11-01T10:20:45+08:00"
+    "fetched_at": "2026-11-01T10:20:45+08:00",
+    "error": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>",
+    "last_ok": "2026-11-01T10:20:43+08:00"
   },
   "power_year": {
     "status": "ok",
@@ -106,7 +108,7 @@
     "window": "近 12 個月",
     "source": "海洋委員會海保署　iOcean 海洋生物目擊回報",
     "source_url": "https://data.gov.tw/dataset/157621",
-    "fetched_at": "2026-11-01T10:20:48+08:00"
+    "fetched_at": "2026-11-01T17:33:31+08:00"
   },
   "sky": {
     "status": "ok",
@@ -115,13 +117,13 @@
     "window": "近 12 個月",
     "source": "農業部　臺灣生物多樣性網絡 TBN 物種觀測 API v2.6",
     "source_url": "https://www.tbn.org.tw/data/api/v26/occurrence",
-    "species_count": 220,
+    "species_count": 218,
     "protected_count": 49,
     "family_count": 58,
     "notable": [
       {
         "name": "黑面琵鷺",
-        "records": 186,
+        "records": 184,
         "status": "瀕臨絕種保育類野生動物"
       },
       {
@@ -131,27 +133,27 @@
       },
       {
         "name": "東方白鸛",
-        "records": 49,
+        "records": 48,
         "status": "瀕臨絕種保育類野生動物"
       },
       {
         "name": "黑翅鳶",
-        "records": 464,
+        "records": 437,
         "status": "珍貴稀有保育類野生動物"
       },
       {
         "name": "小燕鷗",
-        "records": 358,
+        "records": 333,
         "status": "珍貴稀有保育類野生動物"
       },
       {
         "name": "鳳頭蒼鷹",
-        "records": 201,
+        "records": 196,
         "status": "珍貴稀有保育類野生動物"
       }
     ],
-    "species_at": "2026-10-31T13:35:36+08:00",
-    "fetched_at": "2026-11-01T10:20:49+08:00"
+    "species_at": "2026-11-01T17:36:49+08:00",
+    "fetched_at": "2026-11-01T17:36:49+08:00"
   },
   "land": {
     "status": "model",
@@ -163,6 +165,6 @@
     "source_url": "https://eiadoc.moenv.gov.tw/eiaweb/"
   },
   "live": true,
-  "live_count": 4,
+  "live_count": 3,
   "total_count": 4
 }
