@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-11-02T04:42:25+08:00",
-  "updated": "2026-11-02 04:42",
+  "generated_at": "2026-11-02T07:56:49+08:00",
+  "updated": "2026-11-02 07:56",
   "power_live": {
-    "status": "stale",
-    "sample_time": "2026-11-02T00:10:00",
-    "total_mw": 0.5,
+    "status": "ok",
+    "sample_time": "2026-11-02T07:50:00",
+    "total_mw": 0.7,
     "farm_count": 16,
     "owned_count": null,
     "ipp_count": 16,
@@ -14,7 +14,7 @@
     "farms": [
       {
         "name": "離岸二期",
-        "mw": 0.5,
+        "mw": 0.7,
         "cap": null,
         "owner": null
       },
@@ -64,9 +64,7 @@
     "source": "台灣電力公司　各機組發電量即時資訊（含外購電力）",
     "source_url": "https://data.gov.tw/dataset/8931",
     "live_url": "https://dr.taipower.com.tw/d006/loadGraph/loadGraph/genshx_.html",
-    "fetched_at": "2026-11-02T00:21:33+08:00",
-    "error": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>",
-    "last_ok": "2026-11-02T00:21:31+08:00"
+    "fetched_at": "2026-11-02T07:56:51+08:00"
   },
   "power_year": {
     "status": "ok",
@@ -97,7 +95,7 @@
     "unit_note": "原始單位 MWh，本站換算為億度（1 億度 = 100,000 MWh）",
     "source": "經濟部能源署　能源統計專區 OPEN API《4-01 再生能源發電量》",
     "source_url": "https://ea01.moeaea.gov.tw/a0303/02/database/api/",
-    "fetched_at": "2026-11-01T07:17:53+08:00"
+    "fetched_at": "2026-11-02T07:56:52+08:00"
   },
   "sea": {
     "status": "ok",
@@ -108,7 +106,7 @@
     "window": "近 12 個月",
     "source": "海洋委員會海保署　iOcean 海洋生物目擊回報",
     "source_url": "https://data.gov.tw/dataset/157621",
-    "fetched_at": "2026-11-02T00:21:35+08:00"
+    "fetched_at": "2026-11-02T07:56:54+08:00"
   },
   "sky": {
     "status": "ok",
@@ -153,7 +151,7 @@
       }
     ],
     "species_at": "2026-11-01T17:36:49+08:00",
-    "fetched_at": "2026-11-02T04:43:12+08:00"
+    "fetched_at": "2026-11-02T07:56:55+08:00"
   },
   "land": {
     "status": "model",
@@ -165,6 +163,6 @@
     "source_url": "https://eiadoc.moenv.gov.tw/eiaweb/"
   },
   "live": true,
-  "live_count": 3,
+  "live_count": 4,
   "total_count": 4
 }
