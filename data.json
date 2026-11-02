@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-11-02T07:56:49+08:00",
-  "updated": "2026-11-02 07:56",
+  "generated_at": "2026-11-02T13:39:50+08:00",
+  "updated": "2026-11-02 13:39",
   "power_live": {
-    "status": "ok",
+    "status": "stale",
     "sample_time": "2026-11-02T07:50:00",
     "total_mw": 0.7,
     "farm_count": 16,
@@ -64,7 +64,9 @@
     "source": "台灣電力公司　各機組發電量即時資訊（含外購電力）",
     "source_url": "https://data.gov.tw/dataset/8931",
     "live_url": "https://dr.taipower.com.tw/d006/loadGraph/loadGraph/genshx_.html",
-    "fetched_at": "2026-11-02T07:56:51+08:00"
+    "fetched_at": "2026-11-02T07:56:51+08:00",
+    "error": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>",
+    "last_ok": "2026-11-02T07:56:49+08:00"
   },
   "power_year": {
     "status": "ok",
@@ -151,7 +153,7 @@
       }
     ],
     "species_at": "2026-11-01T17:36:49+08:00",
-    "fetched_at": "2026-11-02T07:56:55+08:00"
+    "fetched_at": "2026-11-02T13:40:37+08:00"
   },
   "land": {
     "status": "model",
@@ -163,6 +165,6 @@
     "source_url": "https://eiadoc.moenv.gov.tw/eiaweb/"
   },
   "live": true,
-  "live_count": 4,
+  "live_count": 3,
   "total_count": 4
 }
