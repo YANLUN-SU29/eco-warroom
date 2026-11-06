@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-11-06T16:32:23+08:00",
-  "updated": "2026-11-06 16:32",
+  "generated_at": "2026-11-07T00:14:37+08:00",
+  "updated": "2026-11-07 00:14",
   "power_live": {
-    "status": "ok",
+    "status": "stale",
     "sample_time": "2026-11-06T16:20:00",
     "total_mw": 3587.3,
     "farm_count": 16,
@@ -64,7 +64,9 @@
     "source": "台灣電力公司　各機組發電量即時資訊（含外購電力）",
     "source_url": "https://data.gov.tw/dataset/8931",
     "live_url": "https://dr.taipower.com.tw/d006/loadGraph/loadGraph/genshx_.html",
-    "fetched_at": "2026-11-06T16:32:25+08:00"
+    "fetched_at": "2026-11-06T16:32:25+08:00",
+    "error": "URLError: <urlopen error _ssl.c:994: The handshake operation timed out>",
+    "last_ok": "2026-11-06T16:32:23+08:00"
   },
   "power_year": {
     "status": "ok",
@@ -98,17 +100,15 @@
     "fetched_at": "2026-11-06T05:22:16+08:00"
   },
   "sea": {
-    "status": "stale",
-    "recent_12m": 113,
-    "white_dolphin_12m": 68,
+    "status": "ok",
+    "recent_12m": 112,
+    "white_dolphin_12m": 67,
     "total_records": 1141,
     "latest": "2026-09-19",
     "window": "近 12 個月",
     "source": "海洋委員會海保署　iOcean 海洋生物目擊回報",
     "source_url": "https://data.gov.tw/dataset/157621",
-    "fetched_at": "2026-11-05T02:42:29+08:00",
-    "error": "HTTPError: HTTP Error 503: Service Unavailable",
-    "last_ok": "2026-11-05T07:57:16+08:00"
+    "fetched_at": "2026-11-07T00:15:25+08:00"
   },
   "sky": {
     "status": "ok",
@@ -153,7 +153,7 @@
       }
     ],
     "species_at": "2026-11-06T05:25:49+08:00",
-    "fetched_at": "2026-11-06T16:32:26+08:00"
+    "fetched_at": "2026-11-07T00:15:26+08:00"
   },
   "land": {
     "status": "model",
