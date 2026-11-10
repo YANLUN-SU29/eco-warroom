@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-11-11T02:48:52+08:00",
-  "updated": "2026-11-11 02:48",
+  "generated_at": "2026-11-11T07:47:12+08:00",
+  "updated": "2026-11-11 07:47",
   "power_live": {
-    "status": "ok",
+    "status": "stale",
     "sample_time": "2026-11-11T02:40:00",
     "total_mw": 2239.2,
     "farm_count": 16,
@@ -64,7 +64,9 @@
     "source": "台灣電力公司　各機組發電量即時資訊（含外購電力）",
     "source_url": "https://data.gov.tw/dataset/8931",
     "live_url": "https://dr.taipower.com.tw/d006/loadGraph/loadGraph/genshx_.html",
-    "fetched_at": "2026-11-11T02:48:53+08:00"
+    "fetched_at": "2026-11-11T02:48:53+08:00",
+    "error": "URLError: <urlopen error _ssl.c:994: The handshake operation timed out>",
+    "last_ok": "2026-11-11T02:48:52+08:00"
   },
   "power_year": {
     "status": "ok",
@@ -109,7 +111,7 @@
     "fetched_at": "2026-11-11T02:48:55+08:00"
   },
   "sky": {
-    "status": "ok",
+    "status": "stale",
     "recent_12m": 57995,
     "area": "彰化縣",
     "window": "近 12 個月",
@@ -151,7 +153,9 @@
       }
     ],
     "species_at": "2026-11-10T11:28:01+08:00",
-    "fetched_at": "2026-11-11T02:48:56+08:00"
+    "fetched_at": "2026-11-11T02:48:56+08:00",
+    "error": "TimeoutError: The read operation timed out",
+    "last_ok": "2026-11-11T02:48:52+08:00"
   },
   "land": {
     "status": "model",
@@ -163,6 +167,6 @@
     "source_url": "https://eiadoc.moenv.gov.tw/eiaweb/"
   },
   "live": true,
-  "live_count": 4,
+  "live_count": 2,
   "total_count": 4
 }
