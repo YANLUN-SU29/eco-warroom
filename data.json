@@ -1,20 +1,20 @@
 {
-  "generated_at": "2026-11-19T12:09:38+08:00",
-  "updated": "2026-11-19 12:09",
+  "generated_at": "2026-11-19T21:08:49+08:00",
+  "updated": "2026-11-19 21:08",
   "power_live": {
-    "status": "stale",
-    "sample_time": "2026-11-19 06:50",
-    "total_mw": 4308.2,
+    "status": "ok",
+    "sample_time": "2026-11-19 21:00",
+    "total_mw": 4270.5,
     "farm_count": 16,
     "owned_count": 2,
     "ipp_count": 14,
     "capacity_mw": 3380.0,
-    "capacity_factor": 91.5,
+    "capacity_factor": 90.3,
     "classification": "台電官方分類（離岸風力台電自有／購電）",
     "farms": [
       {
         "name": "沃一風",
-        "mw": 592.2,
+        "mw": 592.8,
         "cap": 605.2,
         "owner": "民營購電"
       },
@@ -26,37 +26,37 @@
       },
       {
         "name": "沃四風",
-        "mw": 397.8,
+        "mw": 397.1,
         "cap": null,
         "owner": "民營購電"
       },
       {
         "name": "龍三風",
-        "mw": 376.5,
+        "mw": 377.0,
         "cap": null,
         "owner": "民營購電"
       },
       {
         "name": "海能風",
-        "mw": 372.5,
+        "mw": 346.1,
         "cap": 376.0,
         "owner": "民營購電"
       },
       {
         "name": "允西",
-        "mw": 321.2,
+        "mw": 327.9,
         "cap": 320.0,
         "owner": "民營購電"
       },
       {
         "name": "允湖",
-        "mw": 305.2,
+        "mw": 304.6,
         "cap": 320.0,
         "owner": "民營購電"
       },
       {
         "name": "沃南風",
-        "mw": 276.7,
+        "mw": 278.3,
         "cap": 337.1,
         "owner": "民營購電"
       }
@@ -64,9 +64,7 @@
     "source": "台灣電力公司　各機組發電量即時資訊（含外購電力）",
     "source_url": "https://data.gov.tw/dataset/8931",
     "live_url": "https://dr.taipower.com.tw/d006/loadGraph/loadGraph/genshx_.html",
-    "fetched_at": "2026-11-19T07:06:57+08:00",
-    "error": "URLError: <urlopen error _ssl.c:994: The handshake operation timed out>",
-    "last_ok": "2026-11-19T07:06:55+08:00"
+    "fetched_at": "2026-11-19T21:08:51+08:00"
   },
   "power_year": {
     "status": "ok",
@@ -97,7 +95,7 @@
     "unit_note": "原始單位 MWh，本站換算為億度（1 億度 = 100,000 MWh）",
     "source": "經濟部能源署　能源統計專區 OPEN API《4-01 再生能源發電量》",
     "source_url": "https://ea01.moeaea.gov.tw/a0303/02/database/api/",
-    "fetched_at": "2026-11-18T15:17:45+08:00"
+    "fetched_at": "2026-11-19T21:08:52+08:00"
   },
   "sea": {
     "status": "ok",
@@ -108,7 +106,7 @@
     "window": "近 12 個月",
     "source": "海洋委員會海保署　iOcean 海洋生物目擊回報",
     "source_url": "https://data.gov.tw/dataset/157621",
-    "fetched_at": "2026-11-19T07:06:59+08:00"
+    "fetched_at": "2026-11-19T21:08:54+08:00"
   },
   "sky": {
     "status": "ok",
@@ -153,7 +151,7 @@
       }
     ],
     "species_at": "2026-11-19T07:10:13+08:00",
-    "fetched_at": "2026-11-19T12:10:24+08:00"
+    "fetched_at": "2026-11-19T21:08:55+08:00"
   },
   "land": {
     "status": "model",
@@ -165,6 +163,6 @@
     "source_url": "https://eiadoc.moenv.gov.tw/eiaweb/"
   },
   "live": true,
-  "live_count": 3,
+  "live_count": 4,
   "total_count": 4
 }
