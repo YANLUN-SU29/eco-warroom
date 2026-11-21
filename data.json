@@ -1,32 +1,32 @@
 {
-  "generated_at": "2026-11-21T08:20:06+08:00",
-  "updated": "2026-11-21 08:20",
+  "generated_at": "2026-11-21T15:29:09+08:00",
+  "updated": "2026-11-21 15:29",
   "power_live": {
-    "status": "stale",
-    "sample_time": "2026-11-20T18:20:00",
-    "total_mw": 4270.4,
+    "status": "ok",
+    "sample_time": "2026-11-21T15:20:00",
+    "total_mw": 4302.3,
     "farm_count": 16,
     "owned_count": null,
     "ipp_count": 16,
     "capacity_mw": 3380.0,
-    "capacity_factor": 91.4,
+    "capacity_factor": 91.9,
     "classification": "名稱比對（備援，台電分類資料無法取得）",
     "farms": [
       {
         "name": "沃一風",
-        "mw": 592.5,
+        "mw": 584.6,
         "cap": 605.2,
         "owner": null
       },
       {
         "name": "芳二風",
-        "mw": 429.8,
+        "mw": 420.3,
         "cap": 499.2,
         "owner": null
       },
       {
         "name": "沃四風",
-        "mw": 397.0,
+        "mw": 399.2,
         "cap": null,
         "owner": null
       },
@@ -38,35 +38,33 @@
       },
       {
         "name": "海能風",
-        "mw": 362.5,
+        "mw": 372.3,
         "cap": 376.0,
         "owner": null
       },
       {
         "name": "允西",
-        "mw": 327.3,
+        "mw": 327.9,
         "cap": 320.0,
         "owner": null
       },
       {
         "name": "允湖",
-        "mw": 304.9,
+        "mw": 304.4,
         "cap": 320.0,
         "owner": null
       },
       {
-        "name": "沃南風",
-        "mw": 279.5,
-        "cap": 337.1,
+        "name": "沃二風",
+        "mw": 289.0,
+        "cap": 294.8,
         "owner": null
       }
     ],
     "source": "台灣電力公司　各機組發電量即時資訊（含外購電力）",
     "source_url": "https://data.gov.tw/dataset/8931",
     "live_url": "https://dr.taipower.com.tw/d006/loadGraph/loadGraph/genshx_.html",
-    "fetched_at": "2026-11-20T18:27:33+08:00",
-    "error": "URLError: <urlopen error _ssl.c:994: The handshake operation timed out>",
-    "last_ok": "2026-11-20T18:27:32+08:00"
+    "fetched_at": "2026-11-21T15:29:11+08:00"
   },
   "power_year": {
     "status": "ok",
@@ -108,7 +106,7 @@
     "window": "近 12 個月",
     "source": "海洋委員會海保署　iOcean 海洋生物目擊回報",
     "source_url": "https://data.gov.tw/dataset/157621",
-    "fetched_at": "2026-11-21T02:45:46+08:00"
+    "fetched_at": "2026-11-21T15:29:13+08:00"
   },
   "sky": {
     "status": "stale",
@@ -154,7 +152,7 @@
     ],
     "species_at": "2026-11-20T18:38:48+08:00",
     "fetched_at": "2026-11-21T02:45:47+08:00",
-    "error": "TimeoutError: The read operation timed out",
+    "error": "HTTPError: HTTP Error 503: Service Unavailable",
     "last_ok": "2026-11-21T02:44:57+08:00"
   },
   "land": {
@@ -167,6 +165,6 @@
     "source_url": "https://eiadoc.moenv.gov.tw/eiaweb/"
   },
   "live": true,
-  "live_count": 2,
+  "live_count": 3,
   "total_count": 4
 }
