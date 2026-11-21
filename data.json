@@ -1,32 +1,32 @@
 {
-  "generated_at": "2026-11-21T23:32:58+08:00",
-  "updated": "2026-11-21 23:32",
+  "generated_at": "2026-11-22T05:07:22+08:00",
+  "updated": "2026-11-22 05:07",
   "power_live": {
     "status": "ok",
-    "sample_time": "2026-11-21T23:20:00",
-    "total_mw": 4216.2,
+    "sample_time": "2026-11-22T05:00:00",
+    "total_mw": 3884.1,
     "farm_count": 16,
     "owned_count": null,
     "ipp_count": 16,
     "capacity_mw": 3380.0,
-    "capacity_factor": 89.4,
+    "capacity_factor": 79.7,
     "classification": "名稱比對（備援，台電分類資料無法取得）",
     "farms": [
       {
         "name": "沃一風",
-        "mw": 583.5,
+        "mw": 583.0,
         "cap": 605.2,
         "owner": null
       },
       {
         "name": "芳二風",
-        "mw": 419.2,
+        "mw": 414.4,
         "cap": 499.2,
         "owner": null
       },
       {
         "name": "沃四風",
-        "mw": 397.4,
+        "mw": 395.6,
         "cap": null,
         "owner": null
       },
@@ -38,14 +38,8 @@
       },
       {
         "name": "海能風",
-        "mw": 362.5,
+        "mw": 325.7,
         "cap": 376.0,
-        "owner": null
-      },
-      {
-        "name": "允西",
-        "mw": 302.4,
-        "cap": 320.0,
         "owner": null
       },
       {
@@ -55,16 +49,22 @@
         "owner": null
       },
       {
-        "name": "允湖",
-        "mw": 267.1,
-        "cap": 320.0,
+        "name": "沃南風",
+        "mw": 265.1,
+        "cap": 337.1,
+        "owner": null
+      },
+      {
+        "name": "龍A風",
+        "mw": 241.7,
+        "cap": null,
         "owner": null
       }
     ],
     "source": "台灣電力公司　各機組發電量即時資訊（含外購電力）",
     "source_url": "https://data.gov.tw/dataset/8931",
     "live_url": "https://dr.taipower.com.tw/d006/loadGraph/loadGraph/genshx_.html",
-    "fetched_at": "2026-11-21T23:33:00+08:00"
+    "fetched_at": "2026-11-22T05:07:24+08:00"
   },
   "power_year": {
     "status": "ok",
@@ -95,7 +95,7 @@
     "unit_note": "原始單位 MWh，本站換算為億度（1 億度 = 100,000 MWh）",
     "source": "經濟部能源署　能源統計專區 OPEN API《4-01 再生能源發電量》",
     "source_url": "https://ea01.moeaea.gov.tw/a0303/02/database/api/",
-    "fetched_at": "2026-11-21T02:45:44+08:00"
+    "fetched_at": "2026-11-22T05:07:26+08:00"
   },
   "sea": {
     "status": "ok",
@@ -151,7 +151,7 @@
       }
     ],
     "species_at": "2026-11-21T23:36:31+08:00",
-    "fetched_at": "2026-11-21T23:36:31+08:00"
+    "fetched_at": "2026-11-22T05:07:58+08:00"
   },
   "land": {
     "status": "model",
