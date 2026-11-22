@@ -1,72 +1,70 @@
 {
-  "generated_at": "2026-11-23T00:24:32+08:00",
-  "updated": "2026-11-23 00:24",
+  "generated_at": "2026-11-23T05:56:24+08:00",
+  "updated": "2026-11-23 05:56",
   "power_live": {
-    "status": "stale",
-    "sample_time": "2026-11-22T05:00:00",
-    "total_mw": 3884.1,
+    "status": "ok",
+    "sample_time": "2026-11-23 05:40",
+    "total_mw": 1070.7,
     "farm_count": 16,
-    "owned_count": null,
-    "ipp_count": 16,
+    "owned_count": 2,
+    "ipp_count": 14,
     "capacity_mw": 3380.0,
-    "capacity_factor": 79.7,
-    "classification": "名稱比對（備援，台電分類資料無法取得）",
+    "capacity_factor": 11.3,
+    "classification": "台電官方分類（離岸風力台電自有／購電）",
     "farms": [
-      {
-        "name": "沃一風",
-        "mw": 583.0,
-        "cap": 605.2,
-        "owner": null
-      },
-      {
-        "name": "芳二風",
-        "mw": 414.4,
-        "cap": 499.2,
-        "owner": null
-      },
-      {
-        "name": "沃四風",
-        "mw": 395.6,
-        "cap": null,
-        "owner": null
-      },
       {
         "name": "龍三風",
         "mw": 377.0,
         "cap": null,
-        "owner": null
+        "owner": "民營購電"
       },
       {
-        "name": "海能風",
-        "mw": 325.7,
-        "cap": 376.0,
-        "owner": null
+        "name": "沃四風",
+        "mw": 258.6,
+        "cap": null,
+        "owner": "民營購電"
       },
       {
         "name": "沃二風",
-        "mw": 289.0,
+        "mw": 165.2,
         "cap": 294.8,
-        "owner": null
+        "owner": "民營購電"
       },
       {
         "name": "沃南風",
-        "mw": 265.1,
+        "mw": 123.3,
         "cap": 337.1,
-        "owner": null
+        "owner": "民營購電"
+      },
+      {
+        "name": "沃一風",
+        "mw": 86.2,
+        "cap": 605.2,
+        "owner": "民營購電"
       },
       {
         "name": "龍A風",
-        "mw": 241.7,
+        "mw": 27.3,
         "cap": null,
-        "owner": null
+        "owner": "民營購電"
+      },
+      {
+        "name": "龍B風",
+        "mw": 26.9,
+        "cap": null,
+        "owner": "民營購電"
+      },
+      {
+        "name": "允西",
+        "mw": 4.2,
+        "cap": 320.0,
+        "owner": "民營購電"
       }
     ],
     "source": "台灣電力公司　各機組發電量即時資訊（含外購電力）",
     "source_url": "https://data.gov.tw/dataset/8931",
     "live_url": "https://dr.taipower.com.tw/d006/loadGraph/loadGraph/genshx_.html",
-    "fetched_at": "2026-11-22T05:07:24+08:00",
-    "error": "URLError: <urlopen error _ssl.c:994: The handshake operation timed out>",
-    "last_ok": "2026-11-22T05:07:22+08:00"
+    "fetched_at": "2026-11-23T05:56:26+08:00"
   },
   "power_year": {
     "status": "ok",
@@ -97,7 +95,7 @@
     "unit_note": "原始單位 MWh，本站換算為億度（1 億度 = 100,000 MWh）",
     "source": "經濟部能源署　能源統計專區 OPEN API《4-01 再生能源發電量》",
     "source_url": "https://ea01.moeaea.gov.tw/a0303/02/database/api/",
-    "fetched_at": "2026-11-22T05:07:26+08:00"
+    "fetched_at": "2026-11-23T05:56:28+08:00"
   },
   "sea": {
     "status": "ok",
@@ -152,8 +150,8 @@
         "status": "珍貴稀有保育類野生動物"
       }
     ],
-    "species_at": "2026-11-21T23:36:31+08:00",
-    "fetched_at": "2026-11-23T00:26:06+08:00"
+    "species_at": "2026-11-23T05:59:14+08:00",
+    "fetched_at": "2026-11-23T05:59:14+08:00"
   },
   "land": {
     "status": "model",
@@ -165,6 +163,6 @@
     "source_url": "https://eiadoc.moenv.gov.tw/eiaweb/"
   },
   "live": true,
-  "live_count": 3,
+  "live_count": 4,
   "total_count": 4
 }
