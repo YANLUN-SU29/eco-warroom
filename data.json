@@ -1,26 +1,26 @@
 {
-  "generated_at": "2026-11-25T02:07:30+08:00",
-  "updated": "2026-11-25 02:07",
+  "generated_at": "2026-11-25T10:23:52+08:00",
+  "updated": "2026-11-25 10:23",
   "power_live": {
     "status": "ok",
-    "sample_time": "2026-11-25T02:00:00",
-    "total_mw": 4318.3,
+    "sample_time": "2026-11-25T10:10:00",
+    "total_mw": 4331.8,
     "farm_count": 16,
     "owned_count": null,
     "ipp_count": 16,
     "capacity_mw": 3380.0,
-    "capacity_factor": 92.4,
+    "capacity_factor": 92.5,
     "classification": "名稱比對（備援，台電分類資料無法取得）",
     "farms": [
       {
         "name": "沃一風",
-        "mw": 590.5,
+        "mw": 595.0,
         "cap": 605.2,
         "owner": null
       },
       {
         "name": "芳二風",
-        "mw": 419.4,
+        "mw": 409.4,
         "cap": 499.2,
         "owner": null
       },
@@ -32,31 +32,31 @@
       },
       {
         "name": "沃四風",
-        "mw": 362.1,
+        "mw": 373.3,
         "cap": null,
         "owner": null
       },
       {
         "name": "海能風",
-        "mw": 357.2,
+        "mw": 373.0,
         "cap": 376.0,
         "owner": null
       },
       {
         "name": "允西",
-        "mw": 320.3,
+        "mw": 320.9,
         "cap": 320.0,
         "owner": null
       },
       {
         "name": "允湖",
-        "mw": 313.0,
+        "mw": 296.5,
         "cap": 320.0,
         "owner": null
       },
       {
         "name": "沃南風",
-        "mw": 293.3,
+        "mw": 296.1,
         "cap": 337.1,
         "owner": null
       }
@@ -64,7 +64,7 @@
     "source": "台灣電力公司　各機組發電量即時資訊（含外購電力）",
     "source_url": "https://data.gov.tw/dataset/8931",
     "live_url": "https://dr.taipower.com.tw/d006/loadGraph/loadGraph/genshx_.html",
-    "fetched_at": "2026-11-25T02:07:33+08:00"
+    "fetched_at": "2026-11-25T10:23:53+08:00"
   },
   "power_year": {
     "status": "ok",
@@ -95,7 +95,7 @@
     "unit_note": "原始單位 MWh，本站換算為億度（1 億度 = 100,000 MWh）",
     "source": "經濟部能源署　能源統計專區 OPEN API《4-01 再生能源發電量》",
     "source_url": "https://ea01.moeaea.gov.tw/a0303/02/database/api/",
-    "fetched_at": "2026-11-24T06:35:53+08:00"
+    "fetched_at": "2026-11-25T10:23:54+08:00"
   },
   "sea": {
     "status": "ok",
@@ -106,10 +106,10 @@
     "window": "近 12 個月",
     "source": "海洋委員會海保署　iOcean 海洋生物目擊回報",
     "source_url": "https://data.gov.tw/dataset/157621",
-    "fetched_at": "2026-11-25T02:07:35+08:00"
+    "fetched_at": "2026-11-25T10:23:56+08:00"
   },
   "sky": {
-    "status": "ok",
+    "status": "stale",
     "recent_12m": 57995,
     "area": "彰化縣",
     "window": "近 12 個月",
@@ -151,7 +151,9 @@
       }
     ],
     "species_at": "2026-11-23T05:59:14+08:00",
-    "fetched_at": "2026-11-25T02:10:47+08:00"
+    "fetched_at": "2026-11-25T02:10:47+08:00",
+    "error": "HTTPError: HTTP Error 503: Service Unavailable",
+    "last_ok": "2026-11-25T02:07:30+08:00"
   },
   "land": {
     "status": "model",
@@ -163,6 +165,6 @@
     "source_url": "https://eiadoc.moenv.gov.tw/eiaweb/"
   },
   "live": true,
-  "live_count": 4,
+  "live_count": 3,
   "total_count": 4
 }
