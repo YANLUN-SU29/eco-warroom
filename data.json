@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-27T11:51:13+08:00",
-  "updated": "2026-11-27 11:51",
+  "generated_at": "2026-11-27T21:34:27+08:00",
+  "updated": "2026-11-27 21:34",
   "power_live": {
     "status": "stale",
     "sample_time": "2026-11-27T05:40:00",
@@ -108,7 +108,7 @@
     "window": "近 12 個月",
     "source": "海洋委員會海保署　iOcean 海洋生物目擊回報",
     "source_url": "https://data.gov.tw/dataset/157621",
-    "fetched_at": "2026-11-27T11:52:03+08:00"
+    "fetched_at": "2026-11-27T21:35:15+08:00"
   },
   "sky": {
     "status": "ok",
@@ -118,42 +118,42 @@
     "source": "農業部　臺灣生物多樣性網絡 TBN 物種觀測 API v2.6",
     "source_url": "https://www.tbn.org.tw/data/api/v26/occurrence",
     "species_count": 218,
-    "protected_count": 49,
-    "family_count": 58,
+    "protected_count": 50,
+    "family_count": 59,
     "notable": [
-      {
-        "name": "黑面琵鷺",
-        "records": 184,
-        "status": "瀕臨絕種保育類野生動物"
-      },
-      {
-        "name": "遺鷗",
-        "records": 65,
-        "status": "瀕臨絕種保育類野生動物"
-      },
-      {
-        "name": "東方白鸛",
-        "records": 48,
-        "status": "瀕臨絕種保育類野生動物"
-      },
       {
         "name": "黑翅鳶",
         "records": 437,
-        "status": "珍貴稀有保育類野生動物"
+        "status": "y02"
+      },
+      {
+        "name": "紅尾伯勞",
+        "records": 375,
+        "status": "y03"
       },
       {
         "name": "小燕鷗",
         "records": 333,
-        "status": "珍貴稀有保育類野生動物"
+        "status": "y02"
+      },
+      {
+        "name": "大杓鷸",
+        "records": 261,
+        "status": "y03"
+      },
+      {
+        "name": "大冠鷲",
+        "records": 193,
+        "status": "y02"
       },
       {
         "name": "鳳頭蒼鷹",
-        "records": 196,
-        "status": "珍貴稀有保育類野生動物"
+        "records": 192,
+        "status": "y02"
       }
     ],
-    "species_at": "2026-11-26T20:30:45+08:00",
-    "fetched_at": "2026-11-27T11:52:04+08:00"
+    "species_at": "2026-11-27T21:38:15+08:00",
+    "fetched_at": "2026-11-27T21:38:15+08:00"
   },
   "land": {
     "status": "model",
