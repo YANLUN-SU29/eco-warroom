@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-11-27T05:50:00+08:00",
-  "updated": "2026-11-27 05:50",
+  "generated_at": "2026-11-27T11:51:13+08:00",
+  "updated": "2026-11-27 11:51",
   "power_live": {
-    "status": "ok",
+    "status": "stale",
     "sample_time": "2026-11-27T05:40:00",
     "total_mw": 1197.7,
     "farm_count": 15,
@@ -64,7 +64,9 @@
     "source": "台灣電力公司　各機組發電量即時資訊（含外購電力）",
     "source_url": "https://data.gov.tw/dataset/8931",
     "live_url": "https://dr.taipower.com.tw/d006/loadGraph/loadGraph/genshx_.html",
-    "fetched_at": "2026-11-27T05:50:01+08:00"
+    "fetched_at": "2026-11-27T05:50:01+08:00",
+    "error": "URLError: <urlopen error _ssl.c:994: The handshake operation timed out>",
+    "last_ok": "2026-11-27T05:50:00+08:00"
   },
   "power_year": {
     "status": "ok",
@@ -95,7 +97,7 @@
     "unit_note": "原始單位 MWh，本站換算為億度（1 億度 = 100,000 MWh）",
     "source": "經濟部能源署　能源統計專區 OPEN API《4-01 再生能源發電量》",
     "source_url": "https://ea01.moeaea.gov.tw/a0303/02/database/api/",
-    "fetched_at": "2026-11-26T11:07:31+08:00"
+    "fetched_at": "2026-11-27T11:52:01+08:00"
   },
   "sea": {
     "status": "ok",
@@ -106,11 +108,11 @@
     "window": "近 12 個月",
     "source": "海洋委員會海保署　iOcean 海洋生物目擊回報",
     "source_url": "https://data.gov.tw/dataset/157621",
-    "fetched_at": "2026-11-27T05:50:03+08:00"
+    "fetched_at": "2026-11-27T11:52:03+08:00"
   },
   "sky": {
     "status": "ok",
-    "recent_12m": 57995,
+    "recent_12m": 58010,
     "area": "彰化縣",
     "window": "近 12 個月",
     "source": "農業部　臺灣生物多樣性網絡 TBN 物種觀測 API v2.6",
@@ -151,7 +153,7 @@
       }
     ],
     "species_at": "2026-11-26T20:30:45+08:00",
-    "fetched_at": "2026-11-27T05:50:04+08:00"
+    "fetched_at": "2026-11-27T11:52:04+08:00"
   },
   "land": {
     "status": "model",
@@ -163,6 +165,6 @@
     "source_url": "https://eiadoc.moenv.gov.tw/eiaweb/"
   },
   "live": true,
-  "live_count": 4,
+  "live_count": 3,
   "total_count": 4
 }
